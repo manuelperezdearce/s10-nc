@@ -22,3 +22,13 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Excluded directories
+!layout/
+!pages/
+!routes/
+!slice/
+!app/
+!components/
+!context/
+!hooks/
