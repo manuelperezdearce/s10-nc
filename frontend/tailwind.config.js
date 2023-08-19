@@ -1,48 +1,50 @@
+import plugin from 'tailwindcss/plugin'
+
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{html,js}"],
+  content: [
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}'
+  ],
   theme: {
     extend: {
       fontFamily: {
-        titulo: ['Heebo', 'sans-serif'],
-        parrafo: ['Poppins', 'sans-serif']
-    },
-    colors: {
-      facebook: '#3b5998',
-      instagram: '#C13584',
-      twitter: '#00acee',
-      shadow: '#ccc',
-      successfully: 'green',
-      error: 'red',
-      principal: 'var(--color-principal)',
-      secundario: 'var(--color-secundario)',
-      fondo: 'var(--color-fondo)',
-      
-      //solo submenu
-      bgSubmenu:'var(--bg-submenu)',
-      colorBotonSubmenu:'var(--color-boton-submenu)',
-      hoverBotonSubmenu:'var(--hover-boton-submenu)',
-      colorFuente1Submenu:'var(--color-fuente1-submenu)',
-      colorFuente2Submenu:'var(--color-fuente2-submenu)',
-      colorFuente3Submenu:'var(--color-fuente3-submenu)',
-      colorFuente4: ('var(--bg-submenu)'),
-      bgForm:'var(--bg-form)',
-      
-      'custom-blue': 'var(--custom-blue)',
-      'custom-purple': 'var(--custom-purple)',
+        titulo: ['Nunito', 'sans-serif'],
+        parrafo: ['var(--parrafo)']
+      },
+      colors: {
+        marronCustom: 'var(--marron-custom)',
+        greenCustom: 'var(--green-custom)',
+        oranjeCustom: 'var(--oranje-custom)',
+        blackCustom: 'var(--black-custom)',
+        lightBrownCustom: 'var(--lightBrown-custom)',
+        greyCustom: 'var(--grey-custom)',
+        whiteCustom1: 'var(--white-custom1)',
+        whiteCustom2: 'var(--white-custom2)',
+        whiteCustom3: 'var(--white-custom3)'
+      }
     }
   },
-  },
   plugins: [
-//     function ({ addUtilities }) {
-//       const customUtilities = {
-//         liNavBar: {
-//           //propiedad css que queremos que aplique , para no repetir tanta cadena de codigo
-//           color: 'rgb(var(--color-titulo))',
-//           fontFamily: 'Heebo, sans-serif',
-//           fontWeight: 'medium'
-//         }
-//       }
-// }],
-]}
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        '.botonPruebas': {
+          background: 'linear-gradient(145deg, #ffd07c, #d9af68)',
+          boxShadow: '3px 3px 3px #be995c, -3px -3px 3px #ffeb8c',
+          color: 'var(--marron-custom)',
+          border: '1px solid var(--white-custom1)',
+          borderRadius: '4px',
+          transition: 'all .2s linear',
+          padding: '10px 20px',
 
+          '&:hover': {
+            background: 'linear-gradient(145deg, #e26f02, #be5e02)',
+            boxShadow: '3px 3px 3px #a75202, -3px -3px 3px #ff7e02',
+            color: 'var(--white-custom1)',
+            border: '1px solid var(--oranje-custom)'
+          }
+        }
+      })
+    })
+  ]
+}
