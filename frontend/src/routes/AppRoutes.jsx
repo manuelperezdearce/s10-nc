@@ -4,11 +4,11 @@ import Main from '../layout/Main/Main'
 
 const AppRoutes = () => {
   return (
-    <BrowserRoute>
+    <BrowserRouter>
       <Routes>
         <Route path='/' element={<Main />} />
       </Routes>
-    </BrowserRoute>
+    </BrowserRouter>
   )
 }
 
