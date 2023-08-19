@@ -24,11 +24,3 @@ dist-ssr
 *.sw?
 
 # Excluded directories
-!layout/
-!pages/
-!routes/
-!slice/
-!app/
-!components/
-!context/
-!hooks/
