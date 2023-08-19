@@ -1,35 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #f7d8bf;
+  background-color: #4d494a;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --titulo: 'Nunito', sans-serif;
+  --parrafo: 'Poppins', sans-serif;
+
+  /* color */
+  --marron-custom: #4d494a;
+  --green-custom: #8bce05;
+  --oranje-custom: #d36802;
+  --black-custom: #080808;
+  --lightBrown-custom: #f1c274;
+  --grey-custom: #909090;
+
+  --white-custom1: #f8f9fa;
+  --white-custom2: #f7d8bf;
+  --white-custom3: #ebe1be;
 }
 
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: content-box;
+}
 
 body {
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
 
+
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
     background-color: #ffffff;
   }
 
