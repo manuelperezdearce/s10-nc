@@ -1,5 +1,4 @@
 import React from 'react'
-import Counter from '../../components/counter/Counter'
 
 const Main = () => {
   return (
@@ -8,7 +7,6 @@ const Main = () => {
         Hola!
       </h1>
       <button className='botonPruebas'>Boton de pruebas</button>
-      <Counter />
     </div>
   )
 }
