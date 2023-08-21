@@ -1,0 +1,96 @@
+.containerSear {
+  position: relative;
+  height: 40px;
+  color: white;
+}
+
+.input {
+  padding-left: 40px;
+  height: 40px;
+  font-size: 1rem;
+  border: none;
+  color: #333;
+  outline: none;
+  width: 170px;
+  transition: all ease 0.3s;
+  background-color: #f1c274;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: var(--parrafo);
+  font-weight: 300;
+}
+
+.input:focus,
+.input:not(:invalid) {
+  cursor: text;
+}
+
+.input:focus + .icon,
+.input:not(:invalid) + .icon {
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.containerSear .icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 0;
+  left: 0;  
+  display: grid;
+  place-content: center;
+  pointer-events: none;
+  color: #4d494a;
+  font-size: 1.2rem;
+}
+
+
+  @media (min-width: 1024px) {
+    .containerSear {
+      position: relative;
+      height: 40px;
+      color: white;
+    }
+    
+    .input {
+      padding-left: 40px;
+      height: 40px;
+      font-size: 1rem;
+      border: none;
+      color: #333;
+      outline: none;
+      width: 40px;
+      transition: all ease 0.3s;
+      background-color: #f1c274;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: var(--parrafo);
+      font-weight: 300;
+    }
+    
+    .input:focus,
+    .input:not(:invalid) {
+      width: 200px;
+      cursor: text;
+    }
+    
+    .input:focus + .icon,
+    .input:not(:invalid) + .icon {
+      pointer-events: all;
+      cursor: pointer;
+    }
+    
+    .containerSear .icon {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      top: 0;
+      left: 0;  
+      display: grid;
+      place-content: center;
+      pointer-events: none;
+      color: #4d494a;
+      font-size: 1.2rem;
+    }
+  }
+  
