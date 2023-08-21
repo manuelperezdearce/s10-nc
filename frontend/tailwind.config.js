@@ -10,7 +10,7 @@ export default {
     extend: {
       fontFamily: {
         titulo: ['Nunito', 'sans-serif'],
-        parrafo: ['var(--parrafo)']
+        parrafo: ['Roboto', 'sans-serif']
       },
       colors: {
         marronCustom: 'var(--marron-custom)',
