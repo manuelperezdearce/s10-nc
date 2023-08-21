@@ -4,8 +4,8 @@ import SeeCategories from '../../components/searchButton/SeeCategories/SeeCatego
 
 const Home = () => {
   return (
-    <div className='mt-[100px] w-full h-[400px] bg-lightBrownCustom grid place-content-center text-blackCustom font-parrafo text-[2rem]'>
-      Home
+    <div className='mt-[100px] w-full font-parrafo text-[2rem]'>
+      <h1>Home</h1>
       <SeeCategories />
     </div>
   )
