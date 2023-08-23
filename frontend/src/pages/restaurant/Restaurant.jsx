@@ -25,8 +25,7 @@ const Restaurant = () => {
       ref={restaurantRef}
       className='mt-[100px] w-full min-h-[400px] bg-lightBrownCustom flex flex-wrap justify-center items-center gap-4 text-blackCustom font-parrafo text-[2rem]'
     >
-      {ListOfRestaurant.map((restaurant) => <RestaurantCard key={restaurant._id} {...restaurant} />
-      )}
+      <RestaurantCard />
 
     </div>
   )
