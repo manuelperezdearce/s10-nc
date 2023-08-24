@@ -20,6 +20,7 @@ export default {
         blackCustom: 'var(--black-custom)',
         lightBrownCustom: 'var(--lightBrown-custom)',
         greyCustom: 'var(--grey-custom)',
+        whiteCustom: '#ffff',
         whiteCustom1: 'var(--white-custom1)',
         whiteCustom2: 'var(--white-custom2)',
         whiteCustom3: 'var(--white-custom3)'
