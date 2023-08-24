@@ -1,5 +1,6 @@
 import React from 'react'
 import ProductDay from '../../components/Sections/ProductDay'
+import { CardSlider } from '../../components/CardSlider/CardSlider'
 
 import { Navigation, Pagination, A11y, Autoplay, EffectFade } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -13,6 +14,7 @@ import 'swiper/css/pagination'
 const Main = () => {
   return (
     <>
+
       <main className='main relative w-full h-screen  bg-greenCustom overflow-hidden box-border flex flex-col justify-start items-center content-center gap-[2rem]'>
         <section className='banner w-screen top-0 h-[calc(100vh-110px)] bg-slate-500 flex justify-center items-center content-center'>
           <Swiper
@@ -40,6 +42,8 @@ const Main = () => {
         </section>
       </main>
       <ProductDay />
+      <CardSlider />
+
     </>
 
   )
