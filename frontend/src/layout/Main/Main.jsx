@@ -1,4 +1,5 @@
 import React from 'react'
+
 import AppRoutes from '../../routes/AppRoutes'
 
 const Main = () => {
@@ -8,5 +9,4 @@ const Main = () => {
     </main>
   )
 }
-
 export default Main

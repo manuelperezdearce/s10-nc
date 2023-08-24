@@ -20,6 +20,7 @@ export default {
         blackCustom: 'var(--black-custom)',
         lightBrownCustom: 'var(--lightBrown-custom)',
         greyCustom: 'var(--grey-custom)',
+        whiteCustom: '#ffff',
         whiteCustom1: 'var(--white-custom1)',
         whiteCustom2: 'var(--white-custom2)',
         whiteCustom3: 'var(--white-custom3)'
@@ -29,14 +30,14 @@ export default {
   plugins: [
     plugin(function ({ addUtilities }) {
       addUtilities({
-        '.botonPruebas': {
-          background: 'linear-gradient(145deg, #ffd07c, #d9af68)',
+        '.botonBase': {
+          background: '#f8f9fa;',
           boxShadow: '3px 3px 3px #be995c, -3px -3px 3px #ffeb8c',
-          color: 'var(--marron-custom)',
+          color: 'var(--green-custom2)',
           border: '1px solid var(--white-custom1)',
-          borderRadius: '4px',
+          borderRadius: '30px',
           transition: 'all .2s linear',
-          padding: '10px 20px',
+          padding: '8px 25px',
 
           '&:hover': {
             background: 'linear-gradient(145deg, #e26f02, #be5e02)',
