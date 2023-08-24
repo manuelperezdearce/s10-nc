@@ -1,11 +1,11 @@
 import './App.css'
 import Contain from './layout/Contain/Contain'
-import AppRoutes from './routes/AppRoutes'
+import Main from './layout/Main/Main'
 
-function App () {
+function App() {
   return (
     <Contain>
-      <AppRoutes />
+      <Main />
     </Contain>
   )
 }
