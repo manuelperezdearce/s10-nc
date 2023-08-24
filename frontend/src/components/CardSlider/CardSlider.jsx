@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, Navigation } from 'swiper/modules'
-import CardProduct from '../CardProduct/CardProduct'
+import CardProduct from '../cardProduct/cardProduct'
 import './CardSlider.css'
 import 'swiper/css'
 import 'swiper/css/navigation'
