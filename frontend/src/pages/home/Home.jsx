@@ -1,10 +1,20 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { setActiveIndex } from '../../features/nav/navSlice'
+import SeeCategories from '../../components/SeeCategories/SeeCategories'
+
+import ProductDay from '../../components/Sections/ProductDay'
+import { CardSlider } from '../../components/CardSlider/CardSlider'
+import Banner from '../../components/banner/Banner'
+
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/effect-fade'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 const Home = () => {
   const dispatch = useDispatch()
-  const homeRef = useRef(null)
 
   useEffect(() => {
     dispatch(setActiveIndex('home'))
@@ -12,11 +22,11 @@ const Home = () => {
   }, [])
 
   return (
-    <div
-      ref={homeRef}
-      className='mt-[100px] w-full h-[400px] bg-lightBrownCustom grid place-content-center text-blackCustom font-parrafo text-[2rem]'
-    >
-      Home
+    <div className='mt-[100px] w-full font-parrafo text-[2rem]'>
+      <Banner />
+      <SeeCategories />
+      <ProductDay />
+      <CardSlider />
     </div>
   )
 }
