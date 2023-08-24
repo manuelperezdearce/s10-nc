@@ -1,12 +1,14 @@
 import React from 'react'
 import { Navigation, Pagination, A11y, Autoplay, EffectFade } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { IoChevronBackSharp, IoChevronForwardSharp } from 'react-icons/io5'
 
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import './swipperPersonalizado.css'
 
 const Banner = () => {
   return (
@@ -17,10 +19,14 @@ const Banner = () => {
         spaceBetween={50}
         slidesPerView={1}
         effect='fade'
-        navigation
+        navigation={{
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        }}
+        // navigation
         pagination={{ clickable: true }}
         autoplay={{
-          delay: 90000,
+          delay: 9000,
           disableOnInteraction: false
         }}
         onSwiper={(swiper) => console.log(swiper)}
@@ -67,6 +73,12 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         ...
+        <div className='swiper-button-next w-[30px] h-[50px] rounded-[4px] text-lightBrownCustom text-[1rem]'>
+          <IoChevronForwardSharp />
+        </div>
+        <div className='swiper-button-prev w-[30px] h-[50px] rounded-[4px] text-lightBrownCustom text-[1rem]'>
+          <IoChevronBackSharp />
+        </div>
       </Swiper>
     </section>
   )
