@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react"
 import Categories from "./components/Categories"
 import { MdArrowForwardIos, MdArrowBackIos } from 'react-icons/md'
+import { render } from "react-dom"
 
 const CategoriesArray = [
     {
@@ -19,12 +21,12 @@ const CategoriesArray = [
     },
     {
         id: "004",
-        category: "Libre de gluten",
+        category: "Gluten Free",
         imgUrl: "https://cdn.discordapp.com/attachments/1105248913792979008/1142286520565379162/Amazing_photo_5.jpg"
     },
     {
         id: "005",
-        category: "Alto en proteínas",
+        category: "Proteínas +",
         imgUrl: "https://cdn.discordapp.com/attachments/1105248913792979008/1142286520565379162/Amazing_photo_5.jpg"
     },
 ]
@@ -33,22 +35,31 @@ const CategoriesArray = [
 
 
 export default function SeeCategories() {
+
+    const renderArray = CategoriesArray
+
+    // const HandleButton = (e) => {
+    //     console.log(e.target.name)
+    // }
+
+
     return (
-        <section className="bg-white text-center text-black flex flex-col items-center gap-4 py-10 px-4 rounded-md">
+        <section className="bg-white text-center text-black flex flex-col items-center gap-4 py-10 px-4 rounded-md shadow-gray-500 shadow-lg">
             <h1 className="text-[3rem] font-semibold">Shop by categories</h1>
             <p className="max-w-[500px] text-[1rem] text-greyCustom font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, voluptatibus!</p>
-            <div className="w-full relative">
-                <div className="text-white flex justify-between px-8 w-full absolute top-[40%] z-10 [&>*]:p-4 [&>*]:bg-black [&>*]:opacity-60">
-                    <button>
-                        <MdArrowBackIos />
+            <div className="w-full">
+                {/* <div className="text-white flex justify-between px-8 w-full absolute top-[40%] z-10 [&>*]:opacity-70 hover:[&>*]:opacity-100 [&>*]:ease-in [&>*]:duration-300 [&>*]:h-16">
+                    <button className="z-20" name="back" role="button" onClick={e => HandleButton(e)}>
+                        <MdArrowBackIos className="z-0" />
                     </button>
-                    <button>
+                    <button name="forward" role="button" onClick={HandleButton}>
                         <MdArrowForwardIos />
                     </button>
-                </div>
-                <article className="my-8 flex justify-between py-4 w-full overflow-hidden">
+                </div> */}
+                <article className="my-8 justify-start py-4 w-full [&>*]:w-1/2 [&>*]:md:w-1/3 [&>*]:lg:w-1/5 [&>*]:p-4 flex flex-wrap ">
                     {
-                        CategoriesArray.map(({ id, imgUrl, category }) => {
+                        renderArray.length > 0 &&
+                        renderArray.map(({ id, imgUrl, category }) => {
                             return (
                                 <Categories
                                     key={id}
@@ -62,9 +73,8 @@ export default function SeeCategories() {
                 </article>
 
             </div>
-
             <button className="rounded-md p-3 text-white text-[1.5rem] bg-greenCustom">Explorar Todas</button>
 
-        </section>
+        </section >
     )
 }
