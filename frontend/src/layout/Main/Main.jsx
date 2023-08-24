@@ -48,7 +48,8 @@ const Main = () => {
                 <section className='h-1/2 w-[100%]'>
                   <h2>Explora Nuestro menú saludble!!!</h2>
                   <h3>Sumérgete en un paraíso de opciones que te nutrirán y energizarán.</h3>
-                  <button>Sumérgete</button>
+                  <p>Desde platos vegetarianos exquisitos hasta creaciones veganas llenas de sabor, nuestra variedad es un reflejo de la naturaleza misma.</p>
+                  <button>ver seccion</button>
                 </section>
                 <section className='bgImage w-[100%] h-1/2'>
                   <img src='https://res.cloudinary.com/dpiwmbsog/image/upload/v1692752158/fitnessMatket/fut_banner15_qidan5.jpg' alt='fondo verduras saludables' className='w-[100%] h-[100%] object-cover' />
@@ -58,9 +59,9 @@ const Main = () => {
             <SwiperSlide className='bg-yellow-800 relative'>
               <div className='absolute top-0 left-0 w-[100%] h-[100%]'>
                 <section className='h-1/2 w-[100%]'>
-                  <h2>Explora Nuestro menú saludble!!!</h2>
-                  <h3>Sumérgete en un paraíso de opciones que te nutrirán y energizarán.</h3>
-                  <button>Sumérgete</button>
+                  <h2>Tu Comida, Tu Elección!!!</h2>
+                  <h3>Personaliza tu pedido para que se adapte perfectamente a tus gustos y necesidades.</h3>
+                  <button>ver seccion</button>
                 </section>
                 <section className='bgImage w-[100%] h-1/2'>
                   <img src='https://res.cloudinary.com/dpiwmbsog/image/upload/v1692752156/fitnessMatket/fut_banner03_anbw3p.jpg' alt='fondo verduras saludables' className='w-[100%] h-[100%] object-cover' />
