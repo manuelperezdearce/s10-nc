@@ -31,12 +31,42 @@ const Main = () => {
             }}
             onSwiper={(swiper) => console.log(swiper)}
             onSlideChange={() => console.log('slide change')}
-            className='mySwiper w-screen h-[100%] bg-orange-200 z-0'
+            className='mySwiper w-screen h-[100%] bg-green-300 p-3'
           >
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
+            <SwiperSlide className=' bg-orange-400'>
+              <section className='bg-red w-full h-1/2'>
+                <h1>Bienvenido a <span>GreenEats Delivery</span>!!!</h1>
+                <h3>tu conexión con la comida saludable y sostenible directamente en tu hogar!</h3>
+                <p>Diseñada para satisfacer tus deseos de una alimentación consciente sin comprometer el sabor ni la comodidad. Déjanos guiarte a través de un mundo de opciones frescas y nutritivas.</p>
+              </section>
+              <section className='bgImage h-1/2'>
+                <img className='w-full h-full object-cover' src='https://res.cloudinary.com/dpiwmbsog/image/upload/v1692752160/fitnessMatket/fut_banner35_lvboks.jpg' alt='fondo verduras saludables' />
+              </section>
+            </SwiperSlide>
+            <SwiperSlide className='bg-green-300 relative'>
+              <div className='absolute top-0 left-0 w-[100%] h-[100%]'>
+                <section className='h-1/2 w-[100%]'>
+                  <h2>Explora Nuestro menú saludble!!!</h2>
+                  <h3>Sumérgete en un paraíso de opciones que te nutrirán y energizarán.</h3>
+                  <button>Sumérgete</button>
+                </section>
+                <section className='bgImage w-[100%] h-1/2'>
+                  <img src='https://res.cloudinary.com/dpiwmbsog/image/upload/v1692752158/fitnessMatket/fut_banner15_qidan5.jpg' alt='fondo verduras saludables' className='w-[100%] h-[100%] object-cover' />
+                </section>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className='bg-yellow-800 relative'>
+              <div className='absolute top-0 left-0 w-[100%] h-[100%]'>
+                <section className='h-1/2 w-[100%]'>
+                  <h2>Explora Nuestro menú saludble!!!</h2>
+                  <h3>Sumérgete en un paraíso de opciones que te nutrirán y energizarán.</h3>
+                  <button>Sumérgete</button>
+                </section>
+                <section className='bgImage w-[100%] h-1/2'>
+                  <img src='https://res.cloudinary.com/dpiwmbsog/image/upload/v1692752156/fitnessMatket/fut_banner03_anbw3p.jpg' alt='fondo verduras saludables' className='w-[100%] h-[100%] object-cover' />
+                </section>
+              </div>
+            </SwiperSlide>
             ...
           </Swiper>
         </section>
