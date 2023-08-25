@@ -20,3 +20,10 @@
   background-color: darkorange; /* Color naranja oscuro para el punto activo */
   opacity: 1; /* Opacidad completa para el punto activo */
 }
+
+.swiper-button-prev{
+  left:2 ;
+} 
+.swiper-button-next{
+  right: 2;
+}

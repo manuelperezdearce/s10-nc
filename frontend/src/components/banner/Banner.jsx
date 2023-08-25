@@ -12,7 +12,7 @@ import './swipperPersonalizado.css'
 
 const Banner = () => {
   return (
-    <section className='banner w-screen top-0 h-[100vh] flex justify-center items-center content-center'>
+    <section className='banner w-[100%] top-0 h-[100vh] flex justify-center items-center content-center'>
       <Swiper
       // install Swiper modules
         modules={[Navigation, Pagination, A11y, EffectFade, Autoplay]}
