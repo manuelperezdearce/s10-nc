@@ -5,10 +5,6 @@ import Home from '../pages/home/Home'
 import Restaurant from '../pages/restaurant/Restaurant'
 import Menus from '../pages/Menus/Menus'
 import Contact from '../pages/Contact/Contact'
-import Login from '../components/login/Login'
-
-
-
 
 const AppRoutes = () => {
   return (
@@ -20,7 +16,6 @@ const AppRoutes = () => {
       <Route path='/restaurant' element={<Restaurant />} />
       <Route path='/menus' element={<Menus />} />
       <Route path='/contact' element={<Contact />} />
-      <Route path='/login' element={<Login/>} />
 
       {/* defecto page error */}
       <Route path='*' element={<NotFound />} />
