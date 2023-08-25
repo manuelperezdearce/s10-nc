@@ -1,0 +1,22 @@
+
+.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
+  display: none;
+}
+
+.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
+  display: none;
+}
+
+/* Estilos para los puntos de paginación */
+.swiper-pagination-bullet {
+  width: 15px; /* Tamaño más grande */
+  height: 15px; /* Tamaño más grande */
+  background-color: var(--lightBrown-custom); /* Color naranja */
+  opacity: 0.6; /* Opacidad de los puntos inactivos */
+}
+
+/* Estilos para el punto de paginación activo */
+.swiper-pagination-bullet-active {
+  background-color: darkorange; /* Color naranja oscuro para el punto activo */
+  opacity: 1; /* Opacidad completa para el punto activo */
+}

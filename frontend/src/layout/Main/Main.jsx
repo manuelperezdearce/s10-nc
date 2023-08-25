@@ -1,20 +1,12 @@
 import React from 'react'
-import ProductDay from '../../components/Sections/ProductDay'
+
+import AppRoutes from '../../routes/AppRoutes'
 
 const Main = () => {
   return (
-    <>
-    <main className='main w-full h-screen  bg-greenCustom overflow-hidden p-[1rem] box-border flex flex-col justify-center items-center content-center gap-[2rem]'>
-      <h1 className='w-full p-[1rem] text-3xl font-bold underline text-center'>
-        Hola!
-      </h1>
-      <button className='botonPruebas'>Boton de pruebas</button>
-
+    <main className='main w-full h-min-screen  bg-greenCustom overflow-hidden  box-border flex flex-col justify-top gap-[2rem]'>
+      <AppRoutes />
     </main>
-    <ProductDay/>
-  </>
-    
   )
 }
-
 export default Main
