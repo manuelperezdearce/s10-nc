@@ -39,7 +39,7 @@ const Banner = () => {
               <h1 className='font-titulo font-bold text-3xl lg:text-5xl'>Bienvenido a <span className='text-oranjeCustom'>GreenEats Delivery</span>!!!</h1>
               <h3 className='font-parrafo font-bold text-base lg:text-xl'>Tu conexión con la comida saludable y sostenible directamente en tu hogar!</h3>
               <p className='font-parrafo font-normal text-sm lg:text-lg'>Diseñada para satisfacer tus deseos de una alimentación consciente sin comprometer el sabor ni la comodidad. Déjanos guiarte a través de un mundo de opciones frescas y nutritivas.</p>
-              <button className='botonBase ' style={{ marginTop: '.5rem' }}>ver seccion</button>
+              <button className='botonBase font-parrafo font-base text-base lg:text-xl' style={{ marginTop: '.5rem' }}>ver seccion</button>
             </section>
             <section className='bgImage w-[100%] h-1/2 lg:w-1/2 lg:h-[100%]'>
               <img className='w-full h-full object-cover' src='https://res.cloudinary.com/dpiwmbsog/image/upload/v1692752160/fitnessMatket/fut_banner35_lvboks.jpg' alt='fondo verduras saludables' />
@@ -52,7 +52,7 @@ const Banner = () => {
               <h2 className='font-titulo font-bold text-3xl lg:text-5xl'>Explora Nuestro menú saludble!!!</h2>
               <h3 className='font-parrafo font-bold text-base lg:text-xl'>Sumérgete en un paraíso de opciones que te nutrirán y energizarán.</h3>
               <p className='font-parrafo font-normal text-sm lg:text-lg'>Desde platos vegetarianos exquisitos hasta creaciones veganas llenas de sabor, nuestra variedad es un reflejo de la naturaleza misma.</p>
-              <button className='botonBase'>ver seccion</button>
+              <button className='botonBase font-parrafo font-base text-base lg:text-xl' style={{ marginTop: '.5rem' }}>ver seccion</button>
             </section>
             <section className='bgImage w-[100%] h-1/2 lg:w-1/2 lg:h-[100%]'>
               <img src='https://res.cloudinary.com/dpiwmbsog/image/upload/v1692752158/fitnessMatket/fut_banner15_qidan5.jpg' alt='fondo verduras saludables' className='w-[100%] h-[100%] object-cover' />
@@ -65,7 +65,7 @@ const Banner = () => {
               <h2 className='font-titulo font-bold text-3xl lg:text-5xl'>Tu Comida, Tu Elección!!!</h2>
               <h3 className='font-parrafo font-bold text-base lg:text-xl'>Personaliza tu pedido para que se adapte perfectamente a tus gustos y necesidades.</h3>
               <p className='font-parrafo font-normal text-sm lg:text-lg'>¿Tienes restricciones alimentarias o preferencias específicas? No hay problema. Hacemos que tu comida sea tuya en todos los sentidos.</p>
-              <button className='botonBase'>ver seccion</button>
+              <button className='botonBase font-parrafo font-base text-base lg:text-xl' style={{ marginTop: '.5rem' }}>ver seccion</button>
             </section>
             <section className='bgImage w-[100%] h-1/2 lg:w-1/2 lg:h-[100%]'>
               <img src='https://res.cloudinary.com/dpiwmbsog/image/upload/v1692752156/fitnessMatket/fut_banner03_anbw3p.jpg' alt='fondo verduras saludables' className='w-[100%] h-[100%] object-cover' />
