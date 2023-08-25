@@ -22,7 +22,7 @@ const Home = () => {
   }, [])
 
   return (
-    <div className='mt-[100px] w-full font-parrafo text-[2rem]'>
+    <div className='mt-[0] w-full font-parrafo text-[2rem]'>
       <Banner />
       <SeeCategories />
       <ProductDay />
