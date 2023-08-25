@@ -32,7 +32,7 @@ export default {
       addUtilities({
         '.botonBase': {
           background: '#f8f9fa;',
-          boxShadow: '3px 3px 3px #be995c, -3px -3px 3px #ffeb8c',
+          boxShadow: '3px 3px 3px #729228, -3px -3px 3px  #ccff48',
           color: 'var(--green-custom2)',
           border: '1px solid var(--white-custom1)',
           borderRadius: '30px',

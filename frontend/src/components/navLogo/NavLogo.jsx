@@ -13,7 +13,7 @@ const NavLogo = () => {
 
   const hancleClick = (e) => {
     e.preventDefault()
-    dispatch(setActiveIndex(null))
+    dispatch(setActiveIndex('home'))
     navigate('/')
   }
 
