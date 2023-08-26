@@ -16,8 +16,6 @@ const AppRoutes = () => {
       <Route path='/restaurant' element={<Restaurant />} />
       <Route path='/menus' element={<Menus />} />
       <Route path='/contact' element={<Contact />} />
-
-      {/* defecto page error */}
       <Route path='*' element={<NotFound />} />
     </Routes>
   )
