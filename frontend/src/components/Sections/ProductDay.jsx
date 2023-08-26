@@ -24,9 +24,9 @@ export default function ProductDay () {
           <div className='border shadow-2xl p-10 flex flex-col gap-y-5 rounded-xl my-20 max-w-xl mx-auto lg:w-1/2'>
             <h3 className='text-3xl font-bold -mb-4'>Ensalada</h3>
             <p className='text-greenCustom text-2xl font-bold'>$50</p>
-            <p className='text-greyCustom'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium delectus aspernatur debitis maiores at nisi ipsa vero laborum inventore recusandae? Laboriosam voluptatibus nobis maxime, tempora doloremque ipsa magnam ullam dolorum.</p>
+            <p className='text-greyCustom text-base'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium delectus aspernatur debitis maiores at nisi ipsa vero laborum inventore recusandae? Laboriosam voluptatibus nobis maxime, tempora doloremque ipsa magnam ullam dolorum.</p>
             <div>
-              <button className='border border-greenCustom text-greenCustom font-bold px-5 py-2 rounded-md hover:bg-greenCustom hover:text-white transition-all duration-75 flex items-center gap-x-2'><BsCart4 /> Agregar al carrito</button>
+              <button className='border border-greenCustom text-greenCustom font-bold px-5 py-2 rounded-md hover:bg-greenCustom hover:text-white transition-all duration-75 flex items-center gap-x-2 text-base'><BsCart4 /> Agregar al carrito</button>
             </div>
           </div>
         </div>
