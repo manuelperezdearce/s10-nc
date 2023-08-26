@@ -156,23 +156,23 @@ const FormContactLanding = () => {
 
       <form
         onSubmit={handleSubmit}
-        className='w-full h-auto md:w-[80%] lg:w-full xl:w-full xl:h-auto bg-bgForm rounded-lg px-5 md:px-5 lg:px-0 xl:px-8 py-14 flex flex-col justify-center items-center gap-5 lg:gap-6 xl:gap-7 border-[.5px] text-[16px] md:text-[14px] lg:text-[14px] xl:text-[18px]'
+        className='w-[100%] h-auto  lg:w-[100%] xl:w-full bg-green-300 rounded-lg px-4  lg:px-3 py-14 flex flex-col justify-center items-center gap-5 lg:gap-6 xl:gap-7 border-[.5px] text-sm  lg:text-base'
         style={{ boxShadow: '5px 5px 10px #d4d4d4,-5px -5px 10px #ffffff' }}
       >
-        <div className='w-full lg:w-[92%] xl:w-full flex flex-col md:flex-row md:flex-nowrap gap-4 xl:gap-5 lg:gap-3'>
-          <label htmlFor='name' className='md:w-1/2 flex flex-col gap-2 font-titulo font-[600] text-textPurple leading-[1.5rem]'>
+        <div className='w-full lg:w-[92%] xl:w-full flex flex-col md:flex-row md:flex-nowrap gap-4 xl:gap-5 lg:gap-3 text-marronCustom'>
+          <label htmlFor='name' className='md:w-1/2 flex flex-col gap-2 font-titulo font-[600] leading-[1.5rem]'>
             Nombre
             <input
               type='text' name='name' id='name'
               value={name}
               onChange={handleInputChange}
-              className={`p-3 lg:p-3 xl:p-5 rounded-lg font-parrafo font-[400] outline-none shadow-sm focus:ring focus:ring-verdeTurk focus:ring-opacity-100 border-[.5px] ${errors.name ? 'border-2 border-red-600 focus:ring-0' : ''}`}
+              className={`p-3 lg:p-3 bg-lightBrownCustom rounded-lg font-parrafo font-[400] outline-none shadow-sm focus:ring focus:ring-greenCustom focus:ring-opacity-100 border-[.5px] ${errors.name ? 'border-2 border-red-600 focus:ring-0' : ''}`}
               style={{ boxShadow: '5px 5px 10px #dcdbe4,-5px -5px 10px #ffffff' }}
               placeholder='Nombre'
             />
             {errors.name && (<p className='text-red-500 font-parrafo font-[400] w-full'>{errors.name}</p>)}
           </label>
-          <label htmlFor='email' className='md:w-1/2 flex flex-col gap-2 font-titulo font-[600] text-textPurple leading-[1.5rem]'>
+          <label htmlFor='email' className='md:w-1/2 flex flex-col gap-2 font-titulo font-[600] leading-[1.5rem]'>
             Email
             <input
               type='email' name='email' id='email'
