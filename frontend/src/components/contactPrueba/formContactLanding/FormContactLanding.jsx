@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { IoChevronDown } from 'react-icons/io5'
-import Loader from '../loader/Loader'
-import BotonBase from '../botonBase/BotonBase'
+import Loader from '../../loader/Loader'
+import BotonBase from '../../botonBase/BotonBase'
 
 const FormContactLanding = () => {
   const [loader, setLoader] = useState(false)

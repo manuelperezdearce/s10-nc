@@ -2,7 +2,7 @@ import React from 'react'
 import { IoCallOutline, IoMailOutline, IoLocationOutline } from 'react-icons/io5'
 
 import { FaWhatsapp } from 'react-icons/fa'
-import BotonBase from '../botonBase/BotonBase'
+import BotonBase from '../../botonBase/BotonBase'
 
 const ContactoLanding = () => {
   const mail = 'greenEats@gmail.com'
