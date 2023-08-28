@@ -27,11 +27,12 @@ const ListProductsMenu = ({ categoryId }) => {
   return (
     <>
       {
-      loading ? (
-        <div className='w-[100%] min-h-[calc(100vh-150px)] grid place-content-center'>
-          <Loader />
-        </div>
-      )
+      loading
+        ? (
+          <div className='w-[100%] min-h-[calc(100vh-150px)] grid place-content-center bg-pink-100'>
+            <Loader />
+          </div>
+          )
         : (
             foodState.length > 0
               ? (
@@ -86,17 +87,11 @@ const ListProductsMenu = ({ categoryId }) => {
                 </section>
                 )
               : (
-                  null
+                <p>No se encontraron productos.</p>
                 )
           )
     }
     </>
-
-  // {
-  //   foodState?.map((food) => (
-  //     <CardMenu key={food.id} object={food} />
-  //   ))
-  // }
 
   )
 }
