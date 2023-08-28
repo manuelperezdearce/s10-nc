@@ -1,7 +1,13 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { setActiveIndex } from '../../features/nav/navSlice'
+import ListProductsMenu from '../../components/listProductsMenu/ListProductsMenu'
 
+/*
+  Categories -> {id, name , description}
+  foods -> {id, name, description, price, linkImage, id_category, id_restaurant }
+  restaurant -> {id, name, address,email, phone, linkImage }
+ */
 const Menus = () => {
   const dispatch = useDispatch()
   const menuRef = useRef(null)
@@ -22,6 +28,11 @@ const Menus = () => {
         <p className='font-parrafo font-normal text-sm lg:text-base text-marronCustom'>
           Nuestra selección de platos te brinda una experiencia culinaria única, con opciones saludables y deliciosas para cada etapa de tu comida. Desde entradas frescas hasta postres indulgentes, estamos comprometidos con tu bienestar y satisfacción gastronómica.
         </p>
+      </section>
+
+      <section className='productsVegan w-[100%] px-[1rem] py-[1rem] flex flex-col gap-2 max-w-[1500px]'>
+        <h2 className='font-titulo text-3xl font-bold text-marronCustom text-left '>Productos veganos</h2>
+        <ListProductsMenu />
       </section>
     </section>
   )
