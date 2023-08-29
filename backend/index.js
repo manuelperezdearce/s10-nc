@@ -1,21 +1,16 @@
-const express = require('express');
-const app = express();
-const port = 3000;
-const cors = require('cors');
-const routerApi = require('./routes');
+const { app } = require('./server')
+const { config } = require('./src/config/env');
+const { dbInitializer } = require('./src/services/db');
 
-app.use(express.json());
+async function main(){
+  try {
+    app.listen(config.port,async function(){
+      console.log(`server running on port: ${config.port}`)
+  });
+    dbInitializer()
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
+}
 
-app.use(cors());
-
-routerApi(app);
-
-app.get("/", (req, res) =>{
-  res.send("Test");
-});
-
-
-app.listen(port, () => {
-  console.log(`Corriendo en el port http://localhost:${port}`)
-
-});
+main()
