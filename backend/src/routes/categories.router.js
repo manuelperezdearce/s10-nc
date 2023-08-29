@@ -1,17 +1,12 @@
-const express = require('express');
-const CategoryService = require('../services/category.service');
+const { Router } = require('express');
 
-const router = express.Router();
-const service = new CategoryService();
+const router = Router();
 
-router.get('/', async (req, res) => {
-  try {
-    const categories = await service.find();
-    res.json(categories);
-  } catch (error) {
-    // next(error);
-    console.log(error)
-  }
-});
+router.get('/', (req,res) => {
+  res.json({
+    status:200,
+    message:"router funcionando"
+  })
+})
 
 module.exports = router;
