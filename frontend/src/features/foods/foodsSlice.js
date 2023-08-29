@@ -21,6 +21,7 @@ const foodsSlice = createSlice({
   name: 'foods',
   initialState: {
     data: [],
+    categoryData: [],
     loading: false,
     error: false
   },
@@ -45,7 +46,9 @@ const foodsSlice = createSlice({
         state.error = false
       })
       .addCase(getFoodsByCategoryId.fulfilled, (state, action) => {
-        state.data = action.payload
+        const categoryId = action.meta.arg
+        const metaData = { categoryId, data: action.payload }
+        state.categoryData.push(metaData)
         state.loading = false
         state.error = false
       })

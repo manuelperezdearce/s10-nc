@@ -4,7 +4,6 @@ import { getFoodsByCategoryId } from '../../features/foods/foodsSlice'
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import CardMenu from '../cardMenu/CardMenu'
-import Loader from '../loader/Loader'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -12,24 +11,27 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import './carruselPerfil.css'
+import Loader from '../loader/Loader'
 
 const ListProductsMenu = ({ categoryId }) => {
   const dispatch = useDispatch()
-  const foodState = useSelector((state) => state?.foods?.data)
+  const foodState = useSelector((state) => state?.foods?.categoryData[categoryId]?.data || [])
   const loading = useSelector((state) => state?.foods?.loading)
 
-  console.log(foodState)
+  // const foodState = []
 
   useEffect(() => {
     dispatch(getFoodsByCategoryId(categoryId))
-  }, [dispatch])
+  }, [dispatch, categoryId])
+
+  // console.log('FOODS -> ', foodState[categoryId].data)
 
   return (
     <>
       {
       loading
         ? (
-          <div className='w-[100%] min-h-[calc(100vh-150px)] grid place-content-center bg-pink-100'>
+          <div className='w-[100%] h-[340px] grid place-content-center'>
             <Loader />
           </div>
           )
@@ -40,17 +42,17 @@ const ListProductsMenu = ({ categoryId }) => {
                   <Swiper
                     className='mySwipper'
                     modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-          // modules={[Navigation, Pagination, Scrollbar, A11y]}
+                    // modules={[Navigation, Pagination, Scrollbar, A11y]}
                     spaceBetween={50}
                     navigation={{
                       nextEl: '.swiper-button-next',
                       prevEl: '.swiper-button-prev'
                     }}
                     pagination={{ clickable: true }}
-          // scrollbar={{ draggable: true }}
+                    // scrollbar={{ draggable: true }}
                     autoplay={{ delay: 9000 }}
-          // onSwiper={(swiper) => console.log(swiper)}
-          // onSlideChange={() => console.log('slide change')}
+                    // onSwiper={(swiper) => console.log(swiper)}
+                    // onSlideChange={() => console.log('slide change')}
                     style={{ width: '100%', height: '340px', margin: '0 auto', padding: '0 35px' }}
                     slidesPerView={1} // Valor por defecto para pantallas pequeñas
                     breakpoints={{
@@ -69,14 +71,14 @@ const ListProductsMenu = ({ categoryId }) => {
                     }}
                   >
                     {
-            foodState.map((food, index) => {
-              return (
-                <SwiperSlide key={index} className='swipperSlider'>
-                  <CardMenu key={food.id} object={food} />
-                </SwiperSlide>
-              )
-            })
-          }
+                      foodState.map((food, index) => {
+                        return (
+                          <SwiperSlide key={index} className='swipperSlider'>
+                            <CardMenu key={food.id} object={food} />
+                          </SwiperSlide>
+                        )
+                      })
+                    }
                     <div className='swiper-button-next'>
                       <ion-icon style={{ color: 'var(--background-naClaro)' }} name='chevron-forward-sharp' />
                     </div>
@@ -87,7 +89,9 @@ const ListProductsMenu = ({ categoryId }) => {
                 </section>
                 )
               : (
-                <p>No se encontraron productos.</p>
+                <div className='w-[100%] h-[340px] grid place-content-center'>
+                  <p className='text-center font-parrafo font-normal text-marronCustom text-[1.2rem] leading-[30px] tracking-[0.2px] capitalize'>No se encontraron productos 😉😉!!!</p>
+                </div>
                 )
           )
     }

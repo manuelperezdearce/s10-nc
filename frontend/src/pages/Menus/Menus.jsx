@@ -34,6 +34,16 @@ const Menus = () => {
         <h2 className='font-titulo text-3xl font-bold text-marronCustom text-left '>Productos veganos</h2>
         <ListProductsMenu categoryId={1} />
       </section>
+
+      <section className='productsVegan w-[100%] h-[450px] px-[1rem] py-[1rem] flex flex-col gap-2 max-w-[1500px]'>
+        <h2 className='font-titulo text-3xl font-bold text-marronCustom text-left '>Productos veganos</h2>
+        <ListProductsMenu categoryId={2} />
+      </section>
+
+      <section className='productsVegan w-[100%] h-[450px] px-[1rem] py-[1rem] flex flex-col gap-2 max-w-[1500px]'>
+        <h2 className='font-titulo text-3xl font-bold text-marronCustom text-left '>Productos veganos</h2>
+        <ListProductsMenu categoryId={3} />
+      </section>
     </section>
   )
 }

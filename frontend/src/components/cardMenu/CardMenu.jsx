@@ -3,7 +3,7 @@ import { IoHeartOutline, IoCartOutline, IoSettingsOutline } from 'react-icons/io
 import './cardMenu.css'
 
 const CardMenu = ({ object }) => {
-  console.log(object)
+  // console.log(object)
   return (
     <div className='whiteCustom cursor-pointer w-[250px] h-[300px] rounded-md shadow-md '>
       <figure className='relative mb-0 w-full h-3/4'>
