@@ -16,7 +16,7 @@ const signUp = async (req, res) => {
     password: passwordHash,
   });
 
-  const token = jwt.sign({ id: newUser.userId }, process.env.SECRET, {
+  const token = jwt.sign({ id: newUser.id }, process.env.SECRET, {
     expiresIn: 86400,
   });
 
@@ -34,7 +34,7 @@ const signIn = async (req, res) => {
 
   if (!matchPassword) return res.status(401).send('Invalid password');
 
-  const token = jwt.sign({ id: foundUser.userId }, process.env.SECRET, {
+  const token = jwt.sign({ id: foundUser.id }, process.env.SECRET, {
     expiresIn: 86400,
   });
 

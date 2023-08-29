@@ -73,10 +73,27 @@ const updateRestaurant = async (req, res) => {
   }
 };
 
+const deleteRestaurant = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const meal = await Restaurant.findOne({ where: { id: id } });
+    if (meal) {
+      await Restaurant.destroy({ where: { id: id } });
+      return res.status(202).send('Restaurant eliminado');
+    } else {
+      return res.status(400).send('Restaurant no encontrado');
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 module.exports = {
   getRestaurants,
   getRestaurant,
   getRestaurantByCity,
   updateRestaurant,
   createRestaurant,
+  deleteRestaurant,
 };

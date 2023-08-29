@@ -21,7 +21,24 @@ const createCategory = async (req, res) => {
   }
 };
 
+const deleteCategory = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const meal = await Category.findOne({ where: { id: id } });
+    if (meal) {
+      await Category.destroy({ where: { id: id } });
+      return res.status(202).send('Categoria eliminado');
+    } else {
+      return res.status(400).send('Categoria no encontrada');
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 module.exports = {
   getCategories,
   createCategory,
+  deleteCategory,
 };

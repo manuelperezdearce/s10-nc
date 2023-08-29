@@ -53,9 +53,26 @@ const updateCustomer = async (req, res) => {
   }
 };
 
+const deleteCustomer = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const meal = await Customers.findOne({ where: { id: id } });
+    if (meal) {
+      await Customers.destroy({ where: { id: id } });
+      return res.status(202).send('Customer eliminado');
+    } else {
+      return res.status(400).send('Customer no encontrado');
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 module.exports = {
   getCustomers,
   getCustomer,
   updateCustomer,
   createCustomer,
+  deleteCustomer,
 };

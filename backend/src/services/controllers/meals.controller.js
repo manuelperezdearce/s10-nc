@@ -69,10 +69,27 @@ const updateMeal = async (req, res) => {
   }
 };
 
+const deleteMeal = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const meal = await Meals.findOne({ where: { id: id } });
+    if (meal) {
+      await Meals.destroy({ where: { id: id } });
+      return res.status(202).send('Platillo eliminado');
+    } else {
+      return res.status(400).send('Platillo no encontrado');
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 module.exports = {
   getMeals,
   getMeal,
   updateMeal,
   createMeal,
   getMealsByCategory,
+  deleteMeal,
 };
