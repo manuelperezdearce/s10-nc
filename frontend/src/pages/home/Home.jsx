@@ -12,6 +12,7 @@ import 'swiper/css'
 import 'swiper/css/effect-fade'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import Features from '../../components/Sections/Features'
 
 const Home = () => {
   const dispatch = useDispatch()
@@ -24,6 +25,7 @@ const Home = () => {
   return (
     <div className='mt-[0] w-full font-parrafo text-[2rem]'>
       <Banner />
+      <Features/>
       <SeeCategories />
       <ProductDay />
       <CardSlider />
