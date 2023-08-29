@@ -1,4 +1,4 @@
-const User = require('../../db/models/user.model');
+const { User } = require('../db/models/user.model');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
@@ -7,16 +7,16 @@ require('dotenv').config();
 // 24 hrs = 86400
 
 const signUp = async (req, res) => {
-  const { email, password, role_id } = req.body;
+  const { email, password, roleId } = req.body;
   let passwordHash = await bcrypt.hash(password, 10);
 
   const newUser = await User.create({
     email,
-    role_id,
+    Role_Id: roleId,
     password: passwordHash,
   });
 
-  const token = jwt.sign({ id: newUser.idUser }, process.env.SECRET, {
+  const token = jwt.sign({ id: newUser.userId }, process.env.SECRET, {
     expiresIn: 86400,
   });
 

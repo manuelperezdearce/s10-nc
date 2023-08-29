@@ -1,8 +1,8 @@
-const Meal = require('../db/models/meals.model');
+const { Meals } = require('../db/models/meal.model');
 
 const getMeals = async (req, res) => {
   try {
-    const meals = await Meal.findAll();
+    const meals = await Meals.findAll();
     res.status(200).json(meals);
   } catch (err) {
     console.log(err);
@@ -12,7 +12,7 @@ const getMeals = async (req, res) => {
 const getMeal = async (req, res) => {
   const { id } = req.params;
   try {
-    const meal = await Meal.findByPk(id);
+    const meal = await Meals.findByPk(id);
     res.status(200).json(meal);
   } catch (err) {
     console.log(err);
@@ -23,7 +23,7 @@ const getMeal = async (req, res) => {
 const getMealsByCategory = async (req, res) => {
   const { categoryId } = req.params;
   try {
-    const meals = await Meal.findAll({
+    const meals = await Meals.findAll({
       where: {
         categoryId: categoryId,
       },
@@ -39,7 +39,7 @@ const getMealsByCategory = async (req, res) => {
 const createMeal = async (req, res) => {
   const body = req.body;
   try {
-    const newMeal = await Meal.create(body);
+    const newMeal = await Meals.create(body);
     newMeal;
     res.status(201).json(newMeal);
   } catch (err) {
@@ -51,7 +51,7 @@ const updateMeal = async (req, res) => {
   const { id } = req.params;
   const body = req.body;
   try {
-    const updatedMeal = await Meal.update(
+    const updatedMeal = await Meals.update(
       {
         body,
       },

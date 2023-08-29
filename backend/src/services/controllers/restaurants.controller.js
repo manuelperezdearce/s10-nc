@@ -1,5 +1,5 @@
 const { Op } = require('sequelize');
-const Restaurant = require('../../db/models/restaurant.model');
+const { Restaurant } = require('../db/models/restaurant.model');
 
 const getRestaurants = async (req, res) => {
   try {
