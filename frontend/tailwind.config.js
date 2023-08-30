@@ -14,7 +14,7 @@ export default {
       },
       colors: {
         marronCustom: 'var(--marron-custom)',
-        greenCustom: 'var(--green-custom)',
+        // greenCustom: 'var(--green-custom)',
         greenCustom2: 'var(--green-custom2)',
         oranjeCustom: 'var(--oranje-custom)',
         blackCustom: 'var(--black-custom)',
@@ -23,7 +23,10 @@ export default {
         whiteCustom: '#ffff',
         whiteCustom1: 'var(--white-custom1)',
         whiteCustom2: 'var(--white-custom2)',
-        whiteCustom3: 'var(--white-custom3)'
+        whiteCustom3: 'var(--white-custom3)',
+        whiteBackgroundForm: '#f6f6f6',
+        whiteBackgraundForm2: '#FFFFFF',
+        greenCard: '#9FCB38'
       }
     }
   },
