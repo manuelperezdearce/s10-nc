@@ -24,6 +24,9 @@ export default {
         whiteCustom1: 'var(--white-custom1)',
         whiteCustom2: 'var(--white-custom2)',
         whiteCustom3: 'var(--white-custom3)'
+      },
+      maxWidth: {
+        rem14: '14rem'
       }
     }
   },

@@ -1,5 +1,6 @@
 import { TbMail, TbPhoneCall } from 'react-icons/tb'
 import { MdPlace } from 'react-icons/md'
+import { Link } from 'react-router-dom'
 
 export const RestaurantCard = ({ object }) => {
   const { name, description, especiality, phone, email, city } = object
@@ -18,7 +19,7 @@ export const RestaurantCard = ({ object }) => {
 
         </div>
 
-        <button className='bg-greenCustom text-white rounded-md text-base px-4 py-2'>Menu</button>
+        <Link to={'/restaurant/id'} className='bg-greenCustom text-white rounded-md text-base px-4 py-2'>Menu</Link>
       </div>
       <hr />
       {/* Body */}
