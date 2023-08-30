@@ -15,16 +15,24 @@ import Loader from '../loader/Loader'
 
 const ListProductsMenu = ({ categoryId }) => {
   const dispatch = useDispatch()
-  const foodState = useSelector((state) => state?.foods?.categoryData[categoryId]?.data || [])
+  const foodState = useSelector((state) => state?.foods?.categoryData || [])
+  // [categoryId]?.data
   const loading = useSelector((state) => state?.foods?.loading)
 
   // const foodState = []
+  const filteredData = foodState?.map(category => {
+    if (category.categoryId === categoryId) {
+      return {
+        categoryId: category.categoryId,
+        data: category.data.filter(item => item.id_category === categoryId)
+      }
+    }
+    return null
+  }).filter(category => category !== null)
 
   useEffect(() => {
     dispatch(getFoodsByCategoryId(categoryId))
   }, [dispatch, categoryId])
-
-  // console.log('FOODS -> ', foodState[categoryId].data)
 
   return (
     <>
@@ -36,7 +44,7 @@ const ListProductsMenu = ({ categoryId }) => {
           </div>
           )
         : (
-            foodState.length > 0
+            filteredData[0]?.data.length > 0
               ? (
                 <section className='w-100 h-auto'>
                   <Swiper
@@ -71,7 +79,7 @@ const ListProductsMenu = ({ categoryId }) => {
                     }}
                   >
                     {
-                      foodState.map((food, index) => {
+                      filteredData[0]?.data.map((food, index) => {
                         return (
                           <SwiperSlide key={index} className='swipperSlider'>
                             <CardMenu key={food.id} object={food} />
