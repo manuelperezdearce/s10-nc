@@ -11,16 +11,16 @@ const NavLogo = () => {
   // }, [])
   const navigate = useNavigate()
 
-  const hancleClick = (e) => {
+  const handleClick = (e) => {
     e.preventDefault()
-    dispatch(setActiveIndex(null))
+    dispatch(setActiveIndex('home'))
     navigate('/')
   }
 
   return (
     <button
       className='logoContainer font-titulo text-[40px] text-greenCustom grid place-content-center'
-      onClick={hancleClick}
+      onClick={handleClick}
     >
       <span className='capitalize font-titulo'>
         GreenEats
