@@ -1,10 +1,9 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { setActiveIndex } from '../../features/nav/navSlice'
 
 const Contact = () => {
   const dispatch = useDispatch()
-  const contactoRef = useRef(null)
 
   useEffect(() => {
     dispatch(setActiveIndex('contacto'))
@@ -12,12 +11,9 @@ const Contact = () => {
   }, [])
 
   return (
-    <div
-      ref={contactoRef}
-      className='mt-[100px] w-full h-[400px] bg-lightBrownCustom grid place-content-center text-blackCustom font-parrafo text-[2rem]'
-    >
-      Contact
-    </div>
+    <section
+      className='containerRestaurants lg:mt-[130px] w-full my-11 min-h-[400px] flex flex-col justify-start items-center content-center bg-whiteCustom gap-6'
+    />
   )
 }
 

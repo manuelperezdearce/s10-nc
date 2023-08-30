@@ -37,14 +37,13 @@ export default {
           border: '1px solid var(--white-custom1)',
           borderRadius: '30px',
           transition: 'all .2s linear',
-          padding: '8px 25px',
-
-          '&:hover': {
-            background: 'linear-gradient(145deg, #e26f02, #be5e02)',
-            boxShadow: '3px 3px 3px #a75202, -3px -3px 3px #ff7e02',
-            color: 'var(--white-custom1)',
-            border: '1px solid var(--oranje-custom)'
-          }
+          padding: '8px 25px'
+        },
+        '&:hover': {
+          background: 'linear-gradient(145deg, #e26f02, #be5e02)',
+          boxShadow: '3px 3px 3px #a75202, -3px -3px 3px #ff7e02',
+          color: 'var(--white-custom1)',
+          border: '1px solid var(--oranje-custom)'
         }
       })
     })
