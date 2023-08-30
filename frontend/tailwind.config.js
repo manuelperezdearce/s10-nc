@@ -13,6 +13,9 @@ export default {
         parrafo: ['Roboto', 'sans-serif']
       },
       colors: {
+        whiteBackgroundForm: '#f6f6f6',
+        whiteBackgraundForm2: '#FFFFFF',
+        greenCard: '#9FCB38',
         marronCustom: 'var(--marron-custom)',
         greenCustom: 'var(--green-custom)',
         greenCustom2: 'var(--green-custom2)',
