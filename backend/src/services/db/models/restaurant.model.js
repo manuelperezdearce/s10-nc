@@ -1,8 +1,11 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
+const sequelize = require('../config');
+const { Meals } = require("../models/meal.model");
+const { Orders } = require('./order.model');
 
-const RESTAURANT_TABLE = 'restaurants';
+class Restaurant extends Model {}
 
-const RestaurantSchema = {
+Restaurant.init({
   id: {
     allowNull: false,
     autoIncrement: true,
@@ -54,20 +57,27 @@ const RestaurantSchema = {
     field: 'created_at',
     defaultValue: Sequelize.NOW,
   },
-};
+}, {
+  sequelize,
+  modelName: 'Restaurant',
+  timestamps: false
+});
 
-class Restaurant extends Model {
-  static associate() {
-    // asociar
-  }
-  static config(sequelize) {
-    return {
-      sequelize,
-      tableName: RESTAURANT_TABLE,
-      modelName: 'Restaurant',
-      timestamps: false,
-    };
-  }
-}
+Restaurant.hasMany(Meals, {
+  foreignKey: 'Restaurant_id',
+  sourceKey:'id'
+});
+Meals.belongsTo(Restaurant,{
+  foreignKey: 'Restaurant_id',
+  targetKey:'id'
+});
+Restaurant.hasMany(Orders, {
+  foreignKey: 'Restaurant_id',
+  sourceKey:'id'
+});
+Orders.belongsTo(Restaurant,{
+  foreignKey: 'Restaurant_id',
+  targetKey:'id'
+});
 
-module.exports = { Restaurant, RestaurantSchema, RESTAURANT_TABLE };
+module.exports = { Restaurant };
