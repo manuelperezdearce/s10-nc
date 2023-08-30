@@ -22,10 +22,19 @@ const foodsSlice = createSlice({
   initialState: {
     data: [],
     categoryData: [],
+    productsByKeyword: [],
     loading: false,
     error: false
   },
-  reducers: {},
+  reducers: {
+    addToproductsByKeyword: (state, action) => {
+      state.productsByKeyword = []
+      state.productsByKeyword = action.payload
+    },
+    clearProductByKeyword: (state) => {
+      state.productsByKeyword = []
+    }
+  },
   extraReducers: builder => {
     builder
       .addCase(getFoods.pending, state => {
@@ -46,9 +55,13 @@ const foodsSlice = createSlice({
         state.error = false
       })
       .addCase(getFoodsByCategoryId.fulfilled, (state, action) => {
-        const categoryId = action.meta.arg
-        const metaData = { categoryId, data: action.payload }
-        state.categoryData.push(metaData)
+        const categoryId = action.meta.arg // trae el id de la categoria que le pasemos
+        const existeIndex = state.categoryData.findIndex(category => category.categoryId === categoryId)
+
+        if (existeIndex === -1) {
+          const metaData = { categoryId, data: action.payload }
+          state.categoryData.push(metaData)
+        }
         state.loading = false
         state.error = false
       })
@@ -59,4 +72,6 @@ const foodsSlice = createSlice({
   }
 })
 
+export const { addToproductsByKeyword, clearProductByKeyword } = foodsSlice.actions
+export const selectFoods = state => state.foods.data
 export default foodsSlice.reducer
