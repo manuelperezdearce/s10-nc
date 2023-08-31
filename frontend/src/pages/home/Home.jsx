@@ -25,7 +25,7 @@ const Home = () => {
   return (
     <div className='mt-[0] w-full font-parrafo text-[2rem]'>
       <Banner />
-      <Features/>
+      <Features />
       <SeeCategories />
       <ProductDay />
       <CardSlider />

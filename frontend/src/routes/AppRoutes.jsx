@@ -7,6 +7,7 @@ import Menus from '../pages/Menus/Menus'
 import Contact from '../pages/Contact/Contact'
 import ListOfProducts from '../pages/ListOfProducts/ListOfProducts'
 import RestaurantID from '../pages/restaurant/RestaurantID'
+import LoginUser from '../pages/Login/Login'
 
 const AppRoutes = () => {
   return (
@@ -21,6 +22,7 @@ const AppRoutes = () => {
       <Route path='/contact' element={<Contact />} />
       <Route path='/search' element={<ListOfProducts />} />
       <Route path='*' element={<NotFound />} />
+      <Route path='/login' element={<LoginUser />} />
     </Routes>
   )
 }
