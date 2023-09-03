@@ -13,7 +13,7 @@ export const getFoodsByCategoryId = createAsyncThunk('foods/getFoodsByCategoryId
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(foods.filter(food => food.id_category === categoryId))
-    }, 2000)
+    }, 200)
   })
 })
 
