@@ -96,7 +96,7 @@ export const foods = [
     name: 'Bife de Chorizo',
     description: 'Jugoso bife de chorizo con papas asadas y chimichurri.',
     price: 850, // Pesos argentinos
-    linkImage: 'bife_chorizo.jpg',
+    linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693782539/fitnessMatket/bifeDeChorixzo_o2bnzc.jpg',
     id_category: 3,
     id_restaurant: 3
   },
