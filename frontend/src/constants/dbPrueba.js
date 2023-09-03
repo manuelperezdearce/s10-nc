@@ -417,3 +417,55 @@ export const foods = [
   }
 
 ]
+
+export const USERS = [
+  {
+    id: '001',
+    userID: '001',
+    email: 'arnold.schwarzengger@email.com',
+    name: 'Arnold Schwarzenegger',
+    address: 'Av. Regimiento 5555, Springfield, Argentina',
+    phone: '+56 999 999 999',
+    createdAt: '01/01/1999',
+    photo: 'https://upload.wikimedia.org/wikipedia/commons/e/ed/Arnold_Schwarzenegger_by_Gage_Skidmore_4_%28cropped%29.jpg'
+  }
+]
+
+export const OrderListDATA = [
+  {
+    id: '01',
+    customerID: '05',
+    createdAt: '21 de agosto 2023',
+    totalPrice: '68000',
+    totalQuantity: '6'
+  },
+  {
+    id: '02',
+    customerID: '01',
+    createdAt: '03 de febrero 2023',
+    totalPrice: '99000',
+    totalQuantity: '10'
+  },
+  {
+    id: '03',
+    customerID: '05',
+    createdAt: '01 de marzo 2023',
+    totalPrice: '18600',
+    totalQuantity: '2'
+  },
+  {
+    id: '04',
+    customerID: '05',
+    createdAt: '08 de junio 2022',
+    totalPrice: '25000',
+    totalQuantity: '3'
+  },
+  {
+    id: '05',
+    customerID: '03',
+    createdAt: '01 enero 2022',
+    totalPrice: '56000',
+    totalQuantity: '4'
+  }
+
+]
