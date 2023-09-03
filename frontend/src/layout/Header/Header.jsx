@@ -1,15 +1,15 @@
 // import React, { useState } from 'react'
 // import { Link } from 'react-router-dom'
 
-import "./header.css"
+import './header.css'
 // import { IoPersonCircleOutline, IoCartOutline } from 'react-icons/io5'
 // import SearchButton from '../../components/searchButton/SearchButton'
-import NavBar from "../../components/navBar/NavBar"
-import Toggle from "../../components/toggle/Toggle"
+import NavBar from '../../components/navBar/NavBar'
+import Toggle from '../../components/toggle/Toggle'
 
 const Header = () => {
   return (
-    <header className="headerContainer fixed top-0 lg:left-0 w-[100%]  h-[80px] lg:h-auto  text-blackCustom flex justify-center items-center font-bold text-xl uppercase text-center pt-[1rem] lg:p-[1rem] z-10">
+    <header className='headerContainer fixed top-0 lg:left-0 w-[100%]  h-[80px] lg:h-auto  text-blackCustom flex justify-center items-center font-bold text-xl uppercase text-center pt-[1rem] lg:p-[1rem] z-10'>
       <NavBar />
       <Toggle />
     </header>

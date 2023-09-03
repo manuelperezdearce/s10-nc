@@ -11,7 +11,7 @@ const NavUtils = () => {
     >
       <SearchButton />
       <Link
-        to='/perfil'
+        to='/profile'
         className='w-[170px] h-[40px] p-3 rounded-[30px] flex flex-row flex-nowrap justify-start items-center content-center gap-2 text-[1.2rem] font-normal
         lg:w-[40px] lg:rounded-[50%] bg-lightBrownCustom lg:grid lg:place-content-center lg:text-[1.2rem]'
       >
