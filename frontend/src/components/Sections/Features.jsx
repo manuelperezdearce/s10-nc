@@ -26,8 +26,8 @@ export default function Features () {
     <div className='bg-white text-greyCustom flex flex-col px-5 gap-y-10 py-10 md:pt-28'>
 
       <div className='flex flex-col gap-y-5 md:flex-row md:gap-x-5 max-w-7xl mx-auto'>
-        {featuresData.map(featureData => (
-          <div className='flex flex-col items-center gap-3'>
+        {featuresData.map((featureData, index) => (
+          <div key={index} className='flex flex-col items-center gap-3'>
             <p className='text-2xl bg-gray-200 p-3 rounded-full'>{featureData.icon}</p>
             <p className='text-black text-xl'>{featureData.title}</p>
             <p className='text-center text-base'>{featureData.body}</p>
