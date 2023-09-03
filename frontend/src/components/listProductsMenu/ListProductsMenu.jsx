@@ -12,6 +12,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import './carruselPerfil.css'
 import Loader from '../loader/Loader'
+import { IoChevronBackSharp, IoChevronForwardSharp } from 'react-icons/io5'
 
 const ListProductsMenu = ({ categoryId }) => {
   const dispatch = useDispatch()
@@ -46,9 +47,9 @@ const ListProductsMenu = ({ categoryId }) => {
         : (
             filteredData[0]?.data.length > 0
               ? (
-                <section className='w-100 h-auto'>
+                <section className='sweepCardMenu w-100 h-[350px] flex justify-center items-center content-center'>
                   <Swiper
-                    className='mySwipper'
+                    className='mySwipper h-[100%]  flex justify-center items-center content-center'
                     modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
                     // modules={[Navigation, Pagination, Scrollbar, A11y]}
                     spaceBetween={50}
@@ -65,33 +66,33 @@ const ListProductsMenu = ({ categoryId }) => {
                     slidesPerView={1} // Valor por defecto para pantallas pequeñas
                     breakpoints={{
                       576: {
-                        slidesPerView: 2
+                        slidesPerView: 1
                       },
                       768: {
-                        slidesPerView: 3 // Mostrar 2 tarjetas en pantallas con un ancho mínimo de 768px (tabletas)
+                        slidesPerView: 2 // Mostrar 2 tarjetas en pantallas con un ancho mínimo de 768px (tabletas)
                       },
                       992: {
-                        slidesPerView: 4 // Mostrar 3 tarjetas en pantallas con un ancho mínimo de 992px (pantallas grandes)
+                        slidesPerView: 3 // Mostrar 3 tarjetas en pantallas con un ancho mínimo de 992px (pantallas grandes)
                       },
                       1200: {
-                        slidesPerView: 5 // Mostrar 4 tarjetas en pantallas con un ancho mínimo de 1200px (pantallas más grandes)
+                        slidesPerView: 4 // Mostrar 4 tarjetas en pantallas con un ancho mínimo de 1200px (pantallas más grandes)
                       }
                     }}
                   >
                     {
                       filteredData[0]?.data.map((food, index) => {
                         return (
-                          <SwiperSlide key={index} className='swipperSlider'>
+                          <SwiperSlide key={index} className='swipperSlider pt-0 h-[100%] flex justify-center items-center content-center'>
                             <CardMenu object={food} />
                           </SwiperSlide>
                         )
                       })
                     }
                     <div className='swiper-button-next'>
-                      <ion-icon style={{ color: 'var(--background-naClaro)' }} name='chevron-forward-sharp' />
+                      <IoChevronForwardSharp />
                     </div>
                     <div className='swiper-button-prev'>
-                      <ion-icon style={{ color: 'var(--background-naClaro)' }} name='chevron-back-sharp' />
+                      <IoChevronBackSharp />
                     </div>
                   </Swiper>
                 </section>
