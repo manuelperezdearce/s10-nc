@@ -21,7 +21,7 @@ const ListProductsMenu = ({ categoryId }) => {
 
   // const foodState = []
   const filteredData = foodState?.map(category => {
-    if (category.categoryId === categoryId) {
+    if (category?.categoryId === categoryId) {
       return {
         categoryId: category.categoryId,
         data: category.data.filter(item => item.id_category === categoryId)
@@ -82,7 +82,7 @@ const ListProductsMenu = ({ categoryId }) => {
                       filteredData[0]?.data.map((food, index) => {
                         return (
                           <SwiperSlide key={index} className='swipperSlider'>
-                            <CardMenu key={food.id} object={food} />
+                            <CardMenu object={food} />
                           </SwiperSlide>
                         )
                       })
