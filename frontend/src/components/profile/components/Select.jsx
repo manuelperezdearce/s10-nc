@@ -1,8 +1,8 @@
-export default function Select ({ label, options }) {
+export default function Select ({ label, options, HandleSelect }) {
   return (
     <div className='flex flex-col'>
       <label htmlFor=''>{label}</label>
-      <select name='' id='' className='bg-whiteCustom border rounded-md p-2 w-[200px] '>
+      <select name={label} onChange={HandleSelect} id='' className='bg-whiteCustom border rounded-md p-2 w-[200px] '>
         {
           options.map(({ children, value }) => {
             return (

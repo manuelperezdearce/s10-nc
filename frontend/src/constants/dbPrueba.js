@@ -420,8 +420,8 @@ export const foods = [
 
 export const USERS = [
   {
-    id: '001',
-    userID: '001',
+    id: '005',
+    userID: '005',
     email: 'arnold.schwarzengger@email.com',
     name: 'Arnold Schwarzenegger',
     address: 'Av. Regimiento 5555, Springfield, Argentina',
@@ -433,38 +433,45 @@ export const USERS = [
 
 export const OrderListDATA = [
   {
-    id: '01',
-    customerID: '05',
+    orderID: '01',
+    customerID: '005',
     createdAt: '21 de agosto 2023',
     totalPrice: '68000',
     totalQuantity: '6'
   },
   {
-    id: '02',
-    customerID: '01',
+    orderID: '02',
+    customerID: '001',
     createdAt: '03 de febrero 2023',
     totalPrice: '99000',
     totalQuantity: '10'
   },
   {
-    id: '03',
-    customerID: '05',
+    orderID: '03',
+    customerID: '005',
     createdAt: '01 de marzo 2023',
     totalPrice: '18600',
     totalQuantity: '2'
   },
   {
-    id: '04',
-    customerID: '05',
+    orderID: '04',
+    customerID: '005',
     createdAt: '08 de junio 2022',
     totalPrice: '25000',
     totalQuantity: '3'
   },
   {
-    id: '05',
-    customerID: '03',
+    orderID: '05',
+    customerID: '003',
     createdAt: '01 enero 2022',
     totalPrice: '56000',
+    totalQuantity: '4'
+  },
+  {
+    orderID: '06',
+    customerID: '005',
+    createdAt: '02 enero 2021',
+    totalPrice: '86000',
     totalQuantity: '4'
   }
 

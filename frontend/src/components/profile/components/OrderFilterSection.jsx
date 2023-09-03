@@ -7,11 +7,16 @@ const Data = [
     options: [
       {
         value: '0',
-        children: 'Ascendente'
+        children: 'Seleccionar orden'
 
       },
       {
         value: '1',
+        children: 'Ascendente'
+
+      },
+      {
+        value: '2',
         children: 'Descendente'
 
       }
@@ -22,11 +27,16 @@ const Data = [
     options: [
       {
         value: '0',
-        children: 'Más recientes'
+        children: 'Seleccionar orden'
 
       },
       {
         value: '1',
+        children: 'Más recientes'
+
+      },
+      {
+        value: '2',
         children: 'Menos recientes'
 
       }
@@ -34,8 +44,18 @@ const Data = [
   }
 ]
 
-export default function OrderFilterSection () {
+export default function OrderFilterSection ({ OrderListArray, setOrderListArray }) {
   const Selects = Data
+
+  const HandleSelect = (event) => {
+    if (event.target.name === 'Precio') {
+      console.log(event.target.selectedIndex)
+    }
+    if (event.target.name === 'Fecha') {
+      console.log(event.target.selectedIndex)
+    }
+  }
+
   return (
     <section className='flex flex-col  max-w-screen-lg text-blackCustom gap-5 w-[90%] md:w-[80%] lg:w-[90%] '>
       <article className='flex items-center  text-3xl sm:text-4xl'>
@@ -50,6 +70,7 @@ export default function OrderFilterSection () {
               key={label}
               label={label}
               options={options}
+              HandleSelect={HandleSelect}
             />
           )
         })

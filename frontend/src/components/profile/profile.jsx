@@ -1,10 +1,11 @@
-import { USERS } from '../../constants/dbPrueba'
+import { USERS, OrderListDATA } from '../../constants/dbPrueba'
 import UserInfo from './components/userInfo'
 import OrderList from './components/OrderList'
-import OrderFilterSection from './components/OrderFilterSection'
+import { useState } from 'react'
 
 export default function ProfilePage () {
   const { id, createdAt, userID, name, phone, address, photo, email } = USERS[0]
+  const [OrderListArray, setOrderListArray] = useState(OrderListDATA.filter(item => item.customerID === id))
 
   return (
     <div className='containerRestaurants lg:mt-[130px] w-full my-11 min-h-[400px] flex flex-col justify-start items-center content-center bg-whiteCustom gap-6 border-2 border-r-emerald-200 '>
@@ -18,8 +19,10 @@ export default function ProfilePage () {
         photo={photo}
         email={email}
       />
-      <OrderFilterSection />
-      <OrderList />
+      <OrderList
+        OrderListArray={OrderListArray}
+        setOrderListArray={setOrderListArray}
+      />
     </div>
 
   )
