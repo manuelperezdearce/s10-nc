@@ -1,9 +1,10 @@
 const { Orders } = require('../db/models/order.model');
+const { createOrderInOrderDetails } = require('../tableRelationshipManager/orderInDetailsOrder');
 
 const getOrders = async (req, res) => {
   try {
-    const oders = await Orders.findAll();
-    res.status(200).json(oders);
+    const orders = await Orders.findAll();
+    res.status(200).json(orders);
   } catch (err) {
     console.log(err);
   }
@@ -20,12 +21,15 @@ const getOrder = async (req, res) => {
 };
 
 const createOrder = async (req, res) => {
-  const body = req.body;
+  const { total_price,customer_id } = req.body;
   try {
-    const newOrder = await Orders.create(body);
+    const newOrder = await Orders.create({ customer_id, total_price });
+    
+    createOrderInOrderDetails(newOrder.id,req)
+
     res.status(201).json(newOrder);
   } catch (err) {
-    console.log(err);
+    res.status(404).json({message:err.message})
   }
 };
 
