@@ -22,13 +22,11 @@ Roles.init({
   timestamps: false
 });
 
-Roles.hasMany(User, {
-  foreignKey: 'Role_Id',
-  sourceKey:'id'
+Roles.hasMany(User,{
+  foreignKey:"role_id"
 });
 User.belongsTo(Roles,{
-  foreignKey: 'Role_Id',
-  targetKey:'id'
+  foreignKey:"role_id"
 });
 
 module.exports = { Roles };

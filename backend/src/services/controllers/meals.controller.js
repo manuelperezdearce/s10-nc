@@ -10,36 +10,53 @@ const getMeals = async (req, res) => {
 };
 
 const getMeal = async (req, res) => {
-  const { id } = req.params;
-  try {
-    const meal = await Meals.findByPk(id);
+  const key = Object.keys(req.query);
+  const value = Object.values(req.query)
+  
+   try {
+    const meal = await Meals.findOne({
+      where: { [key]:value },
+    });
+    if (!meal) {
+      return res.status(404).send('meal not found');
+    }
     res.status(200).json(meal);
   } catch (err) {
     console.log(err);
-  }
-};
-
-// /meal/:catId
-const getMealsByCategory = async (req, res) => {
-  const { categoryId } = req.params;
-  try {
-    const meals = await Meals.findAll({
-      where: {
-        categoryId: categoryId,
-      },
-    });
-    meals
-      ? res.status(200).json(meals)
-      : res.status(400).send('No se han encontrado platillos');
-  } catch (err) {
-    console.log(err);
-  }
+    return res.status(500).send('Internal server error');
+  } 
 };
 
 const createMeal = async (req, res) => {
-  const body = req.body;
+  const {
+    name,
+    price,
+    image,
+    description,
+    category_id,
+    restaurant_id,
+    is_vegan,
+    is_glutenfree,
+    is_proteinplus,
+    role_id
+  } = req.body;
+
+  if(role_id !== "2"){
+    return res.status(401).send("Unauthorized")
+  }
+
   try {
-    const newMeal = await Meals.create(body);
+    const newMeal = await Meals.create({
+      name,
+      price,
+      category_id,
+      restaurant_id,
+      image,
+      description,
+      is_vegan,
+      is_glutenfree,
+      is_proteinplus,
+    });
     newMeal;
     res.status(201).json(newMeal);
   } catch (err) {
@@ -51,21 +68,21 @@ const updateMeal = async (req, res) => {
   const { id } = req.params;
   const body = req.body;
   try {
-    const updatedMeal = await Meals.update(
-      {
-        body,
+    const meal = await Meals.findOne({
+      where: {
+        id,
       },
-      {
-        where: {
-          id: id,
-        },
-      },
-    );
-    updatedMeal
-      ? res.status(201).json(updatedMeal)
-      : res.status(400).send('Meal not found');
+    });
+    if (!meal) {
+      return res.status(400).send('Meal not found');
+    }
+
+    await meal.update(body);
+
+    res.status(201).json({ message: 'Meal update', meal: meal });
   } catch (err) {
-    console.log(err);
+    console.error(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -90,6 +107,5 @@ module.exports = {
   getMeal,
   updateMeal,
   createMeal,
-  getMealsByCategory,
   deleteMeal,
 };

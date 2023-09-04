@@ -1,6 +1,7 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
 const  sequelize  = require('../config');
 const { Orders } = require("../models/order.model");
+const { User } = require('./user.model');
 
 
 class Customers extends Model {}
@@ -17,14 +18,16 @@ Customers.init({
     allowNull: false,
     type: DataTypes.STRING(30),
   },
-  adress: {
+  address: {
     allowNull: false,
     type: DataTypes.STRING,
   },
-  phone: {
+  phone_number: {
     allowNull: false,
-    type: DataTypes.STRING(10),
+    type: DataTypes.INTEGER,
   },
+  
+  
   createdAt: {
     allowNull: false,
     type: DataTypes.DATE,
@@ -44,6 +47,14 @@ Customers.hasMany(Orders, {
 Orders.belongsTo(Customers,{
   foreignKey: 'user_id',
   targetKey:'id'
+});
+Customers.hasMany(User, {
+  foreignKey: 'customer_id',
+  sourceKey: 'id',
+});
+User.belongsTo(Customers, {
+  foreignKey: 'customer_id',
+  targetKey: 'id',
 });
 
 module.exports = { Customers };
