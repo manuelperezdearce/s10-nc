@@ -20,13 +20,13 @@ const Detail = () => {
   const { id } = useParams()
   console.log('producto con id: ', id)
   return (
-    <section className='detail mt-0 lg:mt-[120px] w-[100%] h-[400px] bg-green-300 p-4 flex gap-3'>
+    <section className='detail mt-0 pt-5 lg:mt-[120px] w-[100%] h-[500px] bg-green-300 flex gap-3'>
       <section className='containImage w-1/2 h-[100%] bg-blue-200'>
         <img className='w-[100%] h-[100%] object-cover p-0 rounded-sm' src={`${object?.linkImage}`} alt={`${object?.name}`} />
 
       </section>
-      <section className='containInfo w-1/2 h-[100%] bg-blue-200 flex flex-col justify-start items-start gap-3'>
-        <div className='clasesFood flex flex-col justify-start items-start gap-0'>
+      <section className='containInfo w-1/2 h-[100%] bg-white flex flex-col justify-start items-start gap-4 px-3'>
+        <div className='clasesFood flex flex-col justify-start items-start gap-3'>
           <h2 className='text-3xl font-bold text-marronCustom text-left'>{object?.name}</h2>
           <ul className='listAtributes flez flex flex-row justify-start items-center gap-3 bg-blue-300'>
             <li className='itemListAtr flex justify-start items-center gap-1 text-marronCustom font-normal text-base'><IoCheckmarkSharp style={{ color: 'green', fontSize: '1.2rem' }} />Vegano</li>

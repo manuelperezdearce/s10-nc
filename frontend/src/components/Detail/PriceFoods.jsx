@@ -2,11 +2,23 @@ import React from 'react'
 import Contador from './Contador'
 
 const PriceFoods = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('submit')
+  }
   return (
-    <section className='botoneraPriceFood w-[100%] flex flex-row justify-between items-between'>
-      <Contador />
-      <span className='text-lg font-medium text-green-500'>720</span>
-    </section>
+    <form className='w-[100%] h-auto flex flex-col justify-center items-start gap-5' onSubmit={handleSubmit}>
+      <section className='botoneraPriceFood w-[100%] flex flex-row justify-between items-center content-center'>
+        <Contador />
+
+        <section className='containPriceProduct flex flex-col justify-center items-start  gap-1'>
+          <h2 className='text-xl font-parrafo font-bold text-green-500 '>$720</h2>
+          <p className='font-titulo font-normal text-sm text-marronCustom '>+12% IVA</p>
+        </section>
+
+      </section>
+      <button type='submit' className='bg-greenCustom w-[100%] h-[40px] rounded-sm text-whiteCustom border-2 border-greenCustom font-titulo font-semibold text-base hover:bg-whiteCustom hover:border-lightBrownCustom hover:text-lightBrownCustom transition-all duration-200 ease-linear'>Add to Card</button>
+    </form>
 
   )
 }
