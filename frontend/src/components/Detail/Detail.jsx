@@ -34,9 +34,9 @@ const Detail = () => {
           <section className='w-[100%] max-w-[620px] h-[100%] flex flex-col justify-start items-start gap-4'>
             <div className='clasesFood flex flex-col justify-start items-start gap-3'>
               <h2 className='text-3xl font-bold text-marronCustom text-left'>{object?.name}</h2>
-              <ul className='listAtributes flez flex flex-row justify-start items-center gap-3 bg-blue-300'>
+              <ul className='listAtributes flez flex flex-row justify-start items-center gap-3 '>
                 <li className='itemListAtr flex justify-start items-center gap-1 text-marronCustom font-normal text-base'><IoCheckmarkSharp style={{ color: 'green', fontSize: '1.2rem' }} />Vegano</li>
-                <li className='itemListAtr flex justify-start items-centenpmr gap-1 text-marronCustom font-normal text-base'><IoCheckmarkSharp style={{ color: 'green', fontSize: '1.2rem' }} />Gluten</li>
+                <li className='itemListAtr flex justify-start items-center gap-1 text-marronCustom font-normal text-base'><IoCheckmarkSharp style={{ color: 'green', fontSize: '1.2rem' }} />Gluten</li>
                 <li className='itemListAtr flex justify-start items-center gap-1 text-marronCustom font-normal text-base'><IoCloseSharp style={{ color: 'red', fontSize: '1.2rem' }} />Proteinas</li>
               </ul>
             </div>
