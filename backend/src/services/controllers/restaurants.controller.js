@@ -60,7 +60,7 @@ const createRestaurant = async (req, res) => {
     image,
   } = req.body;
 
-  if( role_id !== "2") return res.status(401).send('Authorized only for restaurants')
+  if( role_id !== 2) return res.status(401).send('Authorized only for restaurants')
 
   try {
     const newRestaurant = await Restaurant.create({
