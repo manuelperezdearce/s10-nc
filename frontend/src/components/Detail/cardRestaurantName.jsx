@@ -1,42 +1,36 @@
-import React from 'react'
-import BtnEditProfileRestaurant from '../Buttons/BtnEditProfileRestaurant'
-import BtnUploadImgProfileRestaurant from '../Buttons/BtnUploadImgProfileRestaurant'
+import { useSelector, useDispatch } from 'react-redux'
+import React, { useEffect } from 'react'
 import { IoLocationSharp } from 'react-icons/io5'
 import { BsTelephoneFill } from 'react-icons/bs'
 import { BiSolidTimeFive } from 'react-icons/bi'
-import { useDispatch } from 'react-redux'
+import { getRestaurantById } from '../../features/restaurantes/restaurantsSlice'
 
-const cardRestaurantName = () => {
+const CardRestaurantName = ({ idRestaurant }) => {
   const dispatch = useDispatch()
+  const restaurant = useSelector((state) => state.restaurants?.restaurantById)
 
+  useEffect(() => {
+    dispatch(getRestaurantById(idRestaurant))
+  }, [idRestaurant, dispatch])
+
+  console.log('restaurant: ', restaurant)
   return (
-    <div className='flex flex-col md:flex-row gap-y-5 gap-x-10'>
+    <section className='w-[100%] h-auto flex flex-row justify-between items-center gap-1'>
 
-      {/* -------------------- Image */}
-      <div className='relative mx-auto'>
-        <img src='https://res.cloudinary.com/dpiwmbsog/image/upload/v1692745587/fitnessMatket/rest4_qcdlvq.jpg' alt='' className='w-full max-w-sm' />
-        <div className='absolute bottom-8 right-8'><BtnUploadImgProfileRestaurant /></div>
+      <section className='w-[100px] h-[100px] lg:w-1/2 lg:h-auto lg:aspect-square overflow-hidden bg-red-300'>
+        <img src={restaurant?.linkImage} alt={restaurant?.name} className='w-[100%] h-[100%] object-contain lg:object-cover rounded-md' />
+      </section>
+
+      <div className='w-1/2 flex flex-col justify-start items-start gap-1 overflow-hidden text-brownCustom'>
+        <h2 className='font-titulo text-xl font-bold text-marronCustom'>{restaurant?.name}</h2>
+        <h3 className='font-parrafo text-base font-normal text-marronCustom'>{restaurant?.especiality}</h3>
+        <p className='flex items-center gap-x-2'><span className='text-greenCustom2 text-lg'><IoLocationSharp /></span>Av. Vegana Springfiels</p>
+        <p className='flex items-center gap-x-2'><span className='text-greenCustom2 text-lg'><BsTelephoneFill /></span>9676455432</p>
+        <p className='flex items-center gap-x-2'><span className='text-greenCustom2 text-lg'><BiSolidTimeFive /></span>Desde 09:00 - 19:00</p>
       </div>
 
-      {/* -------------------- Information */}
-      <div>
-        <div className='mb-8'>
-          <p className='text-3xl font-bold'>Nombre del restaurant</p>
-          <p className='text-xl'>Especialidad</p>
-        </div>
-        <div className='mt-4 flex flex-col gap-y-3'>
-          <p className='flex items-center gap-x-2'><span className='text-greenCustom2 text-lg'><IoLocationSharp /></span>Av. Vegana Springfiels</p>
-          <p className='flex items-center gap-x-2'><span className='text-greenCustom2 text-lg'><BsTelephoneFill /></span>9676455432</p>
-          <p className='flex items-center gap-x-2'><span className='text-greenCustom2 text-lg'><BiSolidTimeFive /></span>Desde 09:00 - 19:00</p>
-          <p className='text-base text-greyCustom'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo, corrupti hic. Aliquid laboriosam perspiciatis accusamus?</p>
-        </div>
-        <div className='mt-8'>
-          <BtnEditProfileRestaurant />
-        </div>
-      </div>
-
-    </div>
+    </section>
   )
 }
 
-export default cardRestaurantName
+export default CardRestaurantName

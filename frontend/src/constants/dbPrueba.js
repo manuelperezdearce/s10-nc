@@ -25,50 +25,86 @@ export const restaurants = [
   {
     id: 1,
     name: 'Restaurante Sabores Verdes',
+    description: 'Un lugar donde la frescura se encuentra con la creatividad culinaria.',
+    especiality: 'Comida vegetariana y vegana',
     address: 'Av. Principal 123, Ciudad',
-    email: 'contacto@saboresverdes.com',
     phone: '123-456-7890',
-    linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693184564/fitnessMatket/restauran05_z0lq5r.jpg'
+    city: 'Buenos Aires',
+    email: 'contacto@saboresverdes.com',
+    linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693184564/fitnessMatket/restauran05_z0lq5r.jpg',
+    time_close: '20:00', // Hora de cierre
+    time_open: '11:00', // Hora de apertura
+    created_At: '2023-09-05' // Fecha de creación o apertura
   },
   {
     id: 2,
     name: 'Pasta Paradise',
+    description: 'Disfruta de auténtica comida italiana en un ambiente acogedor.',
+    especiality: 'Pasta y pizzas italianas',
     address: 'Calle Italia 456, Pueblo',
-    email: 'info@pastaparadise.com',
     phone: '987-654-3210',
-    linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693184564/fitnessMatket/restauran02_koesio.jpg'
+    city: 'Roma', // Ciudad ficticia
+    email: 'info@pastaparadise.com',
+    linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693184564/fitnessMatket/restauran02_koesio.jpg',
+    time_close: '22:00', // Hora de cierre ficticia
+    time_open: '12:00', // Hora de apertura ficticia
+    created_At: '2022-05-15' // Fecha de creación ficticia
   },
   {
     id: 3,
     name: 'Asador Criollo',
+    description: 'El mejor lugar para disfrutar de carnes a la parrilla en un ambiente rústico.',
+    especiality: 'Carnes a la parrilla',
     address: 'Ruta Carnívora 789, Villa',
-    email: 'reservas@asadorcriollo.com',
     phone: '567-890-1234',
-    linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693184564/fitnessMatket/restauran04_txiwwi.jpg'
+    city: 'Buenos Aires', // Ciudad ficticia
+    email: 'reservas@asadorcriollo.com',
+    linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693184564/fitnessMatket/restauran04_txiwwi.jpg',
+    time_close: '23:00', // Hora de cierre ficticia
+    time_open: '18:00', // Hora de apertura ficticia
+    created_At: '2021-11-20' // Fecha de creación ficticia
   },
   {
     id: 4,
     name: 'Sabor Oriental',
+    description: 'Viaja al lejano oriente con nuestros deliciosos platos asiáticos.',
+    especiality: 'Comida asiática',
     address: 'Calle Sushi 789, Ciudad Oriental',
-    email: 'info@sabororiental.com',
     phone: '567-123-4567',
-    linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1692745587/fitnessMatket/rest4_qcdlvq.jpg'
+    city: 'Tokio', // Ciudad ficticia
+    email: 'info@sabororiental.com',
+    linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1692745587/fitnessMatket/rest4_qcdlvq.jpg',
+    time_close: '21:30', // Hora de cierre ficticia
+    time_open: '11:30', // Hora de apertura ficticia
+    created_At: '2020-08-10' // Fecha de creación ficticia
   },
   {
     id: 5,
     name: 'PizzaMania',
+    description: 'El paraíso de las pizzas con una variedad de sabores para todos los gustos.',
+    especiality: 'Pizzas',
     address: 'Avenida Pizza 456, Villa Pizzera',
-    email: 'contacto@pizzamania.com',
     phone: '890-234-5678',
-    linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1692745587/fitnessMatket/rest1_kfyb0q.jpg'
+    city: 'Nápoles', // Ciudad ficticia
+    email: 'contacto@pizzamania.com',
+    linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1692745587/fitnessMatket/rest1_kfyb0q.jpg',
+    time_close: '22:30', // Hora de cierre ficticia
+    time_open: '12:30', // Hora de apertura ficticia
+    created_At: '2019-04-03' // Fecha de creación ficticia
   },
   {
     id: 6,
     name: 'Delicias Marinas',
+    description: 'Saborea los mejores platos de mariscos frescos en un ambiente junto al mar.',
+    especiality: 'Mariscos y pescados',
     address: 'Calle Pescado 123, Ciudad Costera',
-    email: 'reservas@deliciasmarinas.com',
     phone: '678-345-6789',
-    linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693184564/fitnessMatket/restauran01_ukrpjt.jpg'
+    city: 'Miami', // Ciudad ficticia
+    email: 'reservas@deliciasmarinas.com',
+    linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693184564/fitnessMatket/restauran01_ukrpjt.jpg',
+    time_close: '20:00', // Hora de cierre ficticia
+    time_open: '11:30', // Hora de apertura ficticia
+    created_At: '2022-02-08' // Fecha de creación ficticia
   }
 ]
 
@@ -542,6 +578,25 @@ export const USERS = [
     phone: '+56 999 999 999',
     createdAt: '01/01/1999',
     photo: 'https://upload.wikimedia.org/wikipedia/commons/e/ed/Arnold_Schwarzenegger_by_Gage_Skidmore_4_%28cropped%29.jpg'
+  },
+  {
+    id: '002',
+    userID: '002',
+    email: 'guillermoneculqueo@email.com',
+    name: 'Guillermo NEculqueo',
+    address: 'Argentina, Bariloche, centro',
+    phone: '2944396887',
+    createdAt: '01/01/1999',
+    photo: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1686264426/PERFIL_GENERAL_hbngdm.jpg'
+  },
+  {
+    id: '003',
+    userID: '003',
+    email: 'pepito@email.com',
+    name: 'Pepe Pep',
+    address: 'Luis María Drago 1581, Villa Adelina, Provincia de Buenos Aires',
+    createdAt: '01/01/1999',
+    photo: 'https://res.cloudinary.com/dpiwmbsog/video/upload/v1661990129/samples/cld-sample-video.mp4'
   }
 ]
 

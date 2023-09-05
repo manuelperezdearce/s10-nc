@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 import { IoCheckmarkSharp, IoCloseSharp } from 'react-icons/io5'
 import { useParams } from 'react-router-dom'
 import PriceFoods from './PriceFoods'
-import InfoProfileRestaurant from '../Sections/InfoProfileRestaurant'
 import { useDispatch, useSelector } from 'react-redux'
 import { getFoodsById } from '../../features/foods/foodsSlice'
+import CardRestaurantName from './cardRestaurantName'
 
 const Detail = () => {
   const dispatch = useDispatch()
@@ -45,7 +45,7 @@ const Detail = () => {
 
           </section>
           <section className='w-[100%] h-[300px] overflow-hidden  grid place-content-center'>
-            <InfoProfileRestaurant />
+            <CardRestaurantName idRestaurant={product.id_restaurant} />
           </section>
         </section>
       </section>

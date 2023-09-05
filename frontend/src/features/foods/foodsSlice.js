@@ -26,16 +26,18 @@ export const getFoodsById = createAsyncThunk('foods/getFoodsById', async (id, th
   })
 })
 
+const initialState = {
+  data: [],
+  categoryData: [],
+  productByid: {},
+  productsByKeyword: [],
+  loading: false,
+  error: false
+}
+
 const foodsSlice = createSlice({
   name: 'foods',
-  initialState: {
-    data: [],
-    categoryData: [],
-    productByid: {},
-    productsByKeyword: [],
-    loading: false,
-    error: false
-  },
+  initialState,
   reducers: {
     addToproductsByKeyword: (state, action) => {
       state.productsByKeyword = []
@@ -96,5 +98,4 @@ const foodsSlice = createSlice({
 })
 
 export const { addToproductsByKeyword, clearProductByKeyword } = foodsSlice.actions
-export const selectFoods = state => state.foods.data
 export default foodsSlice.reducer
