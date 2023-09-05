@@ -33,16 +33,17 @@ const getCustomer = async (req, res) => {
 
 // Asynchronous functio to create customers
 const createCustomer = async (req, res) => {
-  const { name, address, phone_number } = req.body;
+  const { name, address, phone_number,role_id,user_id } = req.body;
+
+  if( role_id !== "1") return res.status(401).send('Authorized only for customers')
 
   const newCustomers = await Customers.create({
+    
+    user_id,
     name,
     address,
     phone_number,
   });
-
-//function to insert customers in user table
-  createCustomerAsUser(newCustomers.id, req);
 
 //this variable contains the validate token
   const token = createToken(newCustomers.id);

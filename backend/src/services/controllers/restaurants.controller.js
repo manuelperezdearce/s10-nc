@@ -47,6 +47,8 @@ const getRestaurantByCity = async (req, res) => {
 
 const createRestaurant = async (req, res) => {
   const {
+    role_id,
+    user_id,
     name,
     description,
     speciality,
@@ -58,8 +60,11 @@ const createRestaurant = async (req, res) => {
     image,
   } = req.body;
 
+  if( role_id !== "2") return res.status(401).send('Authorized only for restaurants')
+
   try {
     const newRestaurant = await Restaurant.create({
+      user_id,
       name,
       description,
       speciality,
@@ -71,8 +76,6 @@ const createRestaurant = async (req, res) => {
       image,
     });
 
-    //function to insert restaurant in user table
-    createRestaurantAsUser(newRestaurant.id,req);
     //this variable contains the validate token
     const token = createToken(newRestaurant.id);
     res.status(200).json({Error:false, restaurant:newRestaurant,Token:token});
