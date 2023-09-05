@@ -5,6 +5,7 @@ import './searchButton.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToproductsByKeyword, getFoods } from '../../features/foods/foodsSlice'
 import filtersProductsByKeyword from '../../hooks/filtersProductsByKeyword'
+import { setActiveIndex } from '../../features/nav/navSlice'
 
 const SearchButton = () => {
   const dispatch = useDispatch()
@@ -22,6 +23,7 @@ const SearchButton = () => {
       setTimeout(() => {
         navigate('/search')
         setRedirect(false)
+        dispatch(setActiveIndex(null))
       }, 2000)
     }
   }, [redirect])

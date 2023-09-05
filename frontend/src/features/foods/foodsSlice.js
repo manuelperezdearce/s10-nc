@@ -17,15 +17,27 @@ export const getFoodsByCategoryId = createAsyncThunk('foods/getFoodsByCategoryId
   })
 })
 
+export const getFoodsById = createAsyncThunk('foods/getFoodsById', async (id, thunkAPI) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const newarr = foods.filter(food => food.id === id)
+      resolve({ ...newarr[0] })
+    }, 200)
+  })
+})
+
+const initialState = {
+  data: [],
+  categoryData: [],
+  productByid: {},
+  productsByKeyword: [],
+  loading: false,
+  error: false
+}
+
 const foodsSlice = createSlice({
   name: 'foods',
-  initialState: {
-    data: [],
-    categoryData: [],
-    productsByKeyword: [],
-    loading: false,
-    error: false
-  },
+  initialState,
   reducers: {
     addToproductsByKeyword: (state, action) => {
       state.productsByKeyword = []
@@ -69,9 +81,21 @@ const foodsSlice = createSlice({
         state.loading = false
         state.error = true
       })
+      .addCase(getFoodsById.pending, state => {
+        state.loading = true
+        state.error = false
+      })
+      .addCase(getFoodsById.fulfilled, (state, action) => {
+        state.productByid = action.payload
+        state.loading = false
+        state.error = false
+      })
+      .addCase(getFoodsById.rejected, state => {
+        state.loading = false
+        state.error = true
+      })
   }
 })
 
 export const { addToproductsByKeyword, clearProductByKeyword } = foodsSlice.actions
-export const selectFoods = state => state.foods.data
 export default foodsSlice.reducer

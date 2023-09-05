@@ -1,5 +1,5 @@
 import { USERS } from '../../constants/dbPrueba'
-import UserInfo from './components/userInfo'
+import UserInfo from './components/UserInfo'
 import OrderList from './components/OrderList'
 import OrderFilterSection from './components/OrderFilterSection'
 
