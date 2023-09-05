@@ -1,7 +1,10 @@
 import React from 'react'
 import Contador from './Contador'
+import { useSelector } from 'react-redux'
 
 const PriceFoods = () => {
+  const product = useSelector((state) => state.foods?.productByid)
+
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('submit')
@@ -12,7 +15,7 @@ const PriceFoods = () => {
         <Contador />
 
         <section className='containPriceProduct flex flex-col justify-center items-start  gap-1'>
-          <h2 className='text-xl font-parrafo font-bold text-green-500 '>$720</h2>
+          <h2 className='text-xl font-parrafo font-bold text-green-500 '>${product?.price}</h2>
           <p className='font-titulo font-normal text-sm text-marronCustom '>+12% IVA</p>
         </section>
 

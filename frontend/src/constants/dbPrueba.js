@@ -80,7 +80,10 @@ export const foods = [
     price: 550, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1692752159/fitnessMatket/fut_banner21_hbdlla.jpg',
     id_category: 1,
-    id_restaurant: 1
+    id_restaurant: 1,
+    is_vegan: true,
+    is_glutenfree: true,
+    is_proteinplus: false
   },
   {
     id: 2,
@@ -89,7 +92,10 @@ export const foods = [
     price: 420, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193708/fitnessMatket/2-Spaghetti_al_Pesto_trtwet.jpg',
     id_category: 2,
-    id_restaurant: 2
+    id_restaurant: 2,
+    is_vegan: true,
+    is_glutenfree: false,
+    is_proteinplus: true
   },
   {
     id: 3,
@@ -98,7 +104,10 @@ export const foods = [
     price: 850, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693782539/fitnessMatket/bifeDeChorixzo_o2bnzc.jpg',
     id_category: 3,
-    id_restaurant: 3
+    id_restaurant: 3,
+    is_vegan: false,
+    is_glutenfree: true,
+    is_proteinplus: true
   },
   {
     id: 4,
@@ -107,7 +116,10 @@ export const foods = [
     price: 120, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193707/fitnessMatket/4-limonada-refrescante_jixcya.jpg',
     id_category: 4,
-    id_restaurant: 1
+    id_restaurant: 1,
+    is_vegan: true,
+    is_glutenfree: true,
+    is_proteinplus: false
   },
   {
     id: 5,
@@ -116,7 +128,10 @@ export const foods = [
     price: 320, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193708/fitnessMatket/5-rol-algas_ewrle8.jpg',
     id_category: 1,
-    id_restaurant: 4
+    id_restaurant: 4,
+    is_vegan: true,
+    is_glutenfree: false,
+    is_proteinplus: false
   },
   {
     id: 6,
@@ -125,7 +140,10 @@ export const foods = [
     price: 480, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193708/fitnessMatket/6-lasagna-de-carne_k1vfi5.jpg',
     id_category: 2,
-    id_restaurant: 5
+    id_restaurant: 5,
+    is_vegan: false,
+    is_glutenfree: false,
+    is_proteinplus: true
   },
   {
     id: 7,
@@ -134,7 +152,10 @@ export const foods = [
     price: 750, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193707/fitnessMatket/7-costillas-BBQ_wkev2m.jpg',
     id_category: 3,
-    id_restaurant: 6
+    id_restaurant: 6,
+    is_vegan: false,
+    is_glutenfree: true,
+    is_proteinplus: true
   },
   {
     id: 8,
@@ -143,7 +164,10 @@ export const foods = [
     price: 180, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193708/fitnessMatket/8-mojito-clasico_uung4u.jpg',
     id_category: 4,
-    id_restaurant: 4
+    id_restaurant: 4,
+    is_vegan: true,
+    is_glutenfree: true,
+    is_proteinplus: false
   },
   {
     id: 9,
@@ -152,7 +176,10 @@ export const foods = [
     price: 350, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193708/fitnessMatket/9-quinoa-salad_ieebvr.jpg',
     id_category: 1,
-    id_restaurant: 1
+    id_restaurant: 1,
+    is_vegan: true,
+    is_glutenfree: true,
+    is_proteinplus: true
   },
   {
     id: 10,
@@ -161,7 +188,10 @@ export const foods = [
     price: 480, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193708/fitnessMatket/10-ravioles-con-sofrito-de-hongos_zgrur8.jpg',
     id_category: 2,
-    id_restaurant: 2
+    id_restaurant: 2,
+    is_vegan: false,
+    is_glutenfree: false,
+    is_proteinplus: true
   },
   {
     id: 11,
@@ -170,7 +200,10 @@ export const foods = [
     price: 980, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193708/fitnessMatket/11-Parrillada-mixta_d8simd.jpg',
     id_category: 3,
-    id_restaurant: 3
+    id_restaurant: 3,
+    is_vegan: false,
+    is_glutenfree: true,
+    is_proteinplus: true
   },
   {
     id: 12,
@@ -179,7 +212,10 @@ export const foods = [
     price: 220, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193708/fitnessMatket/12-mojito-rojo_jprfsx.jpg',
     id_category: 4,
-    id_restaurant: 1
+    id_restaurant: 1,
+    is_vegan: true,
+    is_glutenfree: true,
+    is_proteinplus: false
   },
   {
     id: 13,
@@ -188,7 +224,10 @@ export const foods = [
     price: 180, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193708/fitnessMatket/13-sopa-de-miso_qogfmk.jpg',
     id_category: 1,
-    id_restaurant: 4
+    id_restaurant: 4,
+    is_vegan: true,
+    is_glutenfree: true,
+    is_proteinplus: true
   },
   {
     id: 14,
@@ -197,7 +236,10 @@ export const foods = [
     price: 520, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193710/fitnessMatket/14-Fetuccini-Alfredo_lllpl1.jpg',
     id_category: 2,
-    id_restaurant: 5
+    id_restaurant: 5,
+    is_vegan: false,
+    is_glutenfree: false,
+    is_proteinplus: true
   },
   {
     id: 15,
@@ -206,7 +248,10 @@ export const foods = [
     price: 720, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193710/fitnessMatket/15-burguer-criolla_ba0cif.jpg',
     id_category: 3,
-    id_restaurant: 6
+    id_restaurant: 6,
+    is_vegan: false,
+    is_glutenfree: true,
+    is_proteinplus: true
   },
   {
     id: 16,
@@ -215,7 +260,10 @@ export const foods = [
     price: 250, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193709/fitnessMatket/16-pina-colada-sin-alcohol_bmcs3o.jpg',
     id_category: 4,
-    id_restaurant: 2
+    id_restaurant: 2,
+    is_vegan: false,
+    is_glutenfree: true,
+    is_proteinplus: false
   },
   {
     id: 17,
@@ -224,7 +272,10 @@ export const foods = [
     price: 380, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193709/fitnessMatket/17-teriyaki-tofu_n4lftc.jpg',
     id_category: 1,
-    id_restaurant: 3
+    id_restaurant: 3,
+    is_vegan: true,
+    is_glutenfree: true,
+    is_proteinplus: true
   },
   {
     id: 18,
@@ -233,7 +284,10 @@ export const foods = [
     price: 450, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193709/fitnessMatket/18-noquis-spinaca_qnluml.jpg',
     id_category: 2,
-    id_restaurant: 1
+    id_restaurant: 1,
+    is_vegan: false,
+    is_glutenfree: false,
+    is_proteinplus: true
   },
   {
     id: 19,
@@ -242,7 +296,10 @@ export const foods = [
     price: 1050, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193710/fitnessMatket/19-T-Bone_Steak_vbwilf.jpg',
     id_category: 3,
-    id_restaurant: 2
+    id_restaurant: 2,
+    is_vegan: false,
+    is_glutenfree: true,
+    is_proteinplus: true
   },
   {
     id: 20,
@@ -251,7 +308,10 @@ export const foods = [
     price: 180, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193710/fitnessMatket/20-Sangr%C3%ADa_de_Frutas_c9gkmb.jpg',
     id_category: 4,
-    id_restaurant: 3
+    id_restaurant: 3,
+    is_vegan: true,
+    is_glutenfree: true,
+    is_proteinplus: false
   },
   {
     id: 21,
@@ -260,7 +320,10 @@ export const foods = [
     price: 320, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193710/fitnessMatket/21Tacos_Veganos_ljezyt.jpg',
     id_category: 1,
-    id_restaurant: 4
+    id_restaurant: 4,
+    is_vegan: true,
+    is_glutenfree: true,
+    is_proteinplus: true
   },
   {
     id: 22,
@@ -269,7 +332,10 @@ export const foods = [
     price: 490, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193710/fitnessMatket/22-risotto_de_Setas_ew2erd.jpg',
     id_category: 2,
-    id_restaurant: 5
+    id_restaurant: 5,
+    is_vegan: false,
+    is_glutenfree: false,
+    is_proteinplus: true
   },
   {
     id: 23,
@@ -278,7 +344,10 @@ export const foods = [
     price: 950, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693194282/fitnessMatket/23-ribeye_a_la_Parrilla_ww4poh.jpg',
     id_category: 3,
-    id_restaurant: 6
+    id_restaurant: 6,
+    is_vegan: false,
+    is_glutenfree: true,
+    is_proteinplus: true
   },
   {
     id: 24,
@@ -287,7 +356,10 @@ export const foods = [
     price: 240, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193710/fitnessMatket/24-Margarita_uagmbl.jpg',
     id_category: 4,
-    id_restaurant: 1
+    id_restaurant: 1,
+    is_vegan: true,
+    is_glutenfree: true,
+    is_proteinplus: false
   },
   {
     id: 25,
@@ -296,7 +368,10 @@ export const foods = [
     price: 380, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193709/fitnessMatket/15-Bowl_de_Tofu_mp4mfv.jpg',
     id_category: 1,
-    id_restaurant: 2
+    id_restaurant: 2,
+    is_vegan: true,
+    is_glutenfree: true,
+    is_proteinplus: true
   },
   {
     id: 26,
@@ -305,7 +380,10 @@ export const foods = [
     price: 510, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193711/fitnessMatket/26-pappardelle_funghi_vdw06e.jpg',
     id_category: 2,
-    id_restaurant: 3
+    id_restaurant: 3,
+    is_vegan: false,
+    is_glutenfree: false,
+    is_proteinplus: true
   },
   {
     id: 27,
@@ -314,7 +392,10 @@ export const foods = [
     price: 890, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193711/fitnessMatket/Churrasco_wzrhac.jpg',
     id_category: 3,
-    id_restaurant: 4
+    id_restaurant: 4,
+    is_vegan: false,
+    is_glutenfree: true,
+    is_proteinplus: true
   },
   {
     id: 28,
@@ -323,7 +404,10 @@ export const foods = [
     price: 280, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693194403/fitnessMatket/28-Cerveza_Artesanal_IPA_qzgdf1.jpg',
     id_category: 4,
-    id_restaurant: 5
+    id_restaurant: 5,
+    is_vegan: true,
+    is_glutenfree: true,
+    is_proteinplus: false
   },
   {
     id: 29,
@@ -332,7 +416,10 @@ export const foods = [
     price: 420, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193711/fitnessMatket/29-Bowl_de_Poke_zeiga6.jpg',
     id_category: 1,
-    id_restaurant: 6
+    id_restaurant: 6,
+    is_vegan: false,
+    is_glutenfree: false,
+    is_proteinplus: true
   },
   {
     id: 30,
@@ -341,7 +428,10 @@ export const foods = [
     price: 420, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193711/fitnessMatket/30-Gnocchi_de_Patata_uhnzcn.jpg',
     id_category: 2,
-    id_restaurant: 1
+    id_restaurant: 1,
+    is_vegan: false,
+    is_glutenfree: false,
+    is_proteinplus: true
   },
   {
     id: 31,
@@ -350,7 +440,10 @@ export const foods = [
     price: 980, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693193711/fitnessMatket/31-Picanha_a_la_Brasile%C3%B1a_uoggnr.jpg',
     id_category: 3,
-    id_restaurant: 2
+    id_restaurant: 2,
+    is_vegan: false,
+    is_glutenfree: true,
+    is_proteinplus: true
   },
   {
     id: 32,
@@ -359,7 +452,10 @@ export const foods = [
     price: 250, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1692752157/fitnessMatket/fut_banner08_f3opnd.jpg',
     id_category: 4,
-    id_restaurant: 3
+    id_restaurant: 3,
+    is_vegan: true,
+    is_glutenfree: true,
+    is_proteinplus: false
   },
   {
     id: 33,
@@ -368,7 +464,10 @@ export const foods = [
     price: 280, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1692752156/fitnessMatket/fut_banner02_m53vdb.jpg',
     id_category: 4,
-    id_restaurant: 5
+    id_restaurant: 5,
+    is_vegan: true,
+    is_glutenfree: true,
+    is_proteinplus: false
   },
   {
     id: 34,
@@ -377,7 +476,10 @@ export const foods = [
     price: 270, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1692752157/fitnessMatket/fut_banner06_dbrzlk.jpg',
     id_category: 4,
-    id_restaurant: 6
+    id_restaurant: 6,
+    is_vegan: true,
+    is_glutenfree: true,
+    is_proteinplus: false
   },
   {
     id: 35,
@@ -386,7 +488,10 @@ export const foods = [
     price: 250, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1692752157/fitnessMatket/fut_banner07_iwqjxb.jpg',
     id_category: 4,
-    id_restaurant: 1
+    id_restaurant: 1,
+    is_vegan: true,
+    is_glutenfree: true,
+    is_proteinplus: false
   },
   {
     id: 36,
@@ -395,7 +500,10 @@ export const foods = [
     price: 320, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1692752156/fitnessMatket/fut_banner03_anbw3p.jpg',
     id_category: 4,
-    id_restaurant: 6
+    id_restaurant: 6,
+    is_vegan: true,
+    is_glutenfree: true,
+    is_proteinplus: false
   },
   {
     id: 37,
@@ -404,7 +512,10 @@ export const foods = [
     price: 250, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1692752156/fitnessMatket/fut_banner04_mbyxcc.jpg',
     id_category: 4,
-    id_restaurant: 2
+    id_restaurant: 2,
+    is_vegan: true,
+    is_glutenfree: true,
+    is_proteinplus: false
   },
   {
     id: 38,
@@ -413,7 +524,10 @@ export const foods = [
     price: 290, // Pesos argentinos
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1692752157/fitnessMatket/fut_banner09_od9eba.jpg',
     id_category: 4,
-    id_restaurant: 3
+    id_restaurant: 3,
+    is_vegan: true,
+    is_glutenfree: true,
+    is_proteinplus: false
   }
 
 ]

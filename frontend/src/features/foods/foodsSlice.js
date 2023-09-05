@@ -20,7 +20,8 @@ export const getFoodsByCategoryId = createAsyncThunk('foods/getFoodsByCategoryId
 export const getFoodsById = createAsyncThunk('foods/getFoodsById', async (id, thunkAPI) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(foods.filter(food => food.id === id))
+      const newarr = foods.filter(food => food.id === id)
+      resolve({ ...newarr[0] })
     }, 200)
   })
 })
@@ -30,7 +31,7 @@ const foodsSlice = createSlice({
   initialState: {
     data: [],
     categoryData: [],
-    productByid: [],
+    productByid: {},
     productsByKeyword: [],
     loading: false,
     error: false
@@ -83,7 +84,6 @@ const foodsSlice = createSlice({
         state.error = false
       })
       .addCase(getFoodsById.fulfilled, (state, action) => {
-        console.log('PAyloader -> ', action.payload)
         state.productByid = action.payload
         state.loading = false
         state.error = false
