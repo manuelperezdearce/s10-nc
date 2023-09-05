@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { IoCheckmarkSharp, IoCloseSharp } from 'react-icons/io5'
 import { useParams } from 'react-router-dom'
 import PriceFoods from './PriceFoods'
+import InfoProfileRestaurant from '../Sections/InfoProfileRestaurant'
+import { useDispatch, useSelector } from 'react-redux'
+import { getFoodsById } from '../../features/foods/foodsSlice'
 
 const Detail = () => {
+  const dispatch = useDispatch()
+  const product = useSelector((state) => state.foods.productById)
   const object = {
     id: 4,
     name: 'Limonada Refrescante',
@@ -16,9 +21,13 @@ const Detail = () => {
     is_glutenfree: true,
     is_proteinplus: false
   }
-
   const { id } = useParams()
-  console.log('producto con id: ', id)
+
+  useEffect(() => {
+    dispatch(getFoodsById(Number(id)))
+  }, [id, dispatch])
+
+  console.log('producto con id: ', id, product)
   return (
     <section className='w-[100%] h-auto flex justify-center items-center'>
       <section className='detail mt-0 py-5 lg:mt-[120px] w-[100%] min-h-[500px] h-auto flex flex-col justify-center items-center lg:flex-row lg:justify-center lg:items-start gap-10 max-w-7xl '>
@@ -43,6 +52,9 @@ const Detail = () => {
             <p className='descriptionFood font-normal text-base text-marronCustom '>{object?.description}</p>
             <PriceFoods />
 
+          </section>
+          <section className='w-[100%] h-[300px] overflow-hidden  grid place-content-center'>
+            <InfoProfileRestaurant />
           </section>
         </section>
       </section>
