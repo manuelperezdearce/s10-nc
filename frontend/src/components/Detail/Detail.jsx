@@ -44,7 +44,7 @@ const Detail = () => {
             <PriceFoods />
 
           </section>
-          <section className='w-[100%] h-[300px] overflow-hidden  grid place-content-center'>
+          <section className='w-[100%] h-[160px] overflow-hidden flex justify-center lg:justify-start items-center'>
             <CardRestaurantName idRestaurant={product.id_restaurant} />
           </section>
         </section>
