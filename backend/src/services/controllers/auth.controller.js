@@ -4,7 +4,7 @@ const { createToken } = require('../auth');
 
 require('dotenv').config();
 
-const signIn = async (req, res) => {
+const signIn = async (req, res,next) => {
   const { email, password } = req.body;
   try{
     const foundUser = await User.findOne({ where: { email: email } });
@@ -22,13 +22,43 @@ const signIn = async (req, res) => {
       token: token,
       user: foundUser.email,
     });
+    next()
   }
   catch (err){
     console.error(err);
-    res.status(500).send('Internal Server Error');
+    return res.status(500).send('Internal Server Error');
   }
 }
 
+const signUp = async (req,res) => {
+    const { email, password,role_id } = req.body;
+
+    const foundUser = await User.findOne({ where: { email: email } });
+  
+    if (foundUser) return res.status(409).send('this email is already registered');
+
+    let passwordHash = await bcrypt.hash(password, 10);
+    
+  try{
+    const newUser = await User.create({
+      role_id,
+      email,
+      password: passwordHash,
+    });
+    res.json({
+      error:false,
+      message:"user created successfully",
+      data:newUser
+    })
+  }catch (err){
+    console.log(err.message)
+    return res.json.status(500).send('Internal Server Error')
+  }
+
+
+};
+
 module.exports = {
   signIn,
+  signUp
 };

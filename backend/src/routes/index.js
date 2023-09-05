@@ -6,7 +6,7 @@ const mealRouter = require('../components/meals/routes');
 const orderRouter = require('../components/orders/routes');
 const categoriesRouter = require('../components/categories/routes');
 const orderDetailsRouter = require('../components/orderDetails/routes');
-const loginRouter = require('../components/login/routes');
+const userRouter = require('../components/user/routes');
 
 const router = Router();
 
@@ -17,7 +17,7 @@ router.use("/meal",mealRouter);
 router.use("/order",orderRouter);
 router.use("/categories",categoriesRouter);
 router.use("/orderdetails",orderDetailsRouter);
-router.use("/login",loginRouter);
+router.use("/users",userRouter);
 
 module.exports = router;
 
