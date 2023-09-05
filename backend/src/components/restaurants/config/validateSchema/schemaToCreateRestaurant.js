@@ -11,7 +11,7 @@ const schemaToCreateRestaurant= Joi.object({
     city: Joi.string().required(),
     time_close:Joi.string().required(),
     time_open:Joi.string().required(),
-    image: Joi.string().required(),
+    // image: Joi.string().required(),
 })
 
 module.exports = {schemaToCreateRestaurant}
