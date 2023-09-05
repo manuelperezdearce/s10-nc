@@ -5,7 +5,7 @@ import { FaCalendarAlt, FaShoppingCart, FaMoneyBill, FaSearch } from 'react-icon
 export default function OrderCard ({ createdAt, totalPrice, totalQuantity, orderID }) {
   const ARRAY = Object.entries({ createdAt, totalPrice, totalQuantity })
   const HandleOrderCardClick = async () => {
-    console.log(OrderListDATA.filter(item => item.orderID === orderID))
+    console.log('Falta endpoint del back', OrderListDATA.filter(item => item.orderID === orderID)[0])
   }
   return (
     <article
