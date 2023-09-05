@@ -12,7 +12,7 @@ const getMeals = async (req, res) => {
 const getMeal = async (req, res) => {
   const key = Object.keys(req.query);
   const value = Object.values(req.query)
-  
+
    try {
     const meal = await Meals.findOne({
       where: { [key]:value },
@@ -24,11 +24,12 @@ const getMeal = async (req, res) => {
   } catch (err) {
     console.log(err);
     return res.status(500).send('Internal server error');
-  } 
+  }
 };
 
 const createMeal = async (req, res) => {
   const {
+    id,
     name,
     price,
     image,
@@ -47,6 +48,7 @@ const createMeal = async (req, res) => {
 
   try {
     const newMeal = await Meals.create({
+      id,
       name,
       price,
       category_id,

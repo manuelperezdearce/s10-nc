@@ -1,8 +1,8 @@
 const Joi = require('joi');
 
 const schemaToCreateRestaurant= Joi.object({
-    role_id:Joi.string().required(),
-    user_id:Joi.string().required(),
+    role_id:Joi.number().integer().required(),
+    user_id:Joi.number().integer().required(),
     name:Joi.string().required(),
     description:Joi.string().required(),
     speciality:Joi.string().required(),
@@ -11,7 +11,7 @@ const schemaToCreateRestaurant= Joi.object({
     city: Joi.string().required(),
     time_close:Joi.string().required(),
     time_open:Joi.string().required(),
-    image: Joi.string().required(),  
+    image: Joi.string().required(),
 })
 
 module.exports = {schemaToCreateRestaurant}
