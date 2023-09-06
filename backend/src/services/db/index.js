@@ -1,3 +1,4 @@
+const { loadSeeds } = require('../../seeders');
 const sequelize = require('./config');
 require('./models');
 
@@ -8,7 +9,8 @@ const dbInitializer = async () => {
     // .sync({ alter: true })
     .sync({ force: true })
     .then(() => {
-      console.log('sincronisacion completada');
+      loadSeeds()
+      console.log('sincronizacion completada');
     })
     .catch((err) => {
       console.log(err);
