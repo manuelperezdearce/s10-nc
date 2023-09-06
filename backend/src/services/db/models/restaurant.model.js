@@ -72,11 +72,11 @@ Meals.belongsTo(Restaurant,{
   targetKey:'id'
 });
 User.hasOne(Restaurant, {
-  foreignKey: 'restaurant_id',
+  foreignKey: 'user_id',
   sourceKey:'id'
 });
 Restaurant.belongsTo(User,{
-  foreignKey: 'restaurant_id',
+  foreignKey: 'user_id',
   targetKey:'id'
 });
 
