@@ -2,7 +2,6 @@ import { BsTelephoneFill } from 'react-icons/bs';
 import { BiSolidTimeFive } from 'react-icons/bi';
 import { IoLocationSharp } from 'react-icons/io5';
 import RestaurantLogo from '../../images/RestaurantLogo.png'
-import BtnUploadImgProfileRestaurant from "../Buttons/BtnUploadImgProfileRestaurant";
 import BtnEditProfileRestaurant from "../Buttons/BtnEditProfileRestaurant";
 
 

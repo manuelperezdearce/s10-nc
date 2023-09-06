@@ -4,7 +4,14 @@ Modal.setAppElement('#root');
 import ModalEditRestaurantProfileInfo from "../Modals/ModalEditRestaurantProfileInfo"
 import { useState } from "react";
 
-
+const customStyles = {
+    content: {
+        margin: '5rem auto 0 auto',
+        maxWidth: '56rem',
+        borderRadius: '1rem',
+        zIndex: '20'
+    },
+  };
 
 
 export default function BtnEditProfileRestaurant() {
@@ -26,8 +33,8 @@ export default function BtnEditProfileRestaurant() {
                 <div className="text-xl"><AiFillEdit/></div>
                 Editar
             </button>
-            <div>
-                <Modal isOpen={modal} onRequestClose={closeModal} className='my-16 md:mt-40 max-w-4xl mx-5 lg:mx-auto'>
+            <div className="">
+                <Modal isOpen={modal} onRequestClose={closeModal} style={customStyles}>
                     <ModalEditRestaurantProfileInfo closeModal={closeModal}/>
                 </Modal>
             </div>
