@@ -5,16 +5,15 @@ const createRestaurants = async () => {
     await Restaurant.sync({ force: true });
 
     await Restaurant.create({
+      user_id: 1,
       name: 'La not Vaquita loca',
+      description: 'Very tasty vegan not milk drinks',
       speciality: 'Bebidas veganas',
-      city: 'Chimbarongo',
       phone_number: 123123123,
       address: 'Calle (not)lactea 123',
-      description: 'Very tasty vegan not milk drinks',
+      city: 'Chimbarongo',
       time_open: '08:00',
-      time_close: '21:00',
-      user_id: 1,
-      role_id: 2,
+      time_close: '21:00'
     });
 
     console.log('Restaurant creados');
