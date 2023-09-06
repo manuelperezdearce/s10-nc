@@ -8,7 +8,7 @@ const Contador = () => {
 
   return (
     <section className='containBotoneraSum flex flex-col justify-center items-start gap-1'>
-      <p>Cantidad</p>
+      <p className='font-titulo font-semibold text-md text-marronCustom '>Cantidad</p>
       <div className='botoneraSum flex flex-row gap-1 text-greenCard border-2 rounded-md overflow-hidden'>
         <button
           aria-label='Increment value'
