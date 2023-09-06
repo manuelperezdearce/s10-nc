@@ -2,7 +2,7 @@ const { Restaurant } = require('../services/db/models/restaurant.model');
 
 const createRestaurants = async () => {
   try {
-    await Restaurant.sync({ force: true });
+    // await Restaurant.sync({ force: true });
 
     await Restaurant.create({
       user_id: 1,

@@ -2,7 +2,7 @@ const { User } = require('../services/db/models/user.model');
 
 const createUsers = async () => {
   try {
-    await User.sync({ force: true });
+    // await User.sync({ force: true });
 
     await User.create({
       email: 'vaquitas@mail.com',

@@ -2,7 +2,7 @@ const { Roles } = require('../services/db/models/role.model');
 
 const createRoles = async () => {
   try {
-    await Roles.sync({ force: true });
+    // await Roles.sync({ force: true });
 
     await Roles.create({
       name: 'customer',

@@ -2,7 +2,7 @@ const { Category } = require('../services/db/models/category.model');
 
 const createCategories = async () => {
   try {
-    await Category.sync({ force: true });
+    // await Category.sync({ force: true });
 
     await Category.create({
       name: 'Ensaladas',
