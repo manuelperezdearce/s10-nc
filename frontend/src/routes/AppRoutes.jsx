@@ -10,6 +10,7 @@ import ListOfProducts from '../pages/ListOfProducts/ListOfProducts'
 import RestaurantID from '../pages/restaurant/RestaurantID'
 import LoginUser from '../pages/Login/Login'
 import ProfilePage from '../pages/profile/profilePage'
+import Detail from '../components/Detail/Detail'
 
 const AppRoutes = () => {
   return (
@@ -23,6 +24,9 @@ const AppRoutes = () => {
       <Route path='/contact' element={<Contact />} />
       <Route path='/register' element={<Register />} />
       <Route path='/profile' element={<ProfilePage />} />
+      <Route path='/detalle/:id' element={<Detail />} />
+
+      {/* <Route path='/detalle:id/:owner' element={<Detail />} /> */}
 
       {/* defecto page error */}
       <Route path='/search' element={<ListOfProducts />} />

@@ -2,9 +2,9 @@ const { app } = require('./server')
 const { config } = require('./src/config/env');
 const { dbInitializer } = require('./src/services/db');
 
-async function main(){
+ function main(){
   try {
-    app.listen(config.port,async function(){
+    app.listen(config.port,function(){
       console.log(`server running on port: ${config.port}`)
   });
     dbInitializer()

@@ -9,7 +9,7 @@ import Toggle from '../../components/toggle/Toggle'
 
 const Header = () => {
   return (
-    <header className='headerContainer fixed top-0 lg:left-0 w-[100%]  h-[80px] lg:h-auto  text-blackCustom flex justify-center items-center font-bold text-xl uppercase text-center pt-[1rem] lg:p-[1rem] z-10'>
+    <header className='headerContainer fixed top-0 lg:left-0 w-[100%] h-[130px] lg:h-auto  text-blackCustom flex justify-center items-center font-bold text-xl uppercase text-center pt-[0] z-10'>
       <NavBar />
       <Toggle />
     </header>

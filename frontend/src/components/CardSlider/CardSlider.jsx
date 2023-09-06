@@ -7,7 +7,7 @@ import 'swiper/css/navigation'
 
 export const CardSlider = () => {
   return (
-    <section className='bg-white flex flex-col items-center py-12 w-full'>
+    <section className='bg-white flex flex-col items-center py-12 w-[100%'>
       <div className='flex flex-col items-center gap-4'>
 
         <h2 className='text-greenCustom font-bold text-lg'>Most Popular Products</h2>
