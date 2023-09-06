@@ -99,6 +99,7 @@ const updateRestaurant = async (req, res) => {
       .status(201)
       .res.json({ message: 'Restaurant updated', restaurant: restaurant });
   } catch (err) {
+    console.log({body: body})
     console.log(err);
     res.status(500).send('Internal Server Error');
   }
