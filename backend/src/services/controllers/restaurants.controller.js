@@ -15,10 +15,10 @@ const getRestaurant = async (req, res) => {
   const { id } = req.params;
   try {
     const restaurant = Restaurant.findOne({
-      where: { id: id },
+      where: { id },
     });
     restaurant
-      ? res.status(200).json(restaurant)
+      ? res.status(200).json({message: "Restaurant found", restaurant: restaurant})
       : res.status(400).send('Restaurant not found');
   } catch (err) {
     console.log(err);
@@ -90,21 +90,17 @@ const updateRestaurant = async (req, res) => {
   const { id } = req.params;
   const body = req.body;
   try {
-    const updatedRestaurant = await Restaurant.update(
-      {
-        body,
-      },
-      {
-        where: {
-          id: id,
-        },
-      },
-    );
-    updatedRestaurant
-      ? res.status(201).json(updateRestaurant)
-      : res.status(400).send('Restaurant not found');
+    const restaurant = await Restaurant.findOne({ where: { id } });
+    if (!restaurant) {
+      res.status(400).send('Restaurant not found');
+    }
+    await restaurant.update(body);
+    res
+      .status(201)
+      .res.json({ message: 'Restaurant updated', restaurant: restaurant });
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
