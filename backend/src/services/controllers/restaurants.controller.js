@@ -14,11 +14,9 @@ const getRestaurants = async (req, res) => {
 const getRestaurant = async (req, res) => {
   const { id } = req.params;
   try {
-    const restaurant = Restaurant.findOne({
-      where: { id },
-    });
+    const restaurant = await Restaurant.findByPk(id)
     restaurant
-      ? res.status(200).json({message: "Restaurant found", restaurant})
+      ? res.status(200).json(restaurant)
       : res.status(400).send('Restaurant not found');
   } catch (err) {
     console.log(err);
