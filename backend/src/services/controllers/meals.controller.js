@@ -1,3 +1,4 @@
+const { Category } = require('../db/models/category.model');
 const { Meals } = require('../db/models/meal.model');
 
 const getMeals = async (req, res) => {
@@ -15,7 +16,8 @@ const getMeal = async (req, res) => {
 
    try {
     const meal = await Meals.findOne({
-      where: { [key]:value },
+      where: { [key]:value }
+      ,include: {model: Category, include: 'name'}
     });
     if (!meal) {
       return res.status(404).send('meal not found');
