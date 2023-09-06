@@ -1,6 +1,5 @@
 const { Customers } = require('../db/models/customer.model');
 const { createToken } = require('../auth');
-const {createCustomerAsUser} = require('../tableRelationshipManager/customerInUsers');
 
 // Asynchronous function to get all customers
 const getCustomers = async (req, res) => {
@@ -17,10 +16,10 @@ const getCustomer = async (req, res) => {
   const { id } = req.params;
   try {
     const customer = await Customers.findOne({
-      where: id,
+      where: { id: id },
     });
 
-//Return a customer if it exists, otherwise return an error message
+    //Return a customer if it exists, otherwise return an error message
     customer
       ? res.status(200).json(customer)
       : res.status(400).send('Customer not found');
@@ -31,19 +30,19 @@ const getCustomer = async (req, res) => {
 
 // Asynchronous functio to create customers
 const createCustomer = async (req, res) => {
-  const { name, address, phone_number,role_id,user_id } = req.body;
+  const { name, address, phone_number, role_id, user_id } = req.body;
 
-  if( role_id !== "1") return res.status(401).send('Authorized only for customers')
+  if (role_id !== 1)
+    return res.status(401).send('Authorized only for customers');
 
   const newCustomers = await Customers.create({
-
     user_id,
     name,
     address,
     phone_number,
   });
 
-//this variable contains the validate token
+  //this variable contains the validate token
   const token = createToken(newCustomers.id);
 
   res.status(200).json({ token });
@@ -65,7 +64,6 @@ const updateCustomer = async (req, res) => {
     }
 
     customer.update(body);
-
 
     res.status(200).json(customer);
   } catch (err) {
