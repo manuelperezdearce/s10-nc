@@ -18,7 +18,7 @@ const getRestaurant = async (req, res) => {
       where: { id },
     });
     restaurant
-      ? res.status(200).json({message: "Restaurant found", restaurant: restaurant})
+      ? res.status(200).json({message: "Restaurant found", restaurant})
       : res.status(400).send('Restaurant not found');
   } catch (err) {
     console.log(err);
@@ -97,7 +97,7 @@ const updateRestaurant = async (req, res) => {
     await restaurant.update(body);
     res
       .status(201)
-      .res.json({ message: 'Restaurant updated', restaurant: restaurant });
+      .json({ message: 'Restaurant updated', restaurant: restaurant });
   } catch (err) {
     console.log({body: body})
     console.log(err);
