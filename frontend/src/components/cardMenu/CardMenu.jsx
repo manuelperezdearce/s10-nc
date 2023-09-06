@@ -30,7 +30,7 @@ const CardMenu = ({ object }) => {
       <section className=' w-[100%] h-1/4 py-2 px-2'>
         <p className='flex flex-col justify-start items-start  gap-2'>
           <span className='text-sm font-light text-black'>{object?.name}</span>
-          <span className='text-lg font-medium text-green-500'>{object?.price}</span>
+          <span className='text-lg font-medium text-green-500'>${object?.price}</span>
         </p>
       </section>
     </div>
