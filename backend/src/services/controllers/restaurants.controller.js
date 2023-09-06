@@ -16,7 +16,7 @@ const getRestaurant = async (req, res) => {
   const { id } = req.params;
   try {
     const restaurant = Restaurant.findOne({
-      where: {id}
+      where: id
     });
     restaurant
       ? res.status(200).json(restaurant)
