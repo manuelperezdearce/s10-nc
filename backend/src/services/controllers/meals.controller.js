@@ -42,7 +42,7 @@ const createMeal = async (req, res) => {
     role_id
   } = req.body;
 
-  if(role_id !== "2"){
+  if(role_id !== 2){
     return res.status(401).send("Unauthorized")
   }
 
