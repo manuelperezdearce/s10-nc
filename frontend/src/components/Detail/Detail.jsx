@@ -26,6 +26,8 @@ const Detail = () => {
         </section>
         <section className='containInfo w-[100%] lg:w-1/2 h-[100%] bg-white flex flex-col justify-center items-center lg:justify-start lg:items-start gap-6 px-2 lg:px-0 lg:pr-3'>
           <section className='w-[100%] max-w-[620px] h-[100%] flex flex-col justify-start items-start gap-4'>
+
+            {/* tituñp + lista atributos */}
             <div className='clasesFood flex flex-col justify-start items-start gap-3'>
               <h2 className='text-3xl font-bold text-marronCustom text-left'>{product?.name}</h2>
               <ul className='listAtributes flez flex flex-row justify-start items-center gap-3 '>
