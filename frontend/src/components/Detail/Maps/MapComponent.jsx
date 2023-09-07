@@ -36,7 +36,7 @@ const MapComponent = () => {
               />
               <Marker position={{ lat: cordenada?.lat, lng: cordenada?.lng }}>
                 <Popup>
-                  A pretty CSS3 popup. <br /> Easily customizable.
+                  {restaurant.name}.
                 </Popup>
               </Marker>
               <CircleMarker center={{ lat: cordenada?.lat, lng: cordenada?.lng }} pathOptions={redOptions} radius={100}>
