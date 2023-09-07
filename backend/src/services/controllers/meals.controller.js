@@ -2,11 +2,25 @@ const { Category } = require('../db/models/category.model');
 const { Meals } = require('../db/models/meal.model');
 
 const getMeals = async (req, res) => {
+  try {
+    const meals = await Meals.findAll({
+      include: [{ model: Category, attributes: ['name'] }],
+    });
+    res.status(200).json(meals);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).send('Internal server error');
+  }
+};
+
+const getMealsByQuery = async (req, res) => {
   const key = Object.keys(req.query);
   const value = Object.values(req.query);
   try {
     const meals = await Meals.findAll({
       where: { [key]: value },
+
+      include: [{ model: Category, attributes: ['name'] }],
     });
     res.status(200).json(meals);
   } catch (err) {
@@ -22,7 +36,7 @@ const getMeal = async (req, res) => {
       include: [{ model: Category, attributes: ['name'] }],
     });
 
-    meal ? res.status(200).json(meal) : res.status(400).send('Meal not found');
+    meal ? res.status(200).json(meal) : res.status(404).send('Meal not found');
   } catch (err) {
     console.log(err);
     return res.status(500).send('Internal server error');
@@ -78,7 +92,7 @@ const updateMeal = async (req, res) => {
       },
     });
     if (!meal) {
-      return res.status(400).send('Meal not found');
+      return res.status(404).send('Meal not found');
     }
 
     await meal.update(body);
@@ -112,4 +126,5 @@ module.exports = {
   updateMeal,
   createMeal,
   deleteMeal,
+  getMealsByQuery,
 };
