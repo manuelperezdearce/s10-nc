@@ -2,9 +2,6 @@ const { DetailsOrder } = require('../db/models/details.order');
 const { Meals } = require('../db/models/meal.model');
 const { Orders } = require('../db/models/order.model');
 const { Restaurant } = require('../db/models/restaurant.model');
-const {
-  createOrderInOrderDetails,
-} = require('../tableRelationshipManager/orderInDetailsOrder');
 
 const getOrders = async (req, res) => {
   try {
@@ -26,6 +23,7 @@ const getOrders = async (req, res) => {
     res.status(200).json(orders);
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -50,6 +48,7 @@ const getOrder = async (req, res) => {
     res.status(200).json(order);
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -82,6 +81,7 @@ const getOrdersByCustomer = async (req, res) => {
     res.status(200).json(orders);
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 

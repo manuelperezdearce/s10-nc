@@ -20,7 +20,7 @@ Orders.init(
     },
     total_quantity: {
       allowNull: false,
-      field: 'total_price',
+      field: 'total_quantity',
       type: DataTypes.INTEGER,
     },
     createdAt: {

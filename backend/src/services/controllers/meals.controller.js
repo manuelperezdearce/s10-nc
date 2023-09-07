@@ -9,7 +9,7 @@ const getMeals = async (req, res) => {
     res.status(200).json(meals);
   } catch (err) {
     console.log(err);
-    return res.status(500).send('Internal server error');
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -25,7 +25,7 @@ const getMealsByQuery = async (req, res) => {
     res.status(200).json(meals);
   } catch (err) {
     console.log(err);
-    return res.status(500).send('Internal server error');
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -39,7 +39,7 @@ const getMeal = async (req, res) => {
     meal ? res.status(200).json(meal) : res.status(404).send('Meal not found');
   } catch (err) {
     console.log(err);
-    return res.status(500).send('Internal server error');
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -76,9 +76,10 @@ const createMeal = async (req, res) => {
       is_proteinplus,
     });
     newMeal;
-    res.status(201).json(newMeal);
+    res.status(201).json({ error: false, meal: newMeal });
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -113,10 +114,11 @@ const deleteMeal = async (req, res) => {
       await Meals.destroy({ where: { id: id } });
       return res.status(202).send('Platillo eliminado');
     } else {
-      return res.status(400).send('Platillo no encontrado');
+      return res.status(404).send('Platillo no encontrado');
     }
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 

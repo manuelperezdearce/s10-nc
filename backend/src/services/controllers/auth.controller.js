@@ -4,9 +4,9 @@ const { createToken } = require('../auth');
 
 require('dotenv').config();
 
-const signIn = async (req, res,next) => {
+const signIn = async (req, res, next) => {
   const { email, password } = req.body;
-  try{
+  try {
     const foundUser = await User.findOne({ where: { email: email } });
 
     if (!foundUser) return res.status(400).send('User not found');
@@ -15,50 +15,49 @@ const signIn = async (req, res,next) => {
 
     if (!matchPassword) return res.status(401).send('Invalid password');
 
-    const token = createToken(foundUser.id)
+    const token = createToken(foundUser.id);
 
     res.json({
       message: 'Authenticated user',
       token: token,
-      user: foundUser.email,
+      email: foundUser.email,
+      user_id: foundUser.id,
     });
-    next()
-  }
-  catch (err){
+    next();
+  } catch (err) {
     console.error(err);
     return res.status(500).send('Internal Server Error');
   }
-}
+};
 
-const signUp = async (req,res) => {
-    const { email, password,role_id } = req.body;
+const signUp = async (req, res) => {
+  const { email, password, role_id } = req.body;
 
-    const foundUser = await User.findOne({ where: { email: email } });
+  const foundUser = await User.findOne({ where: { email: email } });
 
-    if (foundUser) return res.status(409).send('this email is already registered');
+  if (foundUser)
+    return res.status(409).send('this email is already registered');
 
-    let passwordHash = await bcrypt.hash(password, 10);
+  let passwordHash = await bcrypt.hash(password, 10);
 
-  try{
+  try {
     const newUser = await User.create({
       role_id,
       email,
       password: passwordHash,
     });
     res.json({
-      error:false,
-      message:"user created successfully",
-      data:newUser
-    })
-  }catch (err){
-    console.log(err.message)
-    return res.status(500).send('Internal Server Error')
+      error: false,
+      message: 'user created successfully',
+      user: { email: newUser.email, id: newUser.id, role_id: newUser.role_id },
+    });
+  } catch (err) {
+    console.log(err.message);
+    return res.status(500).send('Internal Server Error');
   }
-
-
 };
 
 module.exports = {
   signIn,
-  signUp
+  signUp,
 };

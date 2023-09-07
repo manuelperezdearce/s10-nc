@@ -44,21 +44,25 @@ const getCustomerByUserId = async (req, res) => {
 // Asynchronous functio to create customers
 const createCustomer = async (req, res) => {
   const { name, address, phone_number, role_id, user_id } = req.body;
+  try {
+    if (role_id !== 1)
+      return res.status(401).send('Authorized only for customers');
 
-  if (role_id !== 1)
-    return res.status(401).send('Authorized only for customers');
+    const newCustomer = await Customers.create({
+      user_id,
+      name,
+      address,
+      phone_number,
+    });
 
-  const newCustomers = await Customers.create({
-    user_id,
-    name,
-    address,
-    phone_number,
-  });
+    //this variable contains the validate token
+    const token = createToken(newCustomer.id);
 
-  //this variable contains the validate token
-  const token = createToken(newCustomers.id);
-
-  res.status(200).json({ token });
+    res.status(201).json({ error: false, newCustomer, token });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Internal Server Error');
+  }
 };
 
 // Asynchronous function to update customers
@@ -74,7 +78,7 @@ const updateCustomer = async (req, res) => {
 
     customer.update(body);
 
-    res.status(200).json({ message: 'Customer updated', customer });
+    res.status(202).json({ message: 'Customer updated', customer });
   } catch (err) {
     console.error(err);
     res.status(500).send('Internal Server Error');
@@ -91,10 +95,11 @@ const deleteCustomer = async (req, res) => {
       await Customers.destroy({ where: { id: id } });
       return res.status(202).send('Customer eliminado');
     } else {
-      return res.status(400).send('Customer no encontrado');
+      return res.status(404).send('Customer no encontrado');
     }
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -104,5 +109,5 @@ module.exports = {
   updateCustomer,
   createCustomer,
   deleteCustomer,
-  getCustomerByUserId
+  getCustomerByUserId,
 };

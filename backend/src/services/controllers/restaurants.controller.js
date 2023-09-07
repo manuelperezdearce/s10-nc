@@ -8,6 +8,7 @@ const getRestaurants = async (req, res) => {
     res.status(200).json(restaurants);
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -17,9 +18,10 @@ const getRestaurant = async (req, res) => {
     const restaurant = await Restaurant.findByPk(id);
     restaurant
       ? res.status(200).json(restaurant)
-      : res.status(400).send('Restaurant not found');
+      : res.status(404).send('Restaurant not found');
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -51,9 +53,10 @@ const getRestaurantByCity = async (req, res) => {
     });
     restaurants
       ? res.status(200).json(restaurants)
-      : res.status(400).send('No se han encontrado restaurants');
+      : res.status(404).send('No se han encontrado restaurants');
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -92,10 +95,11 @@ const createRestaurant = async (req, res) => {
     //this variable contains the validate token
     const token = createToken(newRestaurant.id);
     res
-      .status(200)
-      .json({ Error: false, restaurant: newRestaurant, Token: token });
+      .status(201)
+      .json({ error: false, restaurant: newRestaurant, Token: token });
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -105,11 +109,11 @@ const updateRestaurant = async (req, res) => {
   try {
     const restaurant = await Restaurant.findOne({ where: { id } });
     if (!restaurant) {
-      res.status(400).send('Restaurant not found');
+      res.status(404).send('Restaurant not found');
     }
     await restaurant.update(body);
     res
-      .status(201)
+      .status(202)
       .json({ message: 'Restaurant updated', restaurant: restaurant });
   } catch (err) {
     console.log({ body: body });
@@ -127,10 +131,11 @@ const deleteRestaurant = async (req, res) => {
       await Restaurant.destroy({ where: { id: id } });
       return res.status(202).send('Restaurant eliminado');
     } else {
-      return res.status(400).send('Restaurant no encontrado');
+      return res.status(404).send('Restaurant no encontrado');
     }
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
