@@ -26,6 +26,31 @@ const getOrders = async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 };
+const getOrdersByCustomerId = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const orders = await Orders.findAll({
+      where: { customer_id: id },
+      include: [
+        {
+          model: DetailsOrder,
+          attributes: ['quantity'],
+          include: [
+            {
+              model: Meals,
+              attributes: ['name', 'id', 'price'],
+              include: [{ model: Restaurant, attributes: ['name', 'id'] }],
+            },
+          ],
+        },
+      ],
+    });
+    res.status(200).json(orders);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Internal Server Error');
+  }
+};
 
 const getOrder = async (req, res) => {
   const { id } = req.params;
@@ -73,21 +98,10 @@ const createOrder = async (req, res) => {
   }
 };
 
-// orders/customer/:id
-const getOrdersByCustomer = async (req, res) => {
-  const customerId = req.params;
-  try {
-    const orders = await Orders.findAll({ where: { customer_id: customerId } });
-    res.status(200).json(orders);
-  } catch (err) {
-    console.log(err);
-    res.status(500).send('Internal Server Error');
-  }
-};
 
 module.exports = {
   getOrders,
   createOrder,
   getOrder,
-  getOrdersByCustomer,
+  getOrdersByCustomerId,
 };
