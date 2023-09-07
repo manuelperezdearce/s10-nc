@@ -28,7 +28,7 @@ export const restaurants = [
     description: 'Un lugar donde la frescura se encuentra con la creatividad culinaria.',
     especiality: 'Comida vegetariana y vegana',
     address: 'Av. Corrientes 123, Buenos Aires, Argentina',
-    phone: '123-456-7890',
+    phone: '1234567890',
     city: 'Buenos Aires',
     email: 'contacto@saboresverdes.com',
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693184564/fitnessMatket/restauran05_z0lq5r.jpg',
@@ -42,7 +42,7 @@ export const restaurants = [
     description: 'Disfruta de auténtica comida italiana en un ambiente acogedor.',
     especiality: 'Pasta y pizzas italianas',
     address: 'Via della Conciliazione 456, Roma, Italia',
-    phone: '987-654-3210',
+    phone: '9876543210',
     city: 'Roma', // Ciudad ficticia
     email: 'info@pastaparadise.com',
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693184564/fitnessMatket/restauran02_koesio.jpg',
@@ -56,7 +56,7 @@ export const restaurants = [
     description: 'El mejor lugar para disfrutar de carnes a la parrilla en un ambiente rústico.',
     especiality: 'Carnes a la parrilla',
     address: 'Av. Corrientes 789, Buenos Aires, Argentina',
-    phone: '567-890-1234',
+    phone: '5678901234',
     city: 'Buenos Aires', // Ciudad ficticia
     email: 'reservas@asadorcriollo.com',
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693184564/fitnessMatket/restauran04_txiwwi.jpg',
@@ -70,7 +70,7 @@ export const restaurants = [
     description: 'Viaja al lejano oriente con nuestros deliciosos platos asiáticos.',
     especiality: 'Comida asiática',
     address: '1 Chome-1-1 Marunouchi, Chiyoda City, Tokyo 100-0005, Japón',
-    phone: '567-123-4567',
+    phone: '5671234567',
     city: 'Tokio', // Ciudad ficticia
     email: 'info@sabororiental.com',
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1692745587/fitnessMatket/rest4_qcdlvq.jpg',
@@ -84,7 +84,7 @@ export const restaurants = [
     description: 'El paraíso de las pizzas con una variedad de sabores para todos los gustos.',
     especiality: 'Pizzas',
     address: 'Via dei Tribunali 456, Nápoles, Italia',
-    phone: '890-234-5678',
+    phone: '8902345678',
     city: 'Nápoles', // Ciudad ficticia
     email: 'contacto@pizzamania.com',
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1692745587/fitnessMatket/rest1_kfyb0q.jpg',
@@ -98,7 +98,7 @@ export const restaurants = [
     description: 'Saborea los mejores platos de mariscos frescos en un ambiente junto al mar.',
     especiality: 'Mariscos y pescados',
     address: 'Ocean Drive 123, Miami Beach, Florida, EE. UU.',
-    phone: '678-345-6789',
+    phone: '6783456789',
     city: 'Miami', // Ciudad ficticia
     email: 'reservas@deliciasmarinas.com',
     linkImage: 'https://res.cloudinary.com/dpiwmbsog/image/upload/v1693184564/fitnessMatket/restauran01_ukrpjt.jpg',

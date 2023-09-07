@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import PriceFoods from './PriceFoods'
 import { useDispatch, useSelector } from 'react-redux'
 import { getFoodsById } from '../../features/foods/foodsSlice'
-import CardRestaurantName from './cardRestaurantName'
+import CardRestaurantName from './CardRestaurantName'
 import ListAtributes from './ListAtributes'
 import MapComponent from './Maps/MapComponent'
 
