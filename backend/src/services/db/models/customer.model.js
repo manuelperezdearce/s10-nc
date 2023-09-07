@@ -45,7 +45,7 @@ Customers.hasMany(Orders, {
   sourceKey:'id'
 });
 Orders.belongsTo(Customers,{
-  foreignKey: 'user_id',
+  foreignKey: 'customer_id',
   targetKey:'id'
 });
 User.hasOne(Customers, {
