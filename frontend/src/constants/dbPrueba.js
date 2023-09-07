@@ -27,7 +27,7 @@ export const restaurants = [
     name: 'Restaurante Sabores Verdes',
     description: 'Un lugar donde la frescura se encuentra con la creatividad culinaria.',
     especiality: 'Comida vegetariana y vegana',
-    address: 'Av. Principal 123, Ciudad',
+    address: 'Av. Corrientes 123, Buenos Aires, Argentina',
     phone: '123-456-7890',
     city: 'Buenos Aires',
     email: 'contacto@saboresverdes.com',
@@ -41,7 +41,7 @@ export const restaurants = [
     name: 'Pasta Paradise',
     description: 'Disfruta de auténtica comida italiana en un ambiente acogedor.',
     especiality: 'Pasta y pizzas italianas',
-    address: 'Calle Italia 456, Pueblo',
+    address: 'Via della Conciliazione 456, Roma, Italia',
     phone: '987-654-3210',
     city: 'Roma', // Ciudad ficticia
     email: 'info@pastaparadise.com',
@@ -55,7 +55,7 @@ export const restaurants = [
     name: 'Asador Criollo',
     description: 'El mejor lugar para disfrutar de carnes a la parrilla en un ambiente rústico.',
     especiality: 'Carnes a la parrilla',
-    address: 'Ruta Carnívora 789, Villa',
+    address: 'Av. Corrientes 789, Buenos Aires, Argentina',
     phone: '567-890-1234',
     city: 'Buenos Aires', // Ciudad ficticia
     email: 'reservas@asadorcriollo.com',
@@ -69,7 +69,7 @@ export const restaurants = [
     name: 'Sabor Oriental',
     description: 'Viaja al lejano oriente con nuestros deliciosos platos asiáticos.',
     especiality: 'Comida asiática',
-    address: 'Calle Sushi 789, Ciudad Oriental',
+    address: '1 Chome-1-1 Marunouchi, Chiyoda City, Tokyo 100-0005, Japón',
     phone: '567-123-4567',
     city: 'Tokio', // Ciudad ficticia
     email: 'info@sabororiental.com',
@@ -83,7 +83,7 @@ export const restaurants = [
     name: 'PizzaMania',
     description: 'El paraíso de las pizzas con una variedad de sabores para todos los gustos.',
     especiality: 'Pizzas',
-    address: 'Avenida Pizza 456, Villa Pizzera',
+    address: 'Via dei Tribunali 456, Nápoles, Italia',
     phone: '890-234-5678',
     city: 'Nápoles', // Ciudad ficticia
     email: 'contacto@pizzamania.com',
@@ -97,7 +97,7 @@ export const restaurants = [
     name: 'Delicias Marinas',
     description: 'Saborea los mejores platos de mariscos frescos en un ambiente junto al mar.',
     especiality: 'Mariscos y pescados',
-    address: 'Calle Pescado 123, Ciudad Costera',
+    address: 'Ocean Drive 123, Miami Beach, Florida, EE. UU.',
     phone: '678-345-6789',
     city: 'Miami', // Ciudad ficticia
     email: 'reservas@deliciasmarinas.com',
