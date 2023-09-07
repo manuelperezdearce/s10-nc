@@ -7,7 +7,8 @@ const { verifyTokenMiddleware } = require('../../../middlewares/authValidation/v
 const mealRouter = Router();
 
 // Path to get meal by id
-mealRouter.get('/search',getMeal);
+// mealRouter.get('/search',getMeal);
+mealRouter.get('/:id', getMeal)
 
 // Path to get all meals
 mealRouter.get('/',getMeals);

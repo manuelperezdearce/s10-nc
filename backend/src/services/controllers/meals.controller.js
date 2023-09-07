@@ -2,27 +2,27 @@ const { Category } = require('../db/models/category.model');
 const { Meals } = require('../db/models/meal.model');
 
 const getMeals = async (req, res) => {
+  const key = Object.keys(req.query);
+  const value = Object.values(req.query);
   try {
-    const meals = await Meals.findAll();
+    const meals = await Meals.findAll({
+      where: { [key]: value },
+    });
     res.status(200).json(meals);
   } catch (err) {
     console.log(err);
+    return res.status(500).send('Internal server error');
   }
 };
 
 const getMeal = async (req, res) => {
-  const key = Object.keys(req.query);
-  const value = Object.values(req.query)
-
-   try {
-    const meal = await Meals.findOne({
-      where: { [key]:value }
-      ,include: {model: Category, include: 'name'}
+  const { id } = req.params;
+  try {
+    const meal = await Meals.findByPk(id, {
+      include: [{ model: Category, attributes: ['name'] }],
     });
-    if (!meal) {
-      return res.status(404).send('meal not found');
-    }
-    res.status(200).json(meal);
+
+    meal ? res.status(200).json(meal) : res.status(400).send('Meal not found');
   } catch (err) {
     console.log(err);
     return res.status(500).send('Internal server error');
@@ -41,11 +41,11 @@ const createMeal = async (req, res) => {
     is_vegan,
     is_glutenfree,
     is_proteinplus,
-    role_id
+    role_id,
   } = req.body;
 
-  if(role_id !== 2){
-    return res.status(401).send("Unauthorized")
+  if (role_id !== 2) {
+    return res.status(401).send('Unauthorized');
   }
 
   try {
