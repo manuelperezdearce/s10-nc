@@ -3,8 +3,7 @@ const Joi = require('joi');
 const schemaToCreateOrder = Joi.object({
   customer_id: Joi.number().integer().required(),
   total_price: Joi.number().integer().required(),
-  meal_id: Joi.number().integer().required(),
-  quantity: Joi.number().positive().required(),
+  total_quantity: Joi.number().positive().required(),
   items: Joi.array()
     .items(
       Joi.object({
