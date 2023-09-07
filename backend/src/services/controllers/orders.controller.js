@@ -1,9 +1,28 @@
+const { DetailsOrder } = require('../db/models/details.order');
+const { Meals } = require('../db/models/meal.model');
 const { Orders } = require('../db/models/order.model');
-const { createOrderInOrderDetails } = require('../tableRelationshipManager/orderInDetailsOrder');
+const { Restaurant } = require('../db/models/restaurant.model');
+const {
+  createOrderInOrderDetails,
+} = require('../tableRelationshipManager/orderInDetailsOrder');
 
 const getOrders = async (req, res) => {
   try {
-    const orders = await Orders.findAll();
+    const orders = await Orders.findAll({
+      include: [
+        {
+          model: DetailsOrder,
+          attributes: ['quantity'],
+          include: [
+            {
+              model: Meals,
+              attributes: ['name', 'id'],
+              include: [{ model: Restaurant, attributes: ['name', 'id'] }],
+            },
+          ],
+        },
+      ],
+    });
     res.status(200).json(orders);
   } catch (err) {
     console.log(err);
@@ -21,15 +40,15 @@ const getOrder = async (req, res) => {
 };
 
 const createOrder = async (req, res) => {
-  const { total_price,customer_id } = req.body;
+  const { total_price, customer_id } = req.body;
   try {
     const newOrder = await Orders.create({ customer_id, total_price });
-    
-    createOrderInOrderDetails(newOrder.id,req)
+
+    createOrderInOrderDetails(newOrder.id, req);
 
     res.status(201).json(newOrder);
   } catch (err) {
-    res.status(404).json({message:err.message})
+    res.status(404).json({ message: err.message });
   }
 };
 

@@ -26,8 +26,8 @@ Customers.init({
     allowNull: false,
     type: DataTypes.INTEGER,
   },
-  
-  
+
+
   createdAt: {
     allowNull: false,
     type: DataTypes.DATE,
@@ -41,7 +41,7 @@ Customers.init({
 });
 
 Customers.hasMany(Orders, {
-  foreignKey: 'user_id',
+  foreignKey: 'customer_id',
   sourceKey:'id'
 });
 Orders.belongsTo(Customers,{

@@ -18,6 +18,11 @@ Orders.init(
       field: 'total_price',
       type: DataTypes.INTEGER,
     },
+    total_quantity: {
+      allowNull: false,
+      field: 'total_price',
+      type: DataTypes.INTEGER,
+    },
     createdAt: {
       allowNull: false,
       type: DataTypes.DATE,
