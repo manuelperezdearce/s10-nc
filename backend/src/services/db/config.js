@@ -1,9 +1,9 @@
 const { Sequelize } = require('sequelize');
 const { config } = require('../../config/env');
 
-// const USER = encodeURIComponent(config.dbUser);
-// const PASSWORD = encodeURIComponent(config.dbPassword);
-// const URI = `postgres://${USER}:${PASSWORD}@${config.dbHost}:${config.dbPort}/${config.dbName}`;
+const USER = encodeURIComponent(config.dbUser);
+const PASSWORD = encodeURIComponent(config.dbPassword);
+const URI = `postgres://${USER}:${PASSWORD}@${config.dbHost}:${config.dbPort}/${config.dbName}`;
 
 // const sequelize = new Sequelize(
 //   "test_sequelize",
@@ -16,6 +16,7 @@ const { config } = require('../../config/env');
 //   },
 // );
 
-const sequelize = new Sequelize(config.dbUrl)
+// const sequelize = new Sequelize(config.dbUrl)
+const sequelize = new Sequelize(URI)
 
 module.exports = sequelize;

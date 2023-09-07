@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const {validateCreateCustomer} = require('../middleware/validate.create.user');
-const { getCustomers, createCustomer, updateCustomer, getCustomer } = require('../../../services/controllers/customers.controller');
+const { getCustomers, createCustomer, updateCustomer, getCustomer, getCustomerByUserId } = require('../../../services/controllers/customers.controller');
 const customerRouter = Router();
 
 // Route to get all customers
@@ -8,6 +8,7 @@ customerRouter.get('/',getCustomers);
 
 // Route to get a customer by id
 customerRouter.get('/:id',getCustomer);
+customerRouter.get('/user/:id',getCustomerByUserId);
 
 // Route to create customers
 customerRouter.post('/add',validateCreateCustomer,createCustomer);

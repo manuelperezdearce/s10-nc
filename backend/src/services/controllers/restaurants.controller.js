@@ -14,12 +14,27 @@ const getRestaurants = async (req, res) => {
 const getRestaurant = async (req, res) => {
   const { id } = req.params;
   try {
-    const restaurant = await Restaurant.findByPk(id)
+    const restaurant = await Restaurant.findByPk(id);
     restaurant
       ? res.status(200).json(restaurant)
       : res.status(400).send('Restaurant not found');
   } catch (err) {
     console.log(err);
+  }
+};
+
+const getRestaurantByUserId = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const restaurant = await Restaurant.findOne({ where: { id } });
+
+    restaurant
+      ? res.status(200).json(restaurant)
+      : res.status(404).send('Restaurant not found');
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -97,7 +112,7 @@ const updateRestaurant = async (req, res) => {
       .status(201)
       .json({ message: 'Restaurant updated', restaurant: restaurant });
   } catch (err) {
-    console.log({body: body})
+    console.log({ body: body });
     console.log(err);
     res.status(500).send('Internal Server Error');
   }
@@ -126,4 +141,5 @@ module.exports = {
   updateRestaurant,
   createRestaurant,
   deleteRestaurant,
+  getRestaurantByUserId,
 };

@@ -8,23 +8,36 @@ const getCustomers = async (req, res) => {
     res.status(200).json(customers);
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
-// Asynchronous function to get customers by id
 const getCustomer = async (req, res) => {
   const { id } = req.params;
   try {
-    const customer = await Customers.findOne({
-      where: { id: id },
-    });
+    const customer = await Customers.findByPk(id);
 
-    //Return a customer if it exists, otherwise return an error message
     customer
       ? res.status(200).json(customer)
-      : res.status(400).send('Customer not found');
+      : res.status(404).send('Customer not found');
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
+  }
+};
+const getCustomerByUserId = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const customer = await Customers.findOne({
+      where: { user_id: id },
+    });
+
+    customer
+      ? res.status(200).json(customer)
+      : res.status(404).send('Customer not found');
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -53,11 +66,7 @@ const updateCustomer = async (req, res) => {
   const { id } = req.params;
   const body = req.body;
   try {
-    const customer = await Customers.findOne({
-      where: {
-        id: id,
-      },
-    });
+    const customer = await Customers.findByPk(id);
 
     if (!customer) {
       return res.status(404).send('Customer not found');
@@ -65,7 +74,7 @@ const updateCustomer = async (req, res) => {
 
     customer.update(body);
 
-    res.status(200).json(customer);
+    res.status(200).json({ message: 'Customer updated', customer });
   } catch (err) {
     console.error(err);
     res.status(500).send('Internal Server Error');
@@ -95,4 +104,5 @@ module.exports = {
   updateCustomer,
   createCustomer,
   deleteCustomer,
+  getCustomerByUserId
 };
