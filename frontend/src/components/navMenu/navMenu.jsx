@@ -6,7 +6,7 @@ const NavMenu = () => {
   const { activeIndex } = useSelector(state => state?.nav)
   return (
     <>
-      <nav className='navMenu flex flex-col justify-center items-start gap-3 p-5 lg:flex lg:flex-row lg:justify-start lg:items-center lg:content-center lg:gap-5 text-[1.2rem]'>
+      <nav className='navMenu w-[170px] px-1 lg:px-auto lg:w-auto flex flex-col justify-center items-start gap-3 lg:flex lg:flex-row lg:justify-start lg:items-center lg:content-center lg:gap-5 text-[1.2rem]'>
         <Link
           to='/home'
           className='capitalize font-titulo font-normal flex flex-col justify-start items-start content-start gap-2 relative'
