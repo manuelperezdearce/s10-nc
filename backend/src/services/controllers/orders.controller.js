@@ -16,7 +16,7 @@ const getOrders = async (req, res) => {
           include: [
             {
               model: Meals,
-              attributes: ['name', 'id'],
+              attributes: ['name', 'id', 'price'],
               include: [{ model: Restaurant, attributes: ['name', 'id'] }],
             },
           ],
@@ -40,13 +40,17 @@ const getOrder = async (req, res) => {
 };
 
 const createOrder = async (req, res) => {
-  const { total_price, customer_id } = req.body;
+  const { total_price, customer_id, total_quantity, items } = req.body;
   try {
-    const newOrder = await Orders.create({ customer_id, total_price });
+    const newOrder = await Orders.create({ customer_id, total_price, total_quantity });
 
-    createOrderInOrderDetails(newOrder.id, req);
+    const itemsArr = items.map(item => ({order_id: newOrder.id, ...item}))
 
-    res.status(201).json(newOrder);
+    const orderItems = await OrderDetails.bulkCreate(itemsArr)
+
+    // createOrderInOrderDetails(newOrder.id, req);
+
+    res.status(201).json({message:'Orden creada', order: newOrder, items: orderItems});
   } catch (err) {
     res.status(404).json({ message: err.message });
   }
