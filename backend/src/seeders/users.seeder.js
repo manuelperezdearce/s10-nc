@@ -2,8 +2,8 @@ const { User } = require('../services/db/models/user.model');
 const bcrypt = require('bcrypt');
 
 const createUsers = async () => {
-  const pass = bcrypt.hash('ensaladas123', 10);
   try {
+    const pass = await bcrypt.hash('ensaladas123', 10);
 
     await User.create({
       email: 'vaquitas@mail.com',
