@@ -1,7 +1,7 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
 const sequelize = require('../config');
 const { Meals } = require("../models/meal.model");
-const { Orders } = require('./order.model');
+const { User } = require('./user.model');
 
 class Restaurant extends Model {}
 
@@ -21,7 +21,7 @@ Restaurant.init({
     allowNull: false,
     type: DataTypes.STRING,
   },
-  adress: {
+  address: {
     allowNull: false,
     type: DataTypes.STRING,
   },
@@ -29,7 +29,7 @@ Restaurant.init({
     allowNull: false,
     type: DataTypes.STRING,
   },
-  phone: {
+  phone_number: {
     allowNull: false,
     type: DataTypes.STRING,
   },
@@ -41,14 +41,14 @@ Restaurant.init({
     allowNull: false,
     type: DataTypes.TEXT,
   },
-  timeOpen: {
+  time_open: {
     allowNull: false,
-    type: DataTypes.DATE,
+    type: DataTypes.STRING,
     field: 'time_open',
   },
-  timeClose: {
+  time_close: {
     allowNull: false,
-    type: DataTypes.DATE,
+    type: DataTypes.STRING,
     field: 'time_close',
   },
   createdAt: {
@@ -64,19 +64,19 @@ Restaurant.init({
 });
 
 Restaurant.hasMany(Meals, {
-  foreignKey: 'Restaurant_id',
+  foreignKey: 'restaurant_id',
   sourceKey:'id'
 });
 Meals.belongsTo(Restaurant,{
-  foreignKey: 'Restaurant_id',
+  foreignKey: 'restaurant_id',
   targetKey:'id'
 });
-Restaurant.hasMany(Orders, {
-  foreignKey: 'Restaurant_id',
+User.hasOne(Restaurant, {
+  foreignKey: 'restaurant_id',
   sourceKey:'id'
 });
-Orders.belongsTo(Restaurant,{
-  foreignKey: 'Restaurant_id',
+Restaurant.belongsTo(User,{
+  foreignKey: 'restaurant_id',
   targetKey:'id'
 });
 

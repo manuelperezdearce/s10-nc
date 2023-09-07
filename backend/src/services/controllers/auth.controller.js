@@ -1,51 +1,64 @@
 const { User } = require('../db/models/user.model');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+const { createToken } = require('../auth');
 
 require('dotenv').config();
 
-// 24 hrs = 86400
-
-const signUp = async (req, res) => {
-  const { email, password, roleId } = req.body;
-  let passwordHash = await bcrypt.hash(password, 10);
-
-  const newUser = await User.create({
-    email,
-    Role_Id: roleId,
-    password: passwordHash,
-  });
-
-  const token = jwt.sign({ id: newUser.id }, process.env.SECRET, {
-    expiresIn: 86400,
-  });
-
-  res.status(200).json({ token });
-};
-
-const signIn = async (req, res) => {
+const signIn = async (req, res,next) => {
   const { email, password } = req.body;
+  try{
+    const foundUser = await User.findOne({ where: { email: email } });
+  
+    if (!foundUser) return res.status(400).send('User not found');
+  
+    let matchPassword = await bcrypt.compare(password, foundUser.password);
+  
+    if (!matchPassword) return res.status(401).send('Invalid password');
+  
+    const token = createToken(foundUser.id)
+  
+    res.json({
+      message: 'Authenticated user',
+      token: token,
+      user: foundUser.email,
+    });
+    next()
+  }
+  catch (err){
+    console.error(err);
+    return res.status(500).send('Internal Server Error');
+  }
+}
 
-  const foundUser = await User.findOne({ where: { email: email } });
+const signUp = async (req,res) => {
+    const { email, password,role_id } = req.body;
 
-  if (!foundUser) return res.status(400).send('User not found');
+    const foundUser = await User.findOne({ where: { email: email } });
+  
+    if (foundUser) return res.status(409).send('this email is already registered');
 
-  let matchPassword = await bcrypt.compare(password, foundUser.password);
+    let passwordHash = await bcrypt.hash(password, 10);
+    
+  try{
+    const newUser = await User.create({
+      role_id,
+      email,
+      password: passwordHash,
+    });
+    res.json({
+      error:false,
+      message:"user created successfully",
+      data:newUser
+    })
+  }catch (err){
+    console.log(err.message)
+    return res.json.status(500).send('Internal Server Error')
+  }
 
-  if (!matchPassword) return res.status(401).send('Invalid password');
 
-  const token = jwt.sign({ id: foundUser.id }, process.env.SECRET, {
-    expiresIn: 86400,
-  });
-
-  res.json({
-    message: 'Usuario autenticado',
-    token: token,
-    user: foundUser.email,
-  });
 };
 
 module.exports = {
-  signUp,
   signIn,
+  signUp
 };

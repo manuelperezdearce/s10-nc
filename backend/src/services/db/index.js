@@ -5,7 +5,7 @@ const dbInitializer = async () => {
   await sequelize.authenticate();
   console.log('Connection has been established successfully.');
   await sequelize
-    .sync({ force: true })
+    .sync({ alter: true })
     .then(() => {
       console.log('sincronisacion completada');
     })

@@ -26,6 +26,18 @@ Meals.init({
     allowNull: false,
     type: DataTypes.STRING,
   },
+  is_vegan: {
+    allowNull: false,
+    type: DataTypes.BOOLEAN,
+  },
+  is_glutenfree: {
+    allowNull: false,
+    type: DataTypes.BOOLEAN,
+  },
+  is_proteinplus: {
+    allowNull: false,
+    type: DataTypes.BOOLEAN,
+  },
   createdAt: {
     allowNull: false,
     type: DataTypes.DATE,

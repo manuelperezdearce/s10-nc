@@ -2,22 +2,18 @@ import { BsTelephoneFill } from 'react-icons/bs';
 import { BiSolidTimeFive } from 'react-icons/bi';
 import { IoLocationSharp } from 'react-icons/io5';
 import RestaurantLogo from '../../images/RestaurantLogo.png'
-import BtnUploadImgProfileRestaurant from "../Buttons/BtnUploadImgProfileRestaurant";
 import BtnEditProfileRestaurant from "../Buttons/BtnEditProfileRestaurant";
 
 
 
 export default function InfoProfileRestaurant() {
     return (
-        <div className='flex flex-col md:flex-row gap-y-5 gap-x-10'>
+        <div className='flex flex-col md:flex-row gap-y-5 gap-x-20'>
 
 
 
             {/* -------------------- Image */}
-            <div className='relative mx-auto'>
-                <img src={RestaurantLogo} alt="" className='w-full max-w-sm'/>
-                <div className='absolute bottom-8 right-8'><BtnUploadImgProfileRestaurant/></div>
-            </div>
+            <img src={RestaurantLogo} alt="" className='w-full max-w-xs mx-auto mb-10 lg:mb-0'/>
 
 
 

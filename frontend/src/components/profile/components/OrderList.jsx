@@ -1,16 +1,29 @@
 import OrderCard from '../../OrderCard/OrderCard'
-
-export default function OrderList () {
+import OrderFilterSection from './OrderFilterSection'
+export default function OrderList ({ OrderListArray, setOrderListArray }) {
   return (
-    <section className='w-[90%] md:w-[80%] lg:w-[90%] max-w-screen-lg  flex flex-wrap justify-start py-10'>
-      {
-      Array(8).fill(0).map((item) => {
+    <>
+      <OrderFilterSection
+        OrderListArray={OrderListArray}
+        setOrderListArray={setOrderListArray}
+      />
+      <section className='w-[90%] md:w-[80%] lg:w-[90%] max-w-screen-lg  flex flex-wrap justify-start py-10 '>
+        {
+      OrderListArray.map((item) => {
         return (
-          <OrderCard key={item} />
+          <OrderCard
+            key={item.orderID}
+            createdAt={item.createdAt}
+            totalPrice={item.totalPrice}
+            totalQuantity={item.totalQuantity}
+            orderID={item.orderID}
+          />
 
         )
       })
 }
-    </section>
+      </section>
+    </>
+
   )
 }

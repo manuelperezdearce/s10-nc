@@ -14,7 +14,6 @@ export default function FiltersSearch() {
                 {/* Search */}
                 <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-y-7 gap-x-32 mb-5 md:mb-10'>
                     <p className='text-3xl font-bold flex gap-x-2'><span className='text-greenCustom2'><AiFillTag/></span>Platillos</p>
-                    {/* <FaSearch /><input type="search" name="" id="" placeholder='Buscar platillo' className='p-2 w-full bg-white border border-gray-400 rounded-md max-w-3xl outline-none'/> */}
                     <div className="flex items-center bg-white border border-gray-400 rounded-md max-w-3xl w-full">
                         <div className="p-2 text-gray-400"><FaSearch/></div>
                         <input type="search" placeholder="Buscar platillo" className="py-2 w-full outline-none bg-white"/>

@@ -1,5 +1,7 @@
 const { Op } = require('sequelize');
 const { Restaurant } = require('../db/models/restaurant.model');
+const { createRestaurantAsUser } = require('../tableRelationshipManager/restaurantInUsers');
+const { createToken } = require('../auth');
 
 const getRestaurants = async (req, res) => {
   try {
@@ -13,7 +15,9 @@ const getRestaurants = async (req, res) => {
 const getRestaurant = async (req, res) => {
   const { id } = req.params;
   try {
-    const restaurant = Restaurant.findByPk(id);
+    const restaurant = Restaurant.findOne({
+      where: {id}
+    });
     restaurant
       ? res.status(200).json(restaurant)
       : res.status(400).send('Restaurant not found');
@@ -42,11 +46,41 @@ const getRestaurantByCity = async (req, res) => {
 };
 
 const createRestaurant = async (req, res) => {
-  const body = req.body;
+  const {
+    role_id,
+    user_id,
+    name,
+    description,
+    speciality,
+    address,
+    phone_number,
+    city,
+    time_close,
+    time_open,
+    image,
+  } = req.body;
+
+  if( role_id !== "2") return res.status(401).send('Authorized only for restaurants')
+
   try {
-    const newRestaurant = await Restaurant.create(body);
-    res.status(201).json(newRestaurant);
-  } catch (err) {
+    const newRestaurant = await Restaurant.create({
+      user_id,
+      name,
+      description,
+      speciality,
+      address,
+      phone_number,
+      city,
+      time_close,
+      time_open,
+      image,
+    });
+
+    //this variable contains the validate token
+    const token = createToken(newRestaurant.id);
+    res.status(200).json({Error:false, restaurant:newRestaurant,Token:token});
+
+  }catch (err) {
     console.log(err);
   }
 };
