@@ -17,7 +17,6 @@ const MapComponent = () => {
     dispatch(getCoordenadasRestaurant(direcion))
   }, [direcion, dispatch])
 
-  console.log('cordenada: ', cordenada)
   return (
     <>
       {

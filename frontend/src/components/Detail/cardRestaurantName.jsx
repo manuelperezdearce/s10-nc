@@ -13,7 +13,6 @@ const CardRestaurantName = ({ idRestaurant }) => {
     dispatch(getRestaurantById(idRestaurant))
   }, [idRestaurant, dispatch])
 
-  console.log('restaurant: ', restaurant)
   return (
     <section className='w-[100%]  h-auto flex flex-row justify-center items-center gap-5'>
       <section className='w-[130px] h-[160px] sm:w-[300px] lg:w-1/2 lg:h-[160px]  lg:aspect-square overflow-hidden '>

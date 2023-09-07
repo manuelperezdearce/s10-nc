@@ -17,7 +17,6 @@ const Detail = () => {
     dispatch(getFoodsById(Number(id)))
   }, [id, dispatch])
 
-  console.log('producto con id: ', product)
   return (
     <section className='w-[100%] h-auto flex flex-col justify-center items-center'>
 

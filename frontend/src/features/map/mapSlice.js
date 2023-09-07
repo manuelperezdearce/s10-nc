@@ -11,7 +11,7 @@ export const getCoordenadasRestaurant = createAsyncThunk(
       const data = await response.json()
 
       // verificamos que trae
-      console.log('data ubicacion -->', data)
+      // console.log('data ubicacion -->', data)
 
       if (data.length > 0) {
         const lat = data[0].lat
