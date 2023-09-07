@@ -46,7 +46,7 @@ const createOrder = async (req, res) => {
 
     const itemsArr = items.map(item => ({order_id: newOrder.id, ...item}))
 
-    const orderItems = await OrderDetails.bulkCreate(itemsArr)
+    const orderItems = await DetailsOrder.bulkCreate(itemsArr)
 
     // createOrderInOrderDetails(newOrder.id, req);
 
