@@ -32,7 +32,21 @@ const getOrders = async (req, res) => {
 const getOrder = async (req, res) => {
   const { id } = req.params;
   try {
-    const order = await Orders.findByPk(id);
+    const order = await Orders.findByPk(id, {
+      include: [
+        {
+          model: DetailsOrder,
+          attributes: ['quantity'],
+          include: [
+            {
+              model: Meals,
+              attributes: ['name', 'id', 'price'],
+              include: [{ model: Restaurant, attributes: ['name', 'id'] }],
+            },
+          ],
+        },
+      ],
+    });
     res.status(200).json(order);
   } catch (err) {
     console.log(err);
@@ -42,15 +56,19 @@ const getOrder = async (req, res) => {
 const createOrder = async (req, res) => {
   const { total_price, customer_id, total_quantity, items } = req.body;
   try {
-    const newOrder = await Orders.create({ customer_id, total_price, total_quantity });
+    const newOrder = await Orders.create({
+      customer_id,
+      total_price,
+      total_quantity,
+    });
 
-    const itemsArr = items.map(item => ({order_id: newOrder.id, ...item}))
+    const itemsArr = items.map((item) => ({ order_id: newOrder.id, ...item }));
 
-    const orderItems = await DetailsOrder.bulkCreate(itemsArr)
+    const orderItems = await DetailsOrder.bulkCreate(itemsArr);
 
-    // createOrderInOrderDetails(newOrder.id, req);
-
-    res.status(201).json({message:'Orden creada', order: newOrder, items: orderItems});
+    res
+      .status(201)
+      .json({ message: 'Orden creada', order: newOrder, items: orderItems });
   } catch (err) {
     res.status(404).json({ message: err.message });
   }
