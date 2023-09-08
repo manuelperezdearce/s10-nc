@@ -9,7 +9,7 @@ const dbInitializer = async () => {
     // .sync({ alter: true })
     .sync({ force: true })
     .then(() => {
-      loadSeeds()
+      // loadSeeds()
       console.log('sincronizacion completada');
     })
     .catch((err) => {

@@ -31,6 +31,12 @@ const createCategories = async () => {
     await Category.create({
       name: 'Batidos',
     });
+    await Category.create({
+      name: 'Tacos',
+    });
+    await Category.create({
+      name: 'Sushi',
+    });
 
     console.log('Categorias creadas');
   } catch (err) {

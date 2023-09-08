@@ -5,16 +5,59 @@ const createUsers = async () => {
   try {
     const pass = await bcrypt.hash('ensaladas123', 10);
 
-    await User.create({
-      email: 'vaquitas@mail.com',
-      password: pass,
-      role_id: 2,
-    });
-    await User.create({
-      email: 'customer@juan.com',
-      password: pass,
-      role_id: 1,
-    });
+    await User.bulkCreate([
+      {
+        email: 'vaquitas@mail.com',
+        password: pass,
+        role_id: 2,
+      },
+      {
+        email: 'vaquitas2@mail.com',
+        password: pass,
+        role_id: 2,
+      },
+      {
+        email: 'vaquitas3@mail.com',
+        password: pass,
+        role_id: 2,
+      },
+      {
+        email: 'vaquitas4@mail.com',
+        password: pass,
+        role_id: 2,
+      },
+      {
+        email: 'vaquitas5@mail.com',
+        password: pass,
+        role_id: 2,
+      },
+      {
+        email: 'vaquitas6@mail.com',
+        password: pass,
+        role_id: 2,
+      },
+      {
+        email: 'vaquitas7@mail.com',
+        password: pass,
+        role_id: 2,
+      },
+      {
+        email: 'vaquitas8@mail.com',
+        password: pass,
+        role_id: 2,
+      },
+      {
+        email: 'vaquitas9@mail.com',
+        password: pass,
+        role_id: 2,
+      },
+      {
+        email: 'vaquitas10@mail.com',
+        password: pass,
+        role_id: 2,
+      },
+    ])
+;
 
     console.log('User creados');
   } catch (err) {
