@@ -4,7 +4,7 @@ import OrderList from './components/OrderList'
 import { useState } from 'react'
 
 export default function ProfilePage () {
-  const { id, createdAt, userID, name, phone, address, photo, email } = USERS[0]
+  const { id, createdAt, userID = 1, name, phone, address, photo, email } = USERS[0]
   const [OrderListArray, setOrderListArray] = useState(OrderListDATA.filter(item => item.customerID === id))
 
   return (
@@ -20,8 +20,9 @@ export default function ProfilePage () {
         email={email}
       />
       <OrderList
-        OrderListArray={OrderListArray}
-        setOrderListArray={setOrderListArray}
+        userID={userID}
+        // OrderListArray={OrderListArray}
+        // setOrderListArray={setOrderListArray}
       />
     </div>
 
