@@ -1,4 +1,3 @@
-import axios from 'axios'
 import OrderCard from '../../OrderCard/OrderCard'
 import OrderFilterSection from './OrderFilterSection'
 import { useEffect, useState } from 'react'

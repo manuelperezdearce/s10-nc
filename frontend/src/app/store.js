@@ -5,6 +5,7 @@ import navReducer from '../features/nav/navSlice'
 import foodsReducer from '../features/foods/foodsSlice'
 import counterReducer from '../features/counter/counterSlice'
 import restaurantsReducer from '../features/restaurantes/restaurantsSlice'
+import mapReducer from '../features/map/mapSlice'
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
     nav: navReducer,
     foods: foodsReducer,
     counter: counterReducer,
-    restaurants: restaurantsReducer
+    restaurants: restaurantsReducer,
+    map: mapReducer
   }
 })

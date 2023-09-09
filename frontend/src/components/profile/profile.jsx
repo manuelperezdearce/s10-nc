@@ -1,5 +1,5 @@
 import { USERS, OrderListDATA } from '../../constants/dbPrueba'
-import UserInfo from './components/userInfo'
+import UserInfo from './components/UserInfo'
 import OrderList from './components/OrderList'
 import { useState } from 'react'
 
