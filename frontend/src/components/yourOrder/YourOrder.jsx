@@ -36,11 +36,9 @@ function YourOrder () {
         <div className='flex justify-between px-4 my-3'>
           <p className={text}>Total Payable</p>
           <p className='text-black font-bold'>$88.15</p>
-          
         </div>
       </div>
     </div>
-    
   )
 }
 

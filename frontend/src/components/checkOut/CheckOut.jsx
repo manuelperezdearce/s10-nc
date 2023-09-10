@@ -1,8 +1,13 @@
 import YourOrder from '../yourOrder/YourOrder'
+import BillingDetails from '../billingDetails/BillingDetails'
 
 function CheckOut () {
   return (
-    <YourOrder />
+    <div className='flex flex-col items-center'>
+      <YourOrder />
+      <BillingDetails />
+    </div>
+
   )
 }
 
