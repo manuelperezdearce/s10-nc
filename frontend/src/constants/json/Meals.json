@@ -1,0 +1,15 @@
+[
+  {
+    "name": "hamburguesa 3",
+    "id": "a13",
+    "description": "Hamburguesa lorem ipsum",
+    "role_id": 2,
+    "price": 2000,
+    "category_id": 7,
+    "restaurant_id": 1,
+    "image": "https://images.pexels.com/photos/4871115/pexels-photo-4871115.jpeg",
+    "is_vegan": true,
+    "is_glutenfree": false,
+    "is_proteinplus": false
+  }
+]

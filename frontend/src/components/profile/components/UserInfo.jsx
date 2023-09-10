@@ -17,7 +17,7 @@ export default function UserInfo ({ id, userID, name, address, photo, createdAt,
             <p className='text-base'>
               {email}
             </p>
-            <a role='button' className='text-greenCustom absolute left-3/4 '>
+            <a role='button' className='text-greenCustom absolute left-[95%] z-30'>
               <FaEdit />
             </a>
           </div>
