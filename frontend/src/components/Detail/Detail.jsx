@@ -10,11 +10,11 @@ import MapComponent from './Maps/MapComponent'
 const Detail = () => {
   const dispatch = useDispatch()
   const product = useSelector((state) => state.foods?.productByid)
-
+  console.log(product)
   const { id } = useParams()
 
   useEffect(() => {
-    dispatch(getFoodsById(Number(id)))
+    dispatch(getFoodsById(id))
   }, [id, dispatch])
 
   return (
@@ -25,7 +25,7 @@ const Detail = () => {
 
         {/* contain left  */}
         <section className='containImage w-[100%] lg:w-1/2 h-[300px] lg:h-auto lg:aspect-square flex flex-col justify-center items-center lg:justify-end lg:pl-3 gap-4'>
-          <img className='w-[100%] max-w-[620px] h-[100%] max-h-[620px] object-cover p-0 rounded-md' src={`${product?.linkImage}`} alt={`${product?.name}`} />
+          <img className='w-[100%] max-w-[620px] h-[100%] max-h-[620px] object-cover p-0 rounded-md' src={`${product?.image}`} alt={`${product?.name}`} />
         </section>
 
         {/* contain right */}
@@ -41,11 +41,11 @@ const Detail = () => {
 
           {/* nombre de restaurante  */}
           <section className='w-[100%] h-auto overflow-hidden flex justify-center lg:justify-start items-center'>
-            <CardRestaurantName idRestaurant={product.id_restaurant} />
+            <CardRestaurantName idRestaurant={product.restaurant_id} />
           </section>
 
           {/* mapa  */}
-          <section className='relative containerMpas w-[100%] h-[300px] bg-greenCustom flex justify-center items-center rounded-md p-2'>
+          <section className='relative containerMpas w-[100%] h-[300px] bg-greenCustom flex justify-center items-center rounded-md p-2 z-0'>
             <MapComponent />
           </section>
         </section>
