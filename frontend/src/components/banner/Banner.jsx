@@ -29,8 +29,8 @@ const Banner = () => {
           delay: 90000,
           disableOnInteraction: false
         }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log('slide change')}
+        // onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log('slide change')}
         className='mySwiper w-screen h-[100%]'
       >
         <SwiperSlide className=' bg-greenCustom'>
