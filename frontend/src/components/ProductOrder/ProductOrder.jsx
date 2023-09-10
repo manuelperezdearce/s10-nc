@@ -1,6 +1,6 @@
 function ProductOrder () {
   return (
-    <div className='w-full h-2/6 flex mt-36 justify-around  items-center '>
+    <div className='w-11/12 h-2/6 flex  justify-around m-4  items-center '>
       <div className='flex w-1/6 h-3/5'>
         <figure>
           <img className='w-full h-full object-cover rounded-lg' src='https://cdnx.jumpseller.com/espesales/image/11962247/foto.png.png?1601576687' alt='plato' />
