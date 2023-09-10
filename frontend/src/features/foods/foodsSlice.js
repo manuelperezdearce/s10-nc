@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-const API_URL = 'https://green-eats.onrender.com/meal/'
+const API_URL = 'https://green-eats.onrender.com/meal'
 
 export const getFoods = createAsyncThunk('foods/getFoods', async (_, thunkAPI) => {
   try {
@@ -28,6 +28,8 @@ export const getFoodsByCategoryId = createAsyncThunk('foods/getFoodsByCategoryId
       const error = await response.text()
       return thunkAPI.rejectWithValue(error)
     }
+    const data = await response.json()
+    return data
   } catch (error) {
     return thunkAPI.rejectWithValue(error)
   }
@@ -92,22 +94,22 @@ const foodsSlice = createSlice({
         state.loading = true
         state.error = false
       })
-      .addCase(getFoodsByCategoryId.fulfilled, (state, action) => {
-        state.data = action.payload
-        state.loading = false
-        state.error = false
-      })
       // .addCase(getFoodsByCategoryId.fulfilled, (state, action) => {
-      //   const categoryId = action.meta.arg // trae el id de la categoria que le pasemos
-      //   const existeIndex = state.categoryData.findIndex(category => category.categoryId === categoryId)
-
-      //   if (existeIndex === -1) {
-      //     const metaData = { categoryId, data: action.payload }
-      //     state.categoryData.push(metaData)
-      //   }
+      //   state.categoryData = action.payload
       //   state.loading = false
       //   state.error = false
       // })
+      .addCase(getFoodsByCategoryId.fulfilled, (state, action) => {
+        const categoryId = action.meta.arg // trae el id de la categoria que le pasemos
+        const existeIndex = state.categoryData.findIndex(category => category.categoryId === categoryId)
+
+        if (existeIndex === -1) {
+          const metaData = { categoryId, data: action.payload }
+          state.categoryData.push(metaData)
+        }
+        state.loading = false
+        state.error = false
+      })
       .addCase(getFoodsByCategoryId.rejected, state => {
         state.loading = false
         state.error = true

@@ -20,12 +20,13 @@ const ListProductsMenu = ({ categoryId }) => {
   // [categoryId]?.data
   const loading = useSelector((state) => state?.foods?.loading)
 
+  console.log('foodsState => ', foodState)
   // const foodState = []
   const filteredData = foodState?.map(category => {
     if (category?.categoryId === categoryId) {
       return {
         categoryId: category.categoryId,
-        data: category.data.filter(item => item.id_category === categoryId)
+        data: category.data.filter(item => item.category_id === categoryId)
       }
     }
     return null

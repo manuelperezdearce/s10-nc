@@ -3,6 +3,7 @@ import { loginIn } from '../../features/auth/authSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
+import { postLoginUser } from '../../features/auth/authSlice2'
 
 function Login () {
   const dispatch = useDispatch()
@@ -12,12 +13,21 @@ function Login () {
     password: ''
   })
 
+  // const onSubmit = async (data) => {
+  //   const resp = await axios.post('https://green-eats.onrender.com/users/login',
+  //     data
+  //   )
+  //   console.log(resp)
+  //   resp?.status === 200 && dispatch(loginIn(resp))
+  // }
+
   const onSubmit = async (data) => {
-    const resp = await axios.post('https://green-eats.onrender.com/users/login',
-      data
-    )
-    console.log(resp)
-    resp?.status === 200 && dispatch(loginIn(resp))
+    try {
+      const response = await dispatch(postLoginUser(data))
+      console.log(response)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const styledLabel = 'text-sm   mb-0.5 mt-2 text-gray-600'
