@@ -33,7 +33,7 @@ const NavUtils = () => {
         : (
           <a
             onClick={handleactiveMenu}
-            className='relative w-[170px] h-[40px] p-3 rounded-[30px] flex flex-row flex-nowrap justify-start items-center content-center gap-2 text-[1.2rem] font-normal lg:w-[40px] lg:rounded-[50%] bg-lightBrownCustom lg:grid lg:place-content-center lg:text-[1.2rem] cursor-pointer'
+            className='relative w-[170px] h-[40px] p-3 rounded-md flex flex-row flex-nowrap justify-start items-center content-center gap-2 text-[1.2rem] font-normal lg:w-[40px] lg:rounded-md bg-greenCustom lg:grid lg:place-content-center lg:text-[1.2rem] cursor-pointer text-whiteCustom'
           >
             <IoPersonCircleOutline className='text-[1.6rem]' />
             <span className='font-titulo font-normal  text-[1.1rem] lg:hidden capitalize'>Perfil</span>
