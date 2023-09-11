@@ -1,6 +1,8 @@
 const { User } = require('../db/models/user.model');
 const bcrypt = require('bcrypt');
 const { createToken } = require('../auth');
+const { Restaurant } = require('../db/models/restaurant.model');
+const { Customers } = require('../db/models/customer.model');
 
 require('dotenv').config();
 
@@ -22,6 +24,7 @@ const signIn = async (req, res, next) => {
       token: token,
       email: foundUser.email,
       user_id: foundUser.id,
+      role_id: foundUser.role_id,
     });
     next();
   } catch (err) {
@@ -46,10 +49,35 @@ const signUp = async (req, res) => {
       email,
       password: passwordHash,
     });
+
+    if (role_id === 1) {
+      await Customers.create({
+        name: '',
+        address: '',
+        phone_number: 0,
+        user_id: newUser.id,
+      });
+    } else if (role_id === 2) {
+      await Restaurant.create({
+        name: '',
+        speciality: '',
+        city: '',
+        address: '',
+        description: '',
+        time_open: '',
+        time_close: '',
+        user_id: newUser.id,
+      });
+    }
+
     res.json({
       error: false,
       message: 'user created successfully',
-      user: { email: newUser.email, id: newUser.id, role_id: newUser.role_id },
+      user: {
+        email: newUser.email,
+        id: newUser.id,
+        role_id: newUser.role_id,
+      },
     });
   } catch (err) {
     console.log(err.message);
