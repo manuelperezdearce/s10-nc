@@ -14,7 +14,6 @@ Restaurant.init({
   },
   name: {
     allowNull: false,
-    unique: true,
     type: DataTypes.STRING,
   },
   speciality: {

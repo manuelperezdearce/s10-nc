@@ -7,7 +7,7 @@ const schemaToCreateRestaurant= Joi.object({
     description:Joi.string().required(),
     speciality:Joi.string().required(),
     address:Joi.string().required(),
-    phone_number:Joi.number().positive().required(),
+    phone_number:Joi.string().required(),
     city: Joi.string().required(),
     time_close:Joi.string().required(),
     time_open:Joi.string().required(),

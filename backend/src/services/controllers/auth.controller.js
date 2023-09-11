@@ -1,8 +1,8 @@
 const { User } = require('../db/models/user.model');
 const bcrypt = require('bcrypt');
 const { createToken } = require('../auth');
-const { Restaurant } = require('../db/models/restaurant.model');
 const { Customers } = require('../db/models/customer.model');
+const { Restaurant } = require('../db/models/restaurant.model');
 
 require('dotenv').config();
 
@@ -50,21 +50,23 @@ const signUp = async (req, res) => {
       password: passwordHash,
     });
 
+    let newRole
+
     if (role_id === 1) {
-      await Customers.create({
+      newRole = await Customers.create({
         name: '',
         address: '',
         phone_number: 0,
         user_id: newUser.id,
       });
     } else if (role_id === 2) {
-      await Restaurant.create({
+      newRole= await Restaurant.create({
         name: '',
         speciality: '',
         city: '',
         address: '',
         description: '',
-        phone_number: "+569 9",
+        phone_number: '0',
         time_open: '',
         time_close: '',
         user_id: newUser.id,
