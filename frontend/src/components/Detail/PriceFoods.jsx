@@ -20,7 +20,7 @@ const PriceFoods = () => {
         </section>
 
       </section>
-      <button type='submit' className='bg-greenCustom w-[100%] h-[40px] rounded-sm text-whiteCustom border-2 border-greenCustom font-titulo font-semibold text-base hover:bg-whiteCustom hover:border-lightBrownCustom hover:text-lightBrownCustom transition-all duration-200 ease-linear'>Add to Card</button>
+      <button type='submit' className='bg-greenCustom w-[100%] h-[40px] rounded-sm text-whiteCustom border-2 border-greenCustom font-titulo font-semibold text-base hover:bg-whiteCustom hover:border-lightBrownCustom hover:text-lightBrownCustom transition-all duration-200 ease-linear'>Añadir Al Carrito</button>
     </form>
 
   )
