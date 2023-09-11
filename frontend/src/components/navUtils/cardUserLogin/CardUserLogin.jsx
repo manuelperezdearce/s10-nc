@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { IoChevronDownSharp, IoLogOutOutline } from 'react-icons/io5'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../../../features/auth/authSlice2'
 import { useNavigate } from 'react-router-dom'
 
@@ -8,6 +8,8 @@ const CardUserLogin = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [activeMenu, setActiveMenu] = useState(false)
+
+  const user = useSelector((state) => state.auth2?.user)
 
   const activeMenuHandler = () => {
     setActiveMenu(!activeMenu)
@@ -27,7 +29,7 @@ const CardUserLogin = () => {
           {/* section submenu HEader */}
           <section className='w-[100%] h-[80px] flex flex-row justify-center items-center py-2 overflow-hidden'>
             <section className='titlesPerfil w-2/5 h-[100%] flex flex-col justify-center items-end gap-1 p-1'>
-              <h2 className='text-greenCustom2 font-titulo font-bold capitalize text-lg overflow-hidden'>name</h2>
+              <h2 className='text-greenCustom2 font-titulo font-bold capitalize text-lg overflow-hidden'>{user.email}</h2>
               <h3 className='font-parrafo font-light capitalize text-sm overflow-hidden'>tipo</h3>
             </section>
 
