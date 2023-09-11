@@ -19,7 +19,7 @@ export default function ProfilePage () {
   const getUserData = async () => {
     const res = await axios.get(`https://green-eats.onrender.com/customer/user/${data.user_id}`)
     if (res.data.name === '') {
-      userData.name = res.data.
+      // userData.name = res.data.
     }
     setUserData(res.data)
   }
