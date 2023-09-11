@@ -5,7 +5,6 @@ import NavLogo from '../navLogo/NavLogo'
 
 const NavBar = () => {
   const { isOpen } = useSelector(state => state?.nav)
-  const { logged } = useSelector(state => state?.auth)
   // const { } = useSelector(state => state?.logged)
 
   return (
@@ -19,7 +18,7 @@ const NavBar = () => {
       <NavMenu />
 
       {/* utilidades search, cart, etc */}
-      <NavUtils logged={logged} />
+      <NavUtils />
     </div>
 
   )
