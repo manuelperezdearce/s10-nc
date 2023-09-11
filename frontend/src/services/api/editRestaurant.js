@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const editRestaurant = async (id, body, img) => {
+export const editRestaurant = async (id, body, img) => {
   try {
     let data = { ...body }
 

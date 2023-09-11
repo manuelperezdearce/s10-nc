@@ -3,7 +3,8 @@ import RestaurantLogo from '../../images/RestaurantLogo.png'
 import BtnUploadImgProfileRestaurant from '../Buttons/BtnUploadImgProfileRestaurant'
 import { BsFillClipboardDataFill } from 'react-icons/bs'
 
-function ModalEditRestaurantProfileInfo({closeModal}) {
+function ModalEditRestaurantProfileInfo({closeModal, data}) {
+    console.log(data)
     return (
         <div className='text-black bg-white px-5 py-14 md:p-10 rounded-xl relative'>
             
