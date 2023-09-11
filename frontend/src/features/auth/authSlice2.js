@@ -35,15 +35,7 @@ const initialState = {
 const authSlice2 = createSlice({
   name: 'auth2',
   initialState,
-  reducer: {
-    login: (state, action) => {
-      const { token, user } = action.payload
-      state.token = token
-      state.user = user
-      localStorage.setItem('token', token)
-      localStorage.setItem('user', JSON.stringify(user))
-      state.logged = true
-    },
+  reducers: {
     logout: (state) => {
       localStorage.removeItem('token')
       localStorage.removeItem('user')

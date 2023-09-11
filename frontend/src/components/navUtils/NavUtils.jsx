@@ -21,7 +21,7 @@ const NavUtils = () => {
   return (
     <section className='utils
     w-[170px] flex flex-col justify-center items-center
-    lg:w-auto lg:flex lg:flex-row lg:flex-nowrap lg:justify-start lg:items-center lg:content-center  gap-2 '
+    lg:w-auto lg:flex lg:flex-row lg:flex-nowrap lg:justify-start lg:items-center lg:content-center  gap-4'
     >
       <SearchButton />
 
