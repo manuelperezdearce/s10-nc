@@ -65,8 +65,8 @@ const signUp = async (req, res) => {
         address: '',
         description: '',
         phone_number: "+569 9",
-        time_open: '00:00',
-        time_close: '00:00',
+        time_open: '',
+        time_close: '',
         user_id: newUser.id,
       });
     }
