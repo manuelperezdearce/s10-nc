@@ -5,7 +5,7 @@ import { BsFillClipboardDataFill } from 'react-icons/bs'
 
 function ModalEditRestaurantProfileInfo({closeModal}) {
     return (
-        <div className='text-black bg-white px-5 py-14 md:p-10 rounded-xl relative'>
+        <div className='text-black bg-white px-2 py-14 md:p-10 rounded-xl relative'>
             
             <button 
                 onClick={closeModal}
@@ -35,15 +35,21 @@ function ModalEditRestaurantProfileInfo({closeModal}) {
                                 <input type="text" placeholder='' className='bg-white border rounded-md p-2'/>
                             </div>
                         </div>
-                        <div className='flex flex-col md:flex-row md:items-center'>
+                        <div className='flex flex-col md:flex-row md:items-center gap-y-2'>
                             <p className='text-lg mr-4'>Horario de atención:</p>
-                            <div className='flex items-center'>
-                                <label htmlFor="" className='text-lg mr-2'>desde:</label>
-                                <input type="time" placeholder='' className='bg-white border rounded-md p-2 mr-2'/>
-                                <p className='text-lg mr-2'>horas</p>
-                                <label htmlFor="" className='text-lg mr-2'>hasta:</label>
-                                <input type="time" placeholder='' className='bg-white border rounded-md p-2 mr-2'/>
-                                <p className='text-lg'>horas</p>
+                            {/* <div className='flex items-center'> */}
+                            <div className='flex flex-col gap-y-3 md:flex-row'>
+                                <div className='flex items-center'>
+                                    <label htmlFor="" className='text-lg mr-2'>desde:</label>
+                                    <input type="time" placeholder='' className='bg-white border rounded-md p-2 mr-2'/>
+                                    <p className='text-lg mr-2'>horas</p>
+                                </div>
+                                <div className='flex items-center'>
+                                    <label htmlFor="" className='text-lg mr-2'>hasta:</label>
+                                    <input type="time" placeholder='' className='bg-white border rounded-md p-2 mr-2'/>
+                                    <p className='text-lg'>horas</p>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
