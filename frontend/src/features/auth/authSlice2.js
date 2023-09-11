@@ -28,7 +28,8 @@ const initialState = {
   token: localStorage.getItem('token') || null,
   user: localStorage.getItem('user') || null,
   loading: false,
-  error: null
+  error: null,
+  msjError: null
 }
 
 const authSlice2 = createSlice({
@@ -44,13 +45,11 @@ const authSlice2 = createSlice({
       state.logged = true
     },
     logout: (state) => {
+      localStorage.removeItem('token')
+      localStorage.removeItem('user')
       state.logged = false
       state.token = null
       state.user = null
-      state.loading = false
-      state.error = null
-      localStorage.removeItem('token')
-      localStorage.removeItem('user')
     }
   },
   extraReducers: (builder) => {
@@ -60,6 +59,7 @@ const authSlice2 = createSlice({
         state.error = null
       })
       .addCase(postLoginUser.fulfilled, (state, action) => {
+        console.log('ACTION PAYLOAD FULLFILED -> ', action.payload)
         state.loading = false
         state.logged = true
         state.token = action.payload.token
@@ -67,13 +67,25 @@ const authSlice2 = createSlice({
           id: action.payload.user_id,
           email: action.payload.email
         }
-        localStorage.setItem('token', action.payload.token)
+        localStorage.setItem('token', state.token)
         localStorage.setItem('user', JSON.stringify(state.user))
       })
       .addCase(postLoginUser.rejected, (state, action) => {
+        console.log('ACTION PAYLOAD ERROR-> ', action.payload)
         state.loading = false
         state.logged = false
-        state.error = action.payload
+        state.error = true
+        const errorPayload = action.payload
+
+        if (errorPayload && errorPayload.includes('User not found')) {
+          state.msjError = 'Usuario no encontrado'
+        } else if (errorPayload && errorPayload.includes('Invalid password')) {
+          // Error de contraseña incorrecta
+          state.msjError = 'Contraseña incorrecta'
+        } else {
+          // Otro tipo de error
+          state.msjError = 'Error desconocido'
+        }
       })
   }
 })
