@@ -64,6 +64,7 @@ const signUp = async (req, res) => {
         city: '',
         address: '',
         description: '',
+        phone_number: 0,
         time_open: '',
         time_close: '',
         user_id: newUser.id,
