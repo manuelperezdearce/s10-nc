@@ -1,14 +1,11 @@
 import React, { useEffect, useRef } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setActiveIndex } from '../../features/nav/navSlice'
 import ListProductsMenu from '../../components/listProductsMenu/ListProductsMenu'
 
-/*
-  Categories -> {id, name , description}
-  foods -> {id, name, description, price, linkImage, id_category, id_restaurant }
-  restaurant -> {id, name, address,email, phone, linkImage }
- */
 const Menus = () => {
+  const logged = useSelector(state => state?.auth2?.logged)
+
   const dispatch = useDispatch()
   const menuRef = useRef(null)
 

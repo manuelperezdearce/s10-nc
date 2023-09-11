@@ -28,9 +28,13 @@ const CardUserLogin = () => {
           {/* section submenu HEader */}
           <section className='w-[100%] h-[70px] flex flex-row justify-center items-center overflow-hidden border-2'>
 
-            <section className='titlesPerfil w-[150px] h-[100%] flex flex-col justify-center items-start gap-1 p-1 overflow-hidden'>
+            <section className='titlesPerfil w-[150px] h-[100%] flex flex-col justify-center items-start gap-1 p-2 overflow-hidden'>
               <h2 className='text-greenCustom2 font-titulo font-bold capitalize text-lg overflow-hidden'>{user.email}</h2>
-              <h3 className='font-parrafo font-light capitalize text-sm overflow-hidden'>tipo</h3>
+              <h3 className='font-parrafo font-light capitalize text-sm overflow-hidden'>
+
+                {user?.role_id === 1 ? 'Usuario' : user?.role_id === 2 ? 'Restaurante' : ''}
+
+              </h3>
             </section>
 
             <section className='w-[50px] h-[100%] grid place-content-center'>

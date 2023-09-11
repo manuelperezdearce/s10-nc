@@ -10,7 +10,6 @@ import MapComponent from './Maps/MapComponent'
 const Detail = () => {
   const dispatch = useDispatch()
   const product = useSelector((state) => state.foods?.productByid)
-  console.log(product)
   const { id } = useParams()
 
   useEffect(() => {

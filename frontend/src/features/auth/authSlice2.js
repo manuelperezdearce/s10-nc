@@ -51,19 +51,20 @@ const authSlice2 = createSlice({
         state.error = null
       })
       .addCase(postLoginUser.fulfilled, (state, action) => {
-        console.log('ACTION PAYLOAD FULLFILED -> ', action.payload)
+        // console.log('ACTION PAYLOAD FULLFILED -> ', action.payload)
         state.loading = false
         state.logged = true
         state.token = action.payload.token
         state.user = {
           id: action.payload.user_id,
-          email: action.payload.email
+          email: action.payload.email,
+          role_id: action.payload.role_id
         }
         localStorage.setItem('token', state.token)
         localStorage.setItem('user', JSON.stringify(state.user))
       })
       .addCase(postLoginUser.rejected, (state, action) => {
-        console.log('ACTION PAYLOAD ERROR-> ', action.payload)
+        // console.log('ACTION PAYLOAD ERROR-> ', action.payload)
         state.loading = false
         state.logged = false
         state.error = true
