@@ -2,7 +2,9 @@ import { BsTelephoneFill } from 'react-icons/bs'
 import { BiSolidTimeFive } from 'react-icons/bi'
 import { IoLocationSharp } from 'react-icons/io5'
 import RestaurantLogo from '../../images/RestaurantLogo.png'
+
 import BtnEditProfileRestaurant from '../Buttons/BtnEditProfileRestaurant'
+import { BtnAddMeal } from '../Buttons/BtnAddMeal'
 
 export default function InfoProfileRestaurant () {
   return (
@@ -23,11 +25,11 @@ export default function InfoProfileRestaurant () {
           <p className='flex items-center gap-x-2'><span className='text-greenCustom2 text-lg'><BiSolidTimeFive /></span>Desde 09:00 - 19:00</p>
           <p className='text-base text-greyCustom'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo, corrupti hic. Aliquid laboriosam perspiciatis accusamus?</p>
         </div>
-        <div className='mt-8'>
+        <div className='mt-8 flex gap-4'>
           <BtnEditProfileRestaurant />
+          <BtnAddMeal />
         </div>
       </div>
-
     </div>
   )
 }
