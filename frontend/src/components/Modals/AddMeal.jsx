@@ -3,8 +3,12 @@ import { MdLocalDining } from 'react-icons/md'
 import { useSelector } from 'react-redux'
 import { Formik } from 'formik'
 import { useState } from 'react'
+import { createMeal } from '../../services/api/createMeal'
 
 export const AddMeal = ({ closeModal }) => {
+  const restaurantId = 2
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk0Mzk0MTYyLCJleHAiOjE2OTQ0ODA1NjJ9.oFI0jZGP-xzQNc5Zb-jBZvEIbptLbxiOxrHgkoE8Dzc'
+
   const { categories, loading } = useSelector((state) => state.categories)
   const [file, setFile] = useState(null)
 
@@ -13,7 +17,7 @@ export const AddMeal = ({ closeModal }) => {
   }
 
   const label = 'font-medium'
-  const fieldStyle = 'flex flex-col gap-2'
+  const fieldStyle = 'flex flex-col gap-4'
   const checkboxFieldset = 'flex gap-2'
   const inputStyle = 'bg-white border rounded-md p-2 focus:outline-none focus:border-greenCustom focus:ring-1 focus:ring-greenCustom'
   const checkbox = 'appearance-none cursor-pointer w-6 h-6 border-2 border-greenCustom rounded-sm bg-white checked:bg-greenCustom checked:border-2'
@@ -23,7 +27,7 @@ export const AddMeal = ({ closeModal }) => {
       <button onClick={closeModal} className='text-greenCustom text-5xl self-end'>
         <IoCloseSharp />
       </button>
-      <h1 className='flex gap-4 font-bold text-2xl'><MdLocalDining className='text-greenCustom text-3xl' /> Añadir nuevo platillo</h1>
+      <h1 className='flex gap-4 font-bold text-2xl md:text-4xl'><MdLocalDining className='text-greenCustom' /> Añadir nuevo platillo</h1>
       <Formik
         initialValues={{
           name: '',
@@ -36,8 +40,8 @@ export const AddMeal = ({ closeModal }) => {
 
         }}
         onSubmit={(values) => {
-          console.log(values)
-          console.log(values.category_id)
+          createMeal(values, file, restaurantId, token)
+          closeModal()
         }}
       >
         {({ values, errors, touched, handleChange, handleBlur, handleSubmit }) => (
@@ -48,7 +52,7 @@ export const AddMeal = ({ closeModal }) => {
               <label htmlFor='name' className={label}>Nombre</label>
               <input value={values.name} required placeholder='Nombre' name='name' className={inputStyle} onChange={handleChange} onBlur={handleBlur} />
             </fieldset>
-            <div className='flex gap-4'>
+            <div className='flex gap-8 flex-col md:flex-row md:gap-16 flex-wrap'>
               <fieldset className={checkboxFieldset}>
                 <input value={values.is_vegan} type='checkbox' name='is_vegan' className={checkbox} onChange={handleChange} />
                 <label htmlFor='is_vegan' className={label}>Vegano</label>
@@ -63,12 +67,12 @@ export const AddMeal = ({ closeModal }) => {
               </fieldset>
             </div>
 
-            <div className='flex gap-8'>
-              <fieldset className={fieldStyle}>
+            <div className='flex gap-8 flex-wrap md:flex-nowrap'>
+              <fieldset className={`${fieldStyle} w-full md:w-1/2`}>
                 <label htmlFor='price' className={label}>Precio</label>
                 <input value={values.price} required placeholder='Precio' name='price' type='number' min={0} className={inputStyle} onChange={handleChange} onBlur={handleBlur} />
               </fieldset>
-              <fieldset className={fieldStyle}>
+              <fieldset className={`${fieldStyle} w-full md:w-1/2`}>
                 <label htmlFor='category_id' className={label}>Categoria</label>
                 <select value={values.category_id} required placeholder='Categoria' name='category_id' className={inputStyle} onChange={handleChange} onBlur={handleBlur}>
                   {!loading &&
@@ -89,10 +93,10 @@ export const AddMeal = ({ closeModal }) => {
 
             <fieldset className={fieldStyle}>
               <label htmlFor='file' className={label}>Imagen del platillo</label>
-              <input type='file' name='file' required onChange={handleFile} />
+              <input type='file' name='file' required onChange={handleFile} className='file:bg-greenCustom file:border-none file:p-2 file:rounded-md file:cursor-pointer' />
             </fieldset>
 
-            <button type='submit' className='bg-greenCustom hover:bg-greenCustom2 duration-75 text-white font-medium px-6 py-2 text-base gap-x-1 rounded-md'>Añadir platillo</button>
+            <button type='submit' className='mb-8 bg-greenCustom hover:bg-greenCustom2 duration-75 text-white font-medium px-6 py-2 text-base gap-x-1 rounded-md'>Añadir platillo</button>
           </form>
         )}
 

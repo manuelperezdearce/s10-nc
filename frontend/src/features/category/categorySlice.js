@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { endpoints } from '../../constants/api'
 
 const initialState = {
   loading: false,
@@ -9,7 +10,7 @@ const initialState = {
 
 const getCategories = createAsyncThunk('categories/getCategories', async () => {
   try {
-    const res = await axios.get('https://green-eats.onrender.com/categories')
+    const res = await axios.get(endpoints.categories)
     return res.data
   } catch (err) {
     console.error('Error in getCategories', err)
