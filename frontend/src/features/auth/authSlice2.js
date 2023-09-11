@@ -26,7 +26,7 @@ export const postLoginUser = createAsyncThunk('auth/postLoginUser', async (userD
 const initialState = {
   logged: !!(localStorage.getItem('user') && localStorage.getItem('token')),
   token: localStorage.getItem('token') || null,
-  user: localStorage.getItem('user') || null,
+  user: JSON.parse(localStorage.getItem('user')) || null,
   loading: false,
   error: null,
   msjError: null
