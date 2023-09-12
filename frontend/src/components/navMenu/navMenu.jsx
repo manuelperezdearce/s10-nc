@@ -12,19 +12,19 @@ const NavMenu = () => {
           className='capitalize font-titulo font-normal flex flex-col justify-start items-start content-start gap-2 relative'
         >
           home
-          <span className={`h-[5px] rounded-[30px]  bg-orange-600  absolute -bottom-1 transition-all duration-200 ease-in ${activeIndex === 'home' ? 'w-[100%]' : 'w-0'}`} />
+          <span className={`h-[5px] rounded-[30px]  bg-greenCustom absolute -bottom-1 transition-all duration-200 ease-in ${activeIndex === 'home' ? 'w-[100%]' : 'w-0'}`} />
         </Link>
         <Link to='/restaurant' className='capitalize font-titulo font-normal flex flex-col justify-start items-start content-start gap-2 relative'>
           Restaurantes
-          <span className={`h-[5px] rounded-[30px]  bg-orange-600  absolute -bottom-1 transition-all duration-200 ease-in ${activeIndex === 'restaurant' ? 'w-[100%]' : 'w-0'}`} />
+          <span className={`h-[5px] rounded-[30px]  bg-greenCustom  absolute -bottom-1 transition-all duration-200 ease-in ${activeIndex === 'restaurant' ? 'w-[100%]' : 'w-0'}`} />
         </Link>
         <Link to='/menus' className='capitalize font-titulo font-normal flex flex-col justify-start items-start content-start gap-2 relative'>
           Menus
-          <span className={`h-[5px] rounded-[30px]  bg-orange-600  absolute -bottom-1 transition-all duration-200 ease-in ${activeIndex === 'menu' ? 'w-[100%]' : 'w-0'}`} />
+          <span className={`h-[5px] rounded-[30px]  bg-greenCustom absolute -bottom-1 transition-all duration-200 ease-in ${activeIndex === 'menu' ? 'w-[100%]' : 'w-0'}`} />
         </Link>
         <Link to='/contact' className='capitalize font-titulo font-normal flex flex-col justify-start items-start content-start gap-2 relative'>
           Contacto
-          <span className={`h-[5px] rounded-[30px]  bg-orange-600  absolute -bottom-1 transition-all duration-200 ease-in ${activeIndex === 'contacto' ? 'w-[100%]' : 'w-0'}`} />
+          <span className={`h-[5px] rounded-[30px]  bg-greenCustom  absolute -bottom-1 transition-all duration-200 ease-in ${activeIndex === 'contacto' ? 'w-[100%]' : 'w-0'}`} />
         </Link>
 
       </nav>

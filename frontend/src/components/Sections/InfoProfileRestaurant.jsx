@@ -4,6 +4,7 @@ import { IoLocationSharp } from 'react-icons/io5';
 import RestaurantLogo from '../../images/RestaurantLogo.png';
 import BtnEditProfileRestaurant from '../Buttons/BtnEditProfileRestaurant';
 import { useRestaurantById } from '../../hooks/useRestaurantById';
+import { BtnAddMeal } from '../Buttons/BtnAddMeal'
 
 export default function InfoProfileRestaurant() {
     const id = 1;
@@ -43,11 +44,12 @@ export default function InfoProfileRestaurant() {
                         Desde {data.time_open} - {data.time_close}
                     </p>
                     <p className="text-base text-greyCustom">
-                       {data.description}
+                        {data.description}
                     </p>
                 </div>
-                <div className="mt-8">
+                <div className='mt-8 flex gap-4'>
                     <BtnEditProfileRestaurant data={data}/>
+                    <BtnAddMeal />
                 </div>
             </div>
         </div>

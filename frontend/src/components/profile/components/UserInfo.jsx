@@ -1,6 +1,5 @@
 import React from 'react'
 
-// import { FaLocationDot } from 'react-icons/fa'
 import { IoLocationSharp } from 'react-icons/io5'
 import { FaPhone, FaEdit } from 'react-icons/fa'
 

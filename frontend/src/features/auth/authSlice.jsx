@@ -13,7 +13,9 @@ export const authSlice = createSlice({
       const resp = action.payload
       state.logged = true
       state.data = resp.data
+      console.log(state.data)
     }
+
   }
 })
 

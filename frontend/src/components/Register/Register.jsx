@@ -1,17 +1,19 @@
 import axios from 'axios'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 
 function Register () {
   const { register, formState: { errors }, handleSubmit } = useForm({
     defaultValues: {
-      role_id: 1,
+      role_id: false,
       email: '',
       password: ''
     }
   })
 
   const [alert, setAlert] = useState('')
+  const navigate = useNavigate()
 
   const onSubmit = async (data) => {
     if (data.role_id === true) {
@@ -20,7 +22,9 @@ function Register () {
     const res = await axios.post('https://green-eats.onrender.com/users/registration',
       data)
     setAlert(res.data.message)
-    console.log(res.data.message)
+    if (res.data.error === false) {
+      navigate('/login')
+    }
   }
 
   const styledLabel = 'text-sm   mb-0.5 mt-2 text-gray-600'

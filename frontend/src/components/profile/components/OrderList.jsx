@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import OrderCard from '../../OrderCard/OrderCard'
 import OrderFilterSection from './OrderFilterSection'
 import { useEffect, useState } from 'react'
@@ -7,16 +8,16 @@ export default function OrderList ({
 }) {
   const [OrderListArray, setOrderListArray] = useState([])
 
-  const getOrders = async () => {
-    const resp = await fetch('./Order.json')
-    // const data = await resp.json()
-    console.log(resp)
-    setOrderListArray(data)
-  }
+  // const getOrders = async () => {
+  //   const resp = await fetch('./Order.json')
+  //   // const data = await resp.json()
+  //   console.log(resp)
+  //   setOrderListArray(data)
+  // }
 
-  useEffect(() => {
-    getOrders()
-  }, [])
+  // useEffect(() => {
+  //   getOrders()
+  // }, [])
 
   // console.log(OrderListArray)
 
@@ -42,8 +43,9 @@ export default function OrderList ({
 
          )
        })
-       : <span>Ups!</span>
-
+       : <span className='m-auto flex flex-col gap-4 font-titulo max-w-xl text-center text-blackCustom font-semibold text-2xl'>
+         <p className=''>Ups! No hay información disponible, ya realizaste tu primer pedido?</p><Link to='/menus' className='text-greenCustom m-auto'> Prueba aquí</Link>
+         </span>
 }
       </section>
     </>

@@ -25,7 +25,7 @@ const ListProductsMenu = ({ categoryId }) => {
     if (category?.categoryId === categoryId) {
       return {
         categoryId: category.categoryId,
-        data: category.data.filter(item => item.id_category === categoryId)
+        data: category.data.filter(item => item.category_id === categoryId)
       }
     }
     return null
