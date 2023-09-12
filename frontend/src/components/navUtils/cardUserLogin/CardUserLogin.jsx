@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { IoChevronDownSharp, IoLogOutOutline } from 'react-icons/io5'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { logout } from '../../../features/auth/authSlice2.js'
 
 const CardUserLogin = () => {
@@ -52,12 +52,20 @@ const CardUserLogin = () => {
           {
             activeMenu &&
               <div className='submenuLogin2 pt-3 w-[100%] h-[40px] flex-col justify-center items-center border-t-2'>
+                <Link
+                  to='/profile'
+                  onClick={handleLogout}
+                  className='w-[100%]  cursor-pointer flex flex-row flex-nowrap justify-start items-center content-center gap-1 text-sm capitalize font-parrafo font-normal px-5 py-1 rounded-md hover:bg-lightBrownCustom transition-all duration-150 ease-in'
+                >
+                  <IoLogOutOutline className='text-lg text-greenCustom2' />
+                  Mi Perfil
+                </Link>
                 <button
                   onClick={handleLogout}
                   className='w-[100%]  cursor-pointer flex flex-row flex-nowrap justify-start items-center content-center gap-1 text-sm capitalize font-parrafo font-normal px-5 py-1 rounded-md hover:bg-lightBrownCustom transition-all duration-150 ease-in'
                 >
                   <IoLogOutOutline className='text-lg text-greenCustom2' />
-                  Logout
+                  Cerrar sesión
                 </button>
               </div>
           }

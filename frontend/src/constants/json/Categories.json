@@ -1,0 +1,46 @@
+[
+  {
+      "id": 1,
+      "name": "Ensaladas"
+  },
+  {
+      "id": 2,
+      "name": "Bebidas"
+  },
+  {
+      "id": 3,
+      "name": "Sopas"
+  },
+  {
+      "id": 4,
+      "name": "Pastas"
+  },
+  {
+      "id": 5,
+      "name": "Carnes"
+  },
+  {
+      "id": 6,
+      "name": "Pizzas"
+  },
+  {
+      "id": 7,
+      "name": "Hamburguesas"
+  },
+  {
+      "id": 8,
+      "name": "Snacks"
+  },
+  {
+      "id": 9,
+      "name": "Batidos"
+  },
+  {
+      "id": 10,
+      "name": "Tacos"
+  },
+  {
+      "id": 11,
+      "name": "Sushi"
+  }
+]

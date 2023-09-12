@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { loginIn } from '../../features/auth/authSlice'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import { postLoginUser } from '../../features/auth/authSlice2'
@@ -22,6 +22,10 @@ function Login () {
   // }
 
   const onSubmit = async (data) => {
+    const resp = await axios.post('https://green-eats.onrender.com/users/login',
+      data
+    )
+    resp?.status === 200 && dispatch(loginIn(resp))
     try {
       const response = await dispatch(postLoginUser(data))
       console.log(response)
