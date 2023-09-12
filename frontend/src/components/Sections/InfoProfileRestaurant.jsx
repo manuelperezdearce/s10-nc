@@ -6,10 +6,8 @@ import BtnEditProfileRestaurant from '../Buttons/BtnEditProfileRestaurant'
 import { useRestaurantById } from '../../hooks/useRestaurantById'
 import { BtnAddMeal } from '../Buttons/BtnAddMeal'
 
-export default function InfoProfileRestaurant () {
-  const id = 1
+export default function InfoProfileRestaurant ({ id }) {
   const { data, isLoading, error } = useRestaurantById(id)
-  console.log(data)
 
   if (isLoading) return <p>Cargando...</p>
 
@@ -48,8 +46,8 @@ export default function InfoProfileRestaurant () {
           </p>
         </div>
         <div className='mt-8 flex gap-4'>
-          <BtnEditProfileRestaurant data={data} />
-          <BtnAddMeal />
+          <BtnEditProfileRestaurant data={data} id={id} />
+          <BtnAddMeal id={id}/>
         </div>
       </div>
     </div>

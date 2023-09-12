@@ -13,7 +13,7 @@ const customStyles = {
   }
 }
 
-export default function BtnEditProfileRestaurant ({data}) {
+export default function BtnEditProfileRestaurant ({ data, id }) {
   const [modal, setModal] = useState(false)
   const openModal = () => {
     setModal(true)
@@ -33,7 +33,7 @@ export default function BtnEditProfileRestaurant ({data}) {
       </button>
       <div className=''>
         <Modal isOpen={modal} onRequestClose={closeModal} style={customStyles}>
-          <ModalEditRestaurantProfileInfo closeModal={closeModal} data={data} />
+          <ModalEditRestaurantProfileInfo closeModal={closeModal} data={data} id={id} />
         </Modal>
       </div>
     </>

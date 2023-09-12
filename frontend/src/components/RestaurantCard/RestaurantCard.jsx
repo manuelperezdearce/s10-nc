@@ -18,7 +18,7 @@ export const RestaurantCard = ({ object }) => {
 
         </div>
 
-        <Link to='/restaurant/id' className='bg-greenCustom text-white rounded-md text-base px-4 py-2'>Menu</Link>
+        <Link to={`/restaurant/${object.id}`} className='bg-greenCustom text-white rounded-md text-base px-4 py-2'>Menu</Link>
       </div>
       <hr />
       {/* Body */}

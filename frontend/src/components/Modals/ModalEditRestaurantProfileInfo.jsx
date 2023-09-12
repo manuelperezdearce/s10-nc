@@ -7,9 +7,8 @@ import { useState } from 'react'
 import { editRestaurant } from '../../services/api/editRestaurant'
 import { useSelector } from 'react-redux'
 
-function ModalEditRestaurantProfileInfo ({ closeModal, data }) {
+function ModalEditRestaurantProfileInfo ({ closeModal, data, id }) {
   const { token } = useSelector(state => state.auth2)
-  const id = 1
   const [img, setImg] = useState(null)
 
   return (
@@ -71,14 +70,19 @@ function ModalEditRestaurantProfileInfo ({ closeModal, data }) {
                     <p className='text-lg'>horas</p>
                   </div>
                 </div>
+                <div className='flex flex-col'>
+                  <label className='text-lg'>Descripción :</label>
+                  <textarea className='bg-white border rounded-md p-2' name='description' value={values.description} onChange={handleChange} onBlur={handleBlur} />
+                </div>
               </div>
 
               <div className='flex flex-col gap-y-4 mb-10'>
                 <p className='text-2xl md:text-3xl font-bold flex gap-x-2'><span className='text-greenCustom2'><IoLocationSharp /></span>Ubicación y contacto</p>
                 <div className='md:flex gap-x-5'>
+
                   <div className='flex flex-col md:w-1/2'>
-                    <label htmlFor='' className='text-lg'>Correo electrónico:</label>
-                    <input type='email' placeholder='' className='bg-white border rounded-md p-2' />
+                    <label htmlFor='' className='text-lg'>Ciudad:</label>
+                    <input type='text' name='city' value={values.city} onChange={handleChange} onBlur={handleBlur} className='bg-white border rounded-md p-2' />
                   </div>
                   <div className='flex flex-col md:w-1/2'>
                     <label htmlFor='' className='text-lg'>Teléfono de contacto:</label>
@@ -86,14 +90,11 @@ function ModalEditRestaurantProfileInfo ({ closeModal, data }) {
                   </div>
                 </div>
                 <div className='md:flex gap-x-5'>
-                  <div className='flex flex-col md:w-1/2'>
+                  <div className='flex flex-col w-full'>
                     <label htmlFor='' className='text-lg'>Dirección:</label>
                     <input type='text' name='address' value={values.address} onChange={handleChange} onBlur={handleBlur} className='bg-white border rounded-md p-2' />
                   </div>
-                  <div className='flex flex-col md:w-1/2'>
-                    <label htmlFor='' className='text-lg'>Ciudad:</label>
-                    <input type='text' name='city' value={values.city} onChange={handleChange} onBlur={handleBlur} className='bg-white border rounded-md p-2' />
-                  </div>
+
                 </div>
               </div>
 

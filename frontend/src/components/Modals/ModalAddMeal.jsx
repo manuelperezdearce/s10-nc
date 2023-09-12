@@ -5,10 +5,8 @@ import { Formik } from 'formik'
 import { useState } from 'react'
 import { createMeal } from '../../services/api/createMeal'
 
-export const AddMeal = ({ closeModal }) => {
-  const restaurantId = 2
-  const token =
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk0NDgwNzM4LCJleHAiOjE2OTQ1NjcxMzh9.jsG-X_IcI4p5fT8t8h0tCSurarGZi8TLmpkbWRDDILw'
+export const ModalAddMeal = ({ closeModal, id }) => {
+  const { token } = useSelector(state => state.auth2)
 
   const { categories, loading } = useSelector((state) => state.categories)
   const [file, setFile] = useState(null)
@@ -45,7 +43,7 @@ export const AddMeal = ({ closeModal }) => {
         }}
         onSubmit={(values) => {
           console.log(values)
-          createMeal(values, file, restaurantId, token)
+          createMeal(values, file, id, token)
           closeModal()
         }}
       >
@@ -136,12 +134,12 @@ export const AddMeal = ({ closeModal }) => {
                 >
                   {!loading && (
                     <>
-                        {categories.map((item) => (
-                          <option key={item.id} value={item.id}>
-                              {item.name}
-                            </option>
-                        ))}
-                      </>
+                      {categories.map((item) => (
+                        <option key={item.id} value={item.id}>
+                          {item.name}
+                        </option>
+                      ))}
+                    </>
                   )}
                 </select>
               </fieldset>
