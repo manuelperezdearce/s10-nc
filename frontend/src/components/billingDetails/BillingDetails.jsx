@@ -1,5 +1,3 @@
-
-
 function BillingDetails () {
   return (
     <div className='w-9/12 my-7  h-full lg:w-lg:w-11/12 lg:my-0 lg:h-auto lg:mt-1'>
