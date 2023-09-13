@@ -16,7 +16,7 @@ const Footer = () => {
 
           <div>
             <p className='text-2xl font-bold mb-2'>Green Eats</p>
-            <p className='mb-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, autem!</p>
+            <p className='mb-4'> Delicias saludables a tu puerta, ¡siempre frescas y verdes!</p>
             <div className='flex gap-x-2 text-2xl'>
               <Link to='/'><AiFillFacebook /></Link>
               <Link to='/'><AiFillInstagram /></Link>
@@ -29,7 +29,7 @@ const Footer = () => {
             <p className='text-2xl font-bold mb-2'>Links útiles</p>
             <div className='grid grid-cols-2'>
               <Link to='/home'>Home</Link>
-              <Link to='/restaurant'>Restaurants</Link>
+              <Link to='/restaurant'>Restaurantes</Link>
               <Link to='/menus'>Menus</Link>
               <Link to='/contact'>Contacto</Link>
               <Link to='/login'>Login</Link>

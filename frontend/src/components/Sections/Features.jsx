@@ -7,18 +7,18 @@ export default function Features () {
   const featuresData = [
     {
       icon: <TfiHeadphoneAlt />,
-      title: '24/7 Online Support',
-      body: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem repudiandae doloribus praesentium quod provident?'
+      title: 'Soporte en línea 24/7',
+      body: 'Atención Ininterrumpida para tus Necesidades en Todo Momento'
     },
     {
       icon: <FaRegMoneyBillAlt />,
-      title: 'Money Guarantee',
-      body: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem repudiandae doloribus praesentium quod provident?'
+      title: 'Compra segura',
+      body: 'Utilizamos medidas de protección avanzadas para resguardar tu información con total confidencialidad y tranquilidad'
     },
     {
       icon: <LiaPiggyBankSolid />,
-      title: 'Get 100% Money Back',
-      body: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem repudiandae doloribus praesentium quod provident?'
+      title: 'Obtenga 100% de devolución de dinero',
+      body: 'Tu Satisfacción es Nuestra Prioridad. Si tu pedido no llega, te garantizamos la devolución de tu dinero sin preguntas'
     }
   ]
 
