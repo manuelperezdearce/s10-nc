@@ -6,7 +6,9 @@ import { useSelector } from 'react-redux'
 import CardUserLogin from './cardUserLogin/CardUserLogin'
 
 const NavUtils = () => {
-  const logged = useSelector(state => state?.auth2?.logged)
+  // const logged = useSelector(state => state?.auth2?.logged)
+  const { logged, data } = useSelector(state => state?.auth)
+
   const [activeloginMenu, setActiveLoginMenu] = useState(false)
 
   const navigate = useNavigate()

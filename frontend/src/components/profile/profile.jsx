@@ -1,30 +1,22 @@
 // import { USERS, OrderListDATA } from '../../constants/dbPrueba'
 import axios from 'axios'
-
+import { useSelector } from 'react-redux/es/hooks/useSelector'
+import { useEffect, useState } from 'react'
 import UserInfo from './components/UserInfo'
 import OrderList from './components/OrderList'
 
-import { useSelector } from 'react-redux/es/hooks/useSelector'
-
-import { useEffect, useState } from 'react'
-
 export default function ProfilePage () {
-  // let { id, createdAt, userID = 1, name, phone, address, photo, email } = USERS[0]
-  // const [OrderListArray, setOrderListArray] = useState(OrderListDATA.filter(item => item.customerID === id))
-
+  const { data } = useSelector(state => state?.auth)
   const [userData, setUserData] = useState({})
 
-  const { data } = useSelector(state => state?.auth)
-  const registeredAsCustomer = false
   const getUserData = async () => {
     const res = await axios.get(`https://green-eats.onrender.com/customer/user/${data.user_id}`)
-    if (res.data.name === '') {
-      // userData.name = res.data.
-    }
+      .catch(error => {
+        console.log(error)
+      })
     setUserData(res.data)
   }
   console.log(userData)
-
   useEffect(() => {
     getUserData()
   }, [])
@@ -34,17 +26,15 @@ export default function ProfilePage () {
       <UserInfo
         id={userData.id}
         createdAt={userData.createdAt}
-        userID={userData.userID}
-        name={userData.name}
-        phone={userData.phone}
+        userID={userData.id}
+        name={userData.name === '' ? data.email : userData.name}
+        phone={userData.phone_number}
         address={userData.address}
         photo={userData.photo}
-        email={userData.email}
+        email={data.email}
       />
       <OrderList
-        userID=''
-        // OrderListArray={OrderListArray}
-        // setOrderListArray={setOrderListArray}
+        userID={userData?.id}
       />
     </div>
 

@@ -1,7 +1,8 @@
 import React from 'react'
 
 import { IoLocationSharp } from 'react-icons/io5'
-import { FaPhone, FaEdit } from 'react-icons/fa'
+import { FaPhone } from 'react-icons/fa'
+import { BtnEditProfileCustomer } from '../../Buttons/BtnEditProfileCustomer'
 
 export default function UserInfo ({ id, userID, name, address, photo, createdAt, email, phone }) {
   return (
@@ -16,27 +17,32 @@ export default function UserInfo ({ id, userID, name, address, photo, createdAt,
             <p className='text-base'>
               {email}
             </p>
-            <a role='button' className='text-greenCustom absolute left-[95%] z-30'>
-              <FaEdit />
-            </a>
           </div>
 
           <p className='text-sm  text-greyCustom'>
             created at {createdAt}
           </p>
           <div className='flex w-5/6 flex-wrap text-base gap-4 mt-8 [&>*]:items-top'>
-            <div className='flex gap-2'>
-              <IoLocationSharp className='text-2xl text-greenCustom' />
-              <p className=''>
-                {address}
-              </p>
-            </div>
-            <div className='flex gap-2'>
-              <FaPhone className='text-2xl text-greenCustom' />
-              <p className=''>{phone}</p>
-            </div>
-
+            {
+              // falta mapear un constructor para simplificar
+              address?.length > 0 &&
+                <div className='flex gap-2'>
+                  <IoLocationSharp className='text-2xl text-greenCustom' />
+                  <p className=''>
+                    {address}
+                  </p>
+                </div>
+            }
+            {
+              // falta mapear un constructor para simplificar
+            phone?.toString().length > 2 &&
+              <div className='flex gap-2'>
+                <FaPhone className='text-2xl text-greenCustom' />
+                <p className=''>{phone}</p>
+              </div>
+              }
           </div>
+          <BtnEditProfileCustomer />
 
         </div>
       </div>
