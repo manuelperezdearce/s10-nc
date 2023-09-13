@@ -6,11 +6,11 @@ import UserInfo from './components/UserInfo'
 import OrderList from './components/OrderList'
 
 export default function ProfilePage () {
-  const { data } = useSelector(state => state?.auth)
+  const { user } = useSelector(state => state?.auth2)
   const [userData, setUserData] = useState({})
 
   const getUserData = async () => {
-    const res = await axios.get(`https://green-eats.onrender.com/customer/user/${data.user_id}`)
+    const res = await axios.get(`https://green-eats.onrender.com/customer/user/${user.user_id}`)
       .catch(error => {
         console.log(error)
       })
@@ -27,11 +27,11 @@ export default function ProfilePage () {
         id={userData.id}
         createdAt={userData.createdAt}
         userID={userData.id}
-        name={userData.name === '' ? data.email : userData.name}
+        name={userData.name === '' ? user.email : userData.name}
         phone={userData.phone_number}
         address={userData.address}
         photo={userData.photo}
-        email={data.email}
+        email={user.email}
       />
       <OrderList
         userID={userData?.id}

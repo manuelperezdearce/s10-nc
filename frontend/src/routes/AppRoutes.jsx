@@ -16,7 +16,7 @@ import CheckOut from '../pages/CheckOut/CheckOut'
 import { useSelector } from 'react-redux'
 
 const AppRoutes = () => {
-  const { logged } = useSelector(state => state?.auth)
+  const { logged } = useSelector(state => state?.auth2)
 
   return (
     <Routes>
