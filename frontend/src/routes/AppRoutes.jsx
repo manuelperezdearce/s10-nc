@@ -13,7 +13,11 @@ import ProfilePage from '../pages/profile/profilePage'
 import Detail from '../components/Detail/Detail'
 import CheckOut from '../pages/CheckOut/CheckOut'
 
+import { useSelector } from 'react-redux'
+
 const AppRoutes = () => {
+  const { logged } = useSelector(state => state?.auth)
+
   return (
     <Routes>
       <Route path='/' element={<Home />} />
@@ -24,7 +28,11 @@ const AppRoutes = () => {
       <Route path='/menus' element={<Menus />} />
       <Route path='/contact' element={<Contact />} />
       <Route path='/register' element={<Register />} />
-      <Route path='/profile' element={<ProfilePage />} />
+      {
+        logged === true &&
+          <Route path='/profile' element={<ProfilePage />} />
+      }
+
       <Route path='/detalle/:id' element={<Detail />} />
 
       {/* <Route path='/detalle:id/:owner' element={<Detail />} /> */}

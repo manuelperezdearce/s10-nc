@@ -5,6 +5,7 @@ import RestaurantLogo from '../../images/RestaurantLogo.png'
 import BtnEditProfileRestaurant from '../Buttons/BtnEditProfileRestaurant'
 import { useRestaurantById } from '../../hooks/useRestaurantById'
 import { BtnAddMeal } from '../Buttons/BtnAddMeal'
+import { BtnEditProfile } from '../Buttons/BtnEditProfile'
 
 export default function InfoProfileRestaurant ({ id }) {
   const { data, isLoading, error } = useRestaurantById(id)
@@ -46,8 +47,9 @@ export default function InfoProfileRestaurant ({ id }) {
           </p>
         </div>
         <div className='mt-8 flex gap-4'>
-          <BtnEditProfileRestaurant data={data} id={id} />
-          <BtnAddMeal id={id}/>
+          {/* <BtnEditProfileRestaurant data={data} id={id} /> */}
+          <BtnEditProfile data={data} id={id} />
+          <BtnAddMeal id={id} />
         </div>
       </div>
     </div>

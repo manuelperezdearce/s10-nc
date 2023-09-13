@@ -2,7 +2,8 @@ import React from 'react'
 
 import { IoLocationSharp } from 'react-icons/io5'
 import { FaPhone } from 'react-icons/fa'
-import { BtnEditProfileCustomer } from '../../Buttons/BtnEditProfileCustomer'
+// import { BtnEditProfileCustomer } from '../../Buttons/BtnEditProfileCustomer'
+import { BtnEditProfile } from '../../Buttons/BtnEditProfile'
 
 export default function UserInfo ({ id, userID, name, address, photo, createdAt, email, phone }) {
   return (
@@ -42,7 +43,8 @@ export default function UserInfo ({ id, userID, name, address, photo, createdAt,
               </div>
               }
           </div>
-          <BtnEditProfileCustomer />
+          {/* <BtnEditProfileCustomer /> */}
+          <BtnEditProfile />
 
         </div>
       </div>
