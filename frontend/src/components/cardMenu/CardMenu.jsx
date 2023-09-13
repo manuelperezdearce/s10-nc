@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addProductLike } from '../../features/productLike/productLikeSlice'
 import { addItemToCar, removeItemFromCar } from '../../features/counter/carSlice'
+import { loadAddToCarFromLocalStorage } from './loadAddToCarFromLocalStorage'
 
 const CardMenu = ({ object }) => {
   const dispatch = useDispatch()
@@ -16,7 +17,7 @@ const CardMenu = ({ object }) => {
 
   const [ishover, setIshover] = useState(false)
   const [activaHeart, setActivaHeart] = useState(false)
-  const [addToCar, setAddTocar] = useState(false)
+  const [addToCar, setAddToCar] = useState(loadAddToCarFromLocalStorage() || false)
 
   const productConLike = car.some((item) => item.meal_id === object.id)
   const productConHeart = likeCar.some((item) => item.id === object.id)
@@ -32,7 +33,7 @@ const CardMenu = ({ object }) => {
   const handleCarClick = (e) => {
     e.stopPropagation()
     // console.log('add car')
-    setAddTocar(!addToCar)
+    setAddToCar((prevValue) => !prevValue) // Cambia el valor actual
     // console.log(addToCar)
 
     const { id } = object
@@ -41,6 +42,9 @@ const CardMenu = ({ object }) => {
     } else {
       dispatch(removeItemFromCar({ meal_id: id, quantity: 1 }))
     }
+    const localStorage = window.localStorage
+    // guardo el estado en el localStorage
+    localStorage.setItem('addToCar', JSON.stringify(!addToCar))
   }
 
   const handleFavoriteClick = (e) => {

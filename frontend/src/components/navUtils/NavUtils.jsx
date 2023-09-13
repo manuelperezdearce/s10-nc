@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import SearchButton from '../searchButton/SearchButton'
 import { useNavigate } from 'react-router-dom'
-import { IoAddSharp, IoCartSharp, IoHeartOutline, IoHeartSharp, IoLogInOutline, IoPersonCircleOutline } from 'react-icons/io5'
+import { IoAddSharp, IoCartSharp, IoHeartSharp, IoLogInOutline, IoPersonCircleOutline } from 'react-icons/io5'
 import { useSelector } from 'react-redux'
 import CardUserLogin from './cardUserLogin/CardUserLogin'
 
