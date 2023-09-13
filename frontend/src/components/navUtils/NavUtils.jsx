@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import SearchButton from '../searchButton/SearchButton'
 import { useNavigate } from 'react-router-dom'
-import { IoAddSharp, IoCartSharp, IoLogInOutline, IoPersonCircleOutline } from 'react-icons/io5'
+import { IoAddSharp, IoCartSharp, IoHeartOutline, IoHeartSharp, IoLogInOutline, IoPersonCircleOutline } from 'react-icons/io5'
 import { useSelector } from 'react-redux'
 import CardUserLogin from './cardUserLogin/CardUserLogin'
 
@@ -9,6 +9,7 @@ const NavUtils = () => {
   const logged = useSelector(state => state?.auth2?.logged)
   const [activeloginMenu, setActiveLoginMenu] = useState(false)
   const cantCarProduct = useSelector((state) => state?.car?.total_quantity)
+  const likeProducts = useSelector((state) => state?.productsLikes?.productLikes)
 
   const navigate = useNavigate()
 
@@ -23,6 +24,12 @@ const NavUtils = () => {
     e.preventDefault()
     e.stopPropagation()
     navigate('/car')
+  }
+
+  const handleNavigateLikes = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    navigate('/likes')
   }
 
   return (
@@ -41,6 +48,20 @@ const NavUtils = () => {
           <span className='font-titulo font-normal  text-[1.1rem] lg:hidden capitalize'>Carrito</span>
           <div className='absolute w-5 h-5 bg-orange-500 -bottom-1 -right-1 rounded-md text-sm'>
             {cantCarProduct}
+          </div>
+        </a>
+      )
+      }
+      {
+      likeProducts.length > 0 && (
+        <a
+          onClick={handleNavigateLikes}
+          className='relative w-[170px] h-[40px] p-3 rounded-md flex flex-row flex-nowrap justify-start items-center content-center gap-2 text-[1.2rem] font-normal lg:w-[40px] lg:rounded-md bg-greenCustom lg:grid lg:place-content-center lg:text-[1.2rem] cursor-pointer text-whiteCustom'
+        >
+          <IoHeartSharp className='text-[1.6rem]' />
+          <span className='font-titulo font-normal  text-[1.1rem] lg:hidden capitalize'>Me gustan</span>
+          <div className='absolute w-5 h-5 bg-orange-500 -bottom-1 -right-1 rounded-md text-sm'>
+            {likeProducts.length}
           </div>
         </a>
       )
