@@ -2,7 +2,7 @@ import CheckOutContainer from '../../components/checkOut/CheckOut'
 
 const CheckOut = () => {
   return (
-    <div className='w-screen h-screen flex justify-center items-center'>
+    <div className='w-screen h-auto flex justify-center items-center lg:mt-40 '>
       <CheckOutContainer />
     </div>
   )

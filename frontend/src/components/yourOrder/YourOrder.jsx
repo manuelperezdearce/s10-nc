@@ -4,7 +4,11 @@ const text = 'text-black'
 
 function YourOrder () {
   return (
-    <div className='w-9/12 h-auto flex justify-center flex-col lg:w-2/5  lg:absolute lg:left-20 lg:top-40'>
+    <div className='w-9/12  flex justify-center flex-col lg:w-11/12 '>
+      <div className='mt-8 mb-8 lg:mt-8'>
+        <h1 className='mb-4 text-black text-4xl font-bold'>Checkout</h1>
+        <p className='text-gray-800'>There are 3 products in your cart</p>
+      </div>
       <h1 className='mb-4 text-black text-xl font-bold'>Your Order</h1>
       <div className='w-full h-full shadow-lg flex flex-col justify-around rounded-lg '>
         <div className='flex justify-between items-center px-4 w-full h-14 bg-whiteBackgroundForm rounded-t-lg'>
