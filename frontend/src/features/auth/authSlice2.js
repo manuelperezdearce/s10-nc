@@ -60,7 +60,7 @@ const authSlice2 = createSlice({
         state.logged = true
         state.token = action.payload.token
 
-        // nose si se hace aca
+        // Decodificación del Token JWT para su posterior uso
         const decodedToken = jwtDecode(action.payload.token)
 
         state.user = {
