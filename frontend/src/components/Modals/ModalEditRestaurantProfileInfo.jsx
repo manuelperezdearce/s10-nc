@@ -11,6 +11,7 @@ function ModalEditRestaurantProfileInfo ({ closeModal, data, id }) {
   const { token } = useSelector(state => state.auth2)
   const [img, setImg] = useState(null)
 
+
   return (
     <div className='text-black bg-white px-5 py-14 md:p-10 rounded-xl relative'>
 
@@ -79,6 +80,7 @@ function ModalEditRestaurantProfileInfo ({ closeModal, data, id }) {
               <div className='flex flex-col gap-y-4 mb-10'>
                 <p className='text-2xl md:text-3xl font-bold flex gap-x-2'><span className='text-greenCustom2'><IoLocationSharp /></span>Ubicación y contacto</p>
                 <div className='md:flex gap-x-5'>
+
 
                   <div className='flex flex-col md:w-1/2'>
                     <label htmlFor='' className='text-lg'>Ciudad:</label>
