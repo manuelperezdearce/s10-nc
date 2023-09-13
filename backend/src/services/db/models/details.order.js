@@ -1,5 +1,7 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
 const sequelize = require('../config');
+const { Orders } = require('./order.model');
+const { Meals } = require('./meal.model');
 
 class DetailsOrder extends Model {}
 
@@ -21,22 +23,6 @@ DetailsOrder.init(
       allowNull: false,
       type: DataTypes.INTEGER,
     },
-    order_id: {
-      allowNull: false,
-      type: DataTypes.STRING,
-      references: {
-        model: 'Orders',
-        key: 'id',
-      },
-    },
-    meal_id: {
-      allowNull: false,
-      type: DataTypes.STRING,
-      references: {
-        model: 'Meals',
-        key: 'id',
-      },
-    },
   },
   {
     sequelize,
@@ -44,5 +30,8 @@ DetailsOrder.init(
     timestamps: false,
   },
 );
+
+
+
 /* type: DataTypes.ARRAY(DataTypes.STRING), */
 module.exports = { DetailsOrder };

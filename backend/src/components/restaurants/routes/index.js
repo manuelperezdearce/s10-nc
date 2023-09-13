@@ -1,6 +1,8 @@
 const { Router } = require('express');
 const { validateAddRestaurant } = require('../middleware/validate.add.restaurant');
-const { createRestaurant, getRestaurants, getRestaurant } = require('../../../services/controllers/restaurants.controller');
+const { createRestaurant, getRestaurants, getRestaurant, updateRestaurant, getRestaurantByUserId, deleteRestaurant } = require('../../../services/controllers/restaurants.controller');
+const { validateTokenMiddleware } = require('../../../middlewares/authValidation/validate.token');
+const { verifyTokenMiddleware } = require('../../../middlewares/authValidation/verify.token');
 
 const restaurantRouter = Router();
 
@@ -8,6 +10,9 @@ const restaurantRouter = Router();
 restaurantRouter.get('/', getRestaurants)
 // Path to get restaurant by id
 restaurantRouter.get('/:id', getRestaurant)
+restaurantRouter.delete('/:id',validateTokenMiddleware,verifyTokenMiddleware, deleteRestaurant)
+restaurantRouter.get('/user/:id', getRestaurantByUserId)
+restaurantRouter.put('/:id',validateTokenMiddleware,verifyTokenMiddleware, updateRestaurant)
 // Path to create restaurants
 // validateAddRestaurant is a middleware to validate the request payload
 restaurantRouter.post('/add', validateAddRestaurant,createRestaurant)

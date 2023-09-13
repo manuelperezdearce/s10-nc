@@ -6,6 +6,7 @@ const getCategories = async (req, res) => {
     res.status(200).json(categories);
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -18,6 +19,7 @@ const createCategory = async (req, res) => {
     res.status(201).json(category);
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -34,6 +36,7 @@ const deleteCategory = async (req, res) => {
     }
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 

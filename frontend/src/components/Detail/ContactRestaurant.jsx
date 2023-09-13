@@ -7,7 +7,7 @@ const ContactRestaurant = ({ restaurant }) => {
   const handlePhoneClick = (e) => {
     e.preventDefault()
     const message = encodeURIComponent('Hola, estoy interesad@ en su sericio. Me gustaría que me contacten. ¡Gracias!')
-    window.open(`https://wa.me/${restaurant?.phone}?text=${message}`, '_blank')
+    window.open(`https://wa.me/${restaurant?.phone_number}?text=${message}`, '_blank')
   }
 
   const handleLocationClick = (e) => {
@@ -35,7 +35,7 @@ const ContactRestaurant = ({ restaurant }) => {
         >
           <span className='text-greenCustom2 text-lg'>
             <BsTelephoneFill />
-          </span>{restaurant?.phone}
+          </span>{restaurant?.phone_number}
         </button>
       </li>
       <li className='w-[100%] flex flex-row justify-start items-center'>

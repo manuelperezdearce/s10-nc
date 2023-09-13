@@ -1,15 +1,11 @@
 import React, { useEffect, useRef } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setActiveIndex } from '../../features/nav/navSlice'
 import ListProductsMenu from '../../components/listProductsMenu/ListProductsMenu'
 
-/*
-  Categories -> {id, name , description}
-  foods -> {id, name, description, price, linkImage, id_category, id_restaurant }
-  restaurant -> {id, name, address,email, phone, linkImage }
- */
 const Menus = () => {
   const dispatch = useDispatch()
+  const categoeies = useSelector((state) => state.categories?.categories)
   const menuRef = useRef(null)
 
   useEffect(() => {
@@ -18,7 +14,6 @@ const Menus = () => {
   }, [])
 
   return (
-
     <section
       ref={menuRef}
       className='containerRestaurants lg:mt-[130px] w-full my-11 min-h-[400px] flex flex-col justify-start items-center content-center bg-whiteCustom gap-6 border-2 border-r-emerald-200 '
@@ -31,18 +26,18 @@ const Menus = () => {
       </section>
 
       <section className='productsVegan w-[100%] h-[450px] px-[1rem] py-[1rem] flex flex-col gap-2 max-w-[1500px]'>
-        <h2 className='font-titulo text-3xl font-bold text-marronCustom text-left '>Productos veganos</h2>
-        <ListProductsMenu categoryId={1} />
+        <h2 className='font-titulo text-3xl font-bold text-marronCustom text-left '>{categoeies[0]?.name || 'Buscando...'}</h2>
+        <ListProductsMenu categoryId={categoeies[0]?.id} />
       </section>
 
       <section className='productsVegan w-[100%] h-[450px] px-[1rem] py-[1rem] flex flex-col gap-2 max-w-[1500px]'>
-        <h2 className='font-titulo text-3xl font-bold text-marronCustom text-left '>Productos pastas</h2>
-        <ListProductsMenu categoryId={2} />
+        <h2 className='font-titulo text-3xl font-bold text-marronCustom text-left '>{categoeies[6]?.name || 'Buscando...'}</h2>
+        <ListProductsMenu categoryId={categoeies[6]?.id} />
       </section>
 
       <section className='productsVegan w-[100%] h-[450px] px-[1rem] py-[1rem] flex flex-col gap-2 max-w-[1500px]'>
-        <h2 className='font-titulo text-3xl font-bold text-marronCustom text-left '>Productos carnes</h2>
-        <ListProductsMenu categoryId={3} />
+        <h2 className='font-titulo text-3xl font-bold text-marronCustom text-left '>{categoeies[3]?.name || 'Buscando...'}</h2>
+        <ListProductsMenu categoryId={categoeies[3]?.id} />
       </section>
     </section>
   )

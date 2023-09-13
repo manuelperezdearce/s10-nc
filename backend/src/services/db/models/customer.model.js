@@ -24,10 +24,10 @@ Customers.init({
   },
   phone_number: {
     allowNull: false,
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
   },
-  
-  
+
+
   createdAt: {
     allowNull: false,
     type: DataTypes.DATE,
@@ -41,11 +41,11 @@ Customers.init({
 });
 
 Customers.hasMany(Orders, {
-  foreignKey: 'user_id',
+  foreignKey: 'customer_id',
   sourceKey:'id'
 });
 Orders.belongsTo(Customers,{
-  foreignKey: 'user_id',
+  foreignKey: 'customer_id',
   targetKey:'id'
 });
 User.hasOne(Customers, {
