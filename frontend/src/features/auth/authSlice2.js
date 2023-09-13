@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import jwtDecode from 'jwt-decode'
 const API_URL = 'https://green-eats.onrender.com/users'
 
 const localStorage = window.localStorage
@@ -17,6 +18,9 @@ export const postLoginUser = createAsyncThunk('auth/postLoginUser', async (userD
       return thunkAPI.rejectWithValue(error)
     }
     const data = await response.json()
+    // const decodedToken = jwtDecode(data.token)
+    // console.log('DECODETOKEN => ', decodedToken)
+
     return data
   } catch (error) {
     return thunkAPI.rejectWithValue(error)
@@ -55,10 +59,12 @@ const authSlice2 = createSlice({
         state.loading = false
         state.logged = true
         state.token = action.payload.token
+
+        // nose si se hace aca
+        const decodedToken = jwtDecode(action.payload.token)
+
         state.user = {
-          id: action.payload.user_id,
-          email: action.payload.email,
-          role_id: action.payload.role_id
+          ...decodedToken
         }
         localStorage.setItem('token', state.token)
         localStorage.setItem('user', JSON.stringify(state.user))
