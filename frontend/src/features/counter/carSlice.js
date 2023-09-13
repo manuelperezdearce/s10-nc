@@ -1,6 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
+const localStorage = window.localStorage
+
+export const saveCarTolocalStorage = (state) => {
+  try {
+    const serializedState = JSON.stringify(state)
+    localStorage.setItem('car', serializedState)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const loadCarFromLocalStorage = () => {
+  try {
+    const serializedState = localStorage.getItem('car')
+    if (serializedState === null) {
+      return undefined // Si no hay datos en el LocalStorage, devuelve undefined
+    }
+    return JSON.parse(serializedState)
+  } catch (error) {
+    return undefined // Si ocurre un error, devuelve undefined
+  }
+}
+const initialState = loadCarFromLocalStorage() || {
   customer_id: null,
   total_price: 0,
   total_quantity: 0,
@@ -26,6 +48,7 @@ const carSlice = createSlice({
 
       state.total_price += item.price
       state.total_quantity += 1
+      saveCarTolocalStorage(state)
     },
 
     removeItemFromCar: (state, action) => {
@@ -42,6 +65,7 @@ const carSlice = createSlice({
 
         state.total_price -= itemRemove.price
         state.total_quantity -= 1
+        saveCarTolocalStorage(state)
       }
     },
     clearCar: (state) => {
@@ -49,6 +73,7 @@ const carSlice = createSlice({
       state.total = 0
       state.total_quantity = 0
       state.customer_id = null
+      saveCarTolocalStorage(state)
     }
   }
 })

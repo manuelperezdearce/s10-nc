@@ -20,16 +20,16 @@ const CardMenu = ({ object }) => {
   const handleNavigate = (e) => {
     e.preventDefault()
     e.stopPropagation()
-    console.log(e)
+    // console.log(e)
 
     navigate(`/detalle/${object.id}`)
   }
 
   const handleCarClick = (e) => {
     e.stopPropagation()
-    console.log('add car')
+    // console.log('add car')
     setAddTocar(!addToCar)
-    console.log(addToCar)
+    // console.log(addToCar)
 
     const { id } = object
     if (!addToCar === true) {
