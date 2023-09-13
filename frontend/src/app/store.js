@@ -8,6 +8,7 @@ import counterReducer from '../features/counter/counterSlice'
 import restaurantsReducer from '../features/restaurantes/restaurantsSlice'
 import categoriesReducer from '../features/category/categorySlice'
 import mapReducer from '../features/map/mapSlice'
+import productLikeReducer from '../features/productLike/productLikeSlice'
 
 export const store = configureStore({
   reducer: {
@@ -19,6 +20,7 @@ export const store = configureStore({
     counter: counterReducer,
     restaurants: restaurantsReducer,
     map: mapReducer,
-    categories: categoriesReducer
+    categories: categoriesReducer,
+    productsLikes: productLikeReducer
   }
 })
