@@ -5,7 +5,7 @@ import { Formik } from 'formik'
 import { useState } from 'react'
 import { createMeal } from '../../services/api/createMeal'
 
-export const EditCustomerInfo = ({ closeModal }) => {
+export const ModalEditCustomerInfo = ({ closeModal }) => {
   const restaurantId = 2
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjk0Mzk0MTYyLCJleHAiOjE2OTQ0ODA1NjJ9.oFI0jZGP-xzQNc5Zb-jBZvEIbptLbxiOxrHgkoE8Dzc'
 

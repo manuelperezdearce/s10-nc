@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Modal from 'react-modal'
-import { AddMeal } from '../Modals/AddMeal'
+import { ModalEditCustomerInfo } from '../Modals/ModalEditCustomerInfo'
 import { FaEdit } from 'react-icons/fa'
 
 export const BtnEditProfileCustomer = () => {
@@ -37,7 +37,7 @@ export const BtnEditProfileCustomer = () => {
         <Modal
           isOpen={isModalOpen} onRequestClose={closeModal} style={customStyles}
         >
-          <AddMeal closeModal={closeModal} />
+          <ModalEditCustomerInfo closeModal={closeModal} />
         </Modal>
       </div>
     </>
