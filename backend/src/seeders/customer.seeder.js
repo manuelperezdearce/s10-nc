@@ -5,7 +5,7 @@ const createCustomers = async () => {
     await Customers.create({
       name: 'Customer 1',
       address: 'customer adress',
-      phone_number: 131231232,
+      phone_number: '131231232',
       user_id: 2,
       role_id: 1,
     });

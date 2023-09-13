@@ -12,7 +12,7 @@ const loadSeeds = async () => {
     await createUsers();
     await createRestaurants();
     await createMeals();
-    await createCustomers();
+    // await createCustomers();
     console.log('Seeds cargados');
   } catch (err) {
     console.log('Error en la carga de seeds', err);
