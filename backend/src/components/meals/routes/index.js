@@ -1,16 +1,18 @@
 const { Router } = require('express');
 const { validateAddMeals } = require('../middleware/validate.add.meals');
-const { createMeal, getMeals, deleteMeal, updateMeal, getMeal } = require('../../../services/controllers/meals.controller');
+const { createMeal, getMeals, deleteMeal, updateMeal, getMeal, getMealsByQuery } = require('../../../services/controllers/meals.controller');
 const { validateTokenMiddleware } = require('../../../middlewares/authValidation/validate.token');
 const { verifyTokenMiddleware } = require('../../../middlewares/authValidation/verify.token');
 
 const mealRouter = Router();
 
-// Path to get meal by id
-mealRouter.get('/search',getMeal);
-
 // Path to get all meals
 mealRouter.get('/',getMeals);
+
+// Path to get meal by id
+mealRouter.get('/search',getMealsByQuery);
+mealRouter.get('/:id', getMeal)
+
 // Path to create meals
 mealRouter.post(
   '/add',

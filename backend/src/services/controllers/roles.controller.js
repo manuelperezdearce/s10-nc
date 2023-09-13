@@ -6,6 +6,7 @@ const getRoles = async (req, res) => {
     res.status(200).json(roles);
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -18,6 +19,7 @@ const createRole = async (req, res) => {
     res.status(201).json(role);
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 

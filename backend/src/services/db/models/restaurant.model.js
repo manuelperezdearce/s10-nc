@@ -14,7 +14,6 @@ Restaurant.init({
   },
   name: {
     allowNull: false,
-    unique: true,
     type: DataTypes.STRING,
   },
   speciality: {
@@ -71,12 +70,12 @@ Meals.belongsTo(Restaurant,{
   foreignKey: 'restaurant_id',
   targetKey:'id'
 });
-User.hasOne(Restaurant, {
-  foreignKey: 'restaurant_id',
-  sourceKey:'id'
-});
+// User.hasOne(Restaurant, {
+//   foreignKey: 'user_id',
+//   sourceKey:'id'
+// });
 Restaurant.belongsTo(User,{
-  foreignKey: 'restaurant_id',
+  foreignKey: 'user_id',
   targetKey:'id'
 });
 

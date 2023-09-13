@@ -3,8 +3,8 @@ const { secret } = require('../2FA');
 
 const SECRET = secret();
 
-const createToken = (id) => {
-  const token = jwt.sign({ id }, SECRET, {
+const createToken = (payload) => {
+  const token = jwt.sign(payload, SECRET, {
     expiresIn: 86400,
   });
   return token;
