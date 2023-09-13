@@ -11,6 +11,7 @@ import RestaurantID from '../pages/restaurant/RestaurantID'
 import LoginUser from '../pages/Login/Login'
 import ProfilePage from '../pages/profile/profilePage'
 import Detail from '../components/Detail/Detail'
+import CheckOut from '../pages/CheckOut/CheckOut'
 
 const AppRoutes = () => {
   return (
@@ -32,6 +33,7 @@ const AppRoutes = () => {
       <Route path='/search' element={<ListOfProducts />} />
       <Route path='*' element={<NotFound />} />
       <Route path='/login' element={<LoginUser />} />
+      <Route path='/checkout' element={<CheckOut />} />
     </Routes>
   )
 }
