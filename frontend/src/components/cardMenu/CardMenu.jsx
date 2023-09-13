@@ -8,15 +8,19 @@ import { addItemToCar, removeItemFromCar } from '../../features/counter/carSlice
 
 const CardMenu = ({ object }) => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const role = useSelector((state) => state.auth2?.user?.role_id)
   const car = useSelector((state) => state?.car?.car)
+  const likeCar = useSelector((state) => state?.productsLikes?.productLikes)
+
   const [ishover, setIshover] = useState(false)
   const [activaHeart, setActivaHeart] = useState(false)
-  const navigate = useNavigate()
   const [addToCar, setAddTocar] = useState(false)
 
   const productConLike = car.some((item) => item.meal_id === object.id)
-  console.log(productConLike)
+  const productConHeart = likeCar.some((item) => item.id === object.id)
+
   const handleNavigate = (e) => {
     e.preventDefault()
     e.stopPropagation()
@@ -79,13 +83,13 @@ const CardMenu = ({ object }) => {
         <section className={`ContentButtonCardMenu absolute w-9 h-auto flex flex-col justify-center items-center content-center gap-2 z-10 botoneraCard transition-all duration-100 ease-in-out ${ishover ? 'visible top-2 right-1 opacity-1' : 'invicible top-2 -right-10 opacity-0'}`}>
           <button
             onClick={handleCarClick}
-            className={`buttonCardMenu  flex w-8 h-8 text-[1.4rem] text-green-500 justify-center items-center rounded-md transition-all duration-150 ease-linear ${addToCar || productConLike ? 'text-red-600' : 'text-green-500'}`}
+            className={`buttonCardMenu  flex w-8 h-8 text-[1.4rem] text-green-500 justify-center items-center rounded-md transition-all duration-150 ease-linear ${addToCar || productConLike ? 'text-white bg-green-500' : 'text-green-500 bg-white'}`}
           >
             <IoCartOutline />
           </button>
           <button
             onClick={handleFavoriteClick}
-            className={`buttonCardMenu flex w-8 h-8 text-[1.4rem]  justify-center items-center rounded-md transition-all duration-150 ease-linear ${activaHeart ? 'text-red-500 bg-white opacity-1' : 'text-green-500'}`}
+            className={`buttonCardMenu flex w-8 h-8 text-[1.4rem]  justify-center items-center rounded-md transition-all duration-150 ease-linear ${activaHeart || productConHeart ? 'text-white bg-green-500 opacity-1' : 'text-green-500 bg-white'}`}
           >
             <IoHeartOutline />
           </button>

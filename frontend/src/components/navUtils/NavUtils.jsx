@@ -1,21 +1,28 @@
 import React, { useState } from 'react'
 import SearchButton from '../searchButton/SearchButton'
 import { useNavigate } from 'react-router-dom'
-import { IoAddSharp, IoLogInOutline, IoPersonCircleOutline } from 'react-icons/io5'
+import { IoAddSharp, IoCartSharp, IoLogInOutline, IoPersonCircleOutline } from 'react-icons/io5'
 import { useSelector } from 'react-redux'
 import CardUserLogin from './cardUserLogin/CardUserLogin'
 
 const NavUtils = () => {
   const logged = useSelector(state => state?.auth2?.logged)
   const [activeloginMenu, setActiveLoginMenu] = useState(false)
+  const cantCarProduct = useSelector((state) => state?.car?.total_quantity)
 
   const navigate = useNavigate()
 
-  const handleactiveMenu = (event) => {
-    event.preventDefault()
-    event.stopPropagation()
+  const handleactiveMenu = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
 
     setActiveLoginMenu(!activeloginMenu)
+  }
+
+  const handleNavigateCar = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    navigate('/car')
   }
 
   return (
@@ -24,7 +31,20 @@ const NavUtils = () => {
     lg:w-auto lg:flex lg:flex-row lg:flex-nowrap lg:justify-start lg:items-center lg:content-center  gap-4'
     >
       <SearchButton />
-
+      {
+      cantCarProduct > 0 && (
+        <a
+          onClick={handleNavigateCar}
+          className='relative w-[170px] h-[40px] p-3 rounded-md flex flex-row flex-nowrap justify-start items-center content-center gap-2 text-[1.2rem] font-normal lg:w-[40px] lg:rounded-md bg-greenCustom lg:grid lg:place-content-center lg:text-[1.2rem] cursor-pointer text-whiteCustom'
+        >
+          <IoCartSharp className='text-[1.6rem]' />
+          <span className='font-titulo font-normal  text-[1.1rem] lg:hidden capitalize'>Carrito</span>
+          <div className='absolute w-5 h-5 bg-orange-500 -bottom-1 -right-1 rounded-md text-sm'>
+            {cantCarProduct}
+          </div>
+        </a>
+      )
+      }
       {
       logged
         ? (
@@ -53,8 +73,10 @@ const NavUtils = () => {
                 <IoAddSharp className='text-lg text-greenCustom2' />
                 Registrar
               </a>
+
             </section>
           </a>
+
           )
       }
 
