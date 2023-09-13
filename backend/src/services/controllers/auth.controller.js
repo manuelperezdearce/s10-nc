@@ -17,14 +17,29 @@ const signIn = async (req, res, next) => {
 
     if (!matchPassword) return res.status(401).send('Invalid password');
 
-    const token = createToken(foundUser.id);
+    let roleUser;
+
+    if (foundUser.role_id === 1) {
+      roleUser = await Customers.findOne({ where: { user_id: foundUser.id } });
+    } else if (foundUser.role_id == 2) {
+      roleUser = await Restaurant.findOne({ where: { user_id: foundUser.id } });
+    }
+
+    const payload = {
+      user_id: foundUser.id,
+      name: foundUser.name,
+      email: foundUser.email,
+      role_id: foundUser.role_id,
+      role_name: foundUser.role_id === 1 ? 'Customer' : 'Restaurant',
+      idByRole: roleUser.id,
+    };
+
+    const token = createToken(payload);
 
     res.json({
       message: 'Authenticated user',
       token: token,
-      email: foundUser.email,
-      user_id: foundUser.id,
-      role_id: foundUser.role_id,
+      ...payload,
     });
     next();
   } catch (err) {
@@ -50,7 +65,7 @@ const signUp = async (req, res) => {
       password: passwordHash,
     });
 
-    let newRole
+    let newRole;
 
     if (role_id === 1) {
       newRole = await Customers.create({
@@ -60,7 +75,7 @@ const signUp = async (req, res) => {
         user_id: newUser.id,
       });
     } else if (role_id === 2) {
-      newRole= await Restaurant.create({
+      newRole = await Restaurant.create({
         name: '',
         speciality: '',
         city: '',
