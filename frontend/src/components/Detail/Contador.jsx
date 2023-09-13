@@ -13,7 +13,7 @@ const Contador = () => {
         <button
           aria-label='Increment value'
           onClick={() => dispatch(decrement())}
-          className='w-[30px] h-[30px] grid place-content-center font-semibold text-md  text-marronCustom text-md border-r-2'
+          className='decrement w-[30px] h-[30px] grid place-content-center font-semibold text-md  text-marronCustom text-md border-r-2'
         >
           -
         </button>
@@ -21,7 +21,7 @@ const Contador = () => {
         <button
           aria-label='Decrement value'
           onClick={() => dispatch(increment())}
-          className='w-[30px] h-[30px] grid place-content-center font-semibold text-md  text-marronCustom text-md border-l-2'
+          className='increment w-[30px] h-[30px] grid place-content-center font-semibold text-md  text-marronCustom text-md border-l-2'
         >
           +
         </button>
