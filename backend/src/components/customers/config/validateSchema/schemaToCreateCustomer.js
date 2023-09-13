@@ -5,7 +5,7 @@ const schemaToCreateCustomer = Joi.object({
     user_id:Joi.number().integer().required(),
     name:Joi.string().required(),
     address:Joi.string().required(),
-    phone_number:Joi.number().positive().required(),
+    phone_number:Joi.string().required(),
 })
 
 

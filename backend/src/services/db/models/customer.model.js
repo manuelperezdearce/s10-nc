@@ -24,7 +24,7 @@ Customers.init({
   },
   phone_number: {
     allowNull: false,
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
   },
 
 
