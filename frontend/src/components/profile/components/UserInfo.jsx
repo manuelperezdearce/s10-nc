@@ -6,6 +6,7 @@ import { FaPhone } from 'react-icons/fa'
 import { BtnEditProfile } from '../../Buttons/BtnEditProfile'
 
 export default function UserInfo ({ id, userID, name, address, photo, createdAt, email, phone }) {
+  console.log(phone)
   return (
     <article className='flex flex-col w-[90%] md:w-[80%] lg:w-[90%] text-blackCustom text-2xl items-center max-w-screen-lg '>
       <div className='w-full flex flex-wrap justify-center lg:justify-around py-10'>
@@ -44,7 +45,7 @@ export default function UserInfo ({ id, userID, name, address, photo, createdAt,
               }
           </div>
           {/* <BtnEditProfileCustomer /> */}
-          <BtnEditProfile />
+          <BtnEditProfile props={{ name, phone, address }} />
 
         </div>
       </div>

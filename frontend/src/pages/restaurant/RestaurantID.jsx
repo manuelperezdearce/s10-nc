@@ -4,12 +4,10 @@ import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 export default function RestaurantID () {
-  const { data } = useSelector(state => state.auth)
-
-  // const { id } = useParams()
+  const { id } = useParams()
   return (
     <div className='py-20 lg:py-32 px-5 md:mt-5 flex flex-col gap-y-14 max-w-7xl xl:mx-auto text-black'>
-      <InfoProfileRestaurant id={data?.user_id} />
+      <InfoProfileRestaurant id={id} />
       <FiltersSearch />
     </div>
   )
