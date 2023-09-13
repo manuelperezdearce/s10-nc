@@ -1,0 +1,14 @@
+[
+  {
+    "name": "La veganeria",
+    "speciality": "Delicias veganas",
+    "city": "Ñuñoa",
+    "phone_number": 123123123,
+    "address": "P. Sherman, 42 Wallaby Way",
+    "description": "Los mejores tentenpies veganos para tu ser",
+    "time_open": "08:00",
+    "time_close": "00:00",
+    "user_id": 1,
+    "role_id": 2
+  }
+]

@@ -1,6 +1,5 @@
 import React from 'react'
 
-// import { FaLocationDot } from 'react-icons/fa'
 import { IoLocationSharp } from 'react-icons/io5'
 import { FaPhone, FaEdit } from 'react-icons/fa'
 
@@ -17,7 +16,7 @@ export default function UserInfo ({ id, userID, name, address, photo, createdAt,
             <p className='text-base'>
               {email}
             </p>
-            <a role='button' className='text-greenCustom absolute left-3/4 '>
+            <a role='button' className='text-greenCustom absolute left-[95%] z-30'>
               <FaEdit />
             </a>
           </div>

@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
+  car: [],
   value: 0,
   price: null,
   priceFinal: null

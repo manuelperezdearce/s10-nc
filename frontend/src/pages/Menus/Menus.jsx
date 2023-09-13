@@ -1,14 +1,11 @@
 import React, { useEffect, useRef } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setActiveIndex } from '../../features/nav/navSlice'
 import ListProductsMenu from '../../components/listProductsMenu/ListProductsMenu'
 
-/*
-  Categories -> {id, name , description}
-  foods -> {id, name, description, price, linkImage, id_category, id_restaurant }
-  restaurant -> {id, name, address,email, phone, linkImage }
- */
 const Menus = () => {
+  const logged = useSelector(state => state?.auth2?.logged)
+
   const dispatch = useDispatch()
   const menuRef = useRef(null)
 
@@ -37,7 +34,7 @@ const Menus = () => {
 
       <section className='productsVegan w-[100%] h-[450px] px-[1rem] py-[1rem] flex flex-col gap-2 max-w-[1500px]'>
         <h2 className='font-titulo text-3xl font-bold text-marronCustom text-left '>Productos pastas</h2>
-        <ListProductsMenu categoryId={2} />
+        <ListProductsMenu categoryId={7} />
       </section>
 
       <section className='productsVegan w-[100%] h-[450px] px-[1rem] py-[1rem] flex flex-col gap-2 max-w-[1500px]'>
