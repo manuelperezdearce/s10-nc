@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
-import { getMeals } from '../services/api/getMeals'
+import { getMealsByCategory } from '../services/api/getMealsByCategory'
 
-export const useMeals = () => {
-  const [data, setData] = useState([])
+export const useMealsByCategory = (id) => {
+  const [data, setData] = useState({})
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState({ error: false, message: '' })
 
-  const getAllMeals = async () => {
+  const getMeals = async () => {
     try {
-      const meals = await getMeals()
+      const meals = await getMealsByCategory(id)
       setData(meals)
       setIsLoading(false)
     } catch (err) {
@@ -19,7 +19,7 @@ export const useMeals = () => {
   }
 
   useEffect(() => {
-    getAllMeals()
+    getMeals()
   }, [])
 
   return { data, isLoading, error }

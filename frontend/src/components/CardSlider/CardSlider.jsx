@@ -18,10 +18,9 @@ export const CardSlider = () => {
     <section className='bg-white flex flex-col items-center py-12 w-[100%'>
       <div className='flex flex-col items-center gap-4'>
 
-        <h2 className='text-greenCustom font-bold text-lg'>Most Popular Products</h2>
-        <h3 className='font-bold text-black text-3xl'>Best Selling Items</h3>
-        <p className='text-base text-greyCustom'>There are many variations of passages of Lorem Ipsum available
-          but the majority have suffered alteration in some form.
+        <h2 className='text-greenCustom font-bold text-lg'>Productos más populares</h2>
+        <h3 className='font-bold text-black text-3xl'>Artículos más vendidos</h3>
+        <p className='text-base text-greyCustom'>¡Descubre lo que todos aman!
         </p>
       </div>
       <div className='w-full'>

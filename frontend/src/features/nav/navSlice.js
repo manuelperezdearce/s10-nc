@@ -7,7 +7,8 @@ const initialState = {
     homeRef: null,
     restaurantRef: null,
     menuRef: null,
-    contactoRef: null
+    contactoRef: null,
+    categoryRef: null
   }
 }
 
