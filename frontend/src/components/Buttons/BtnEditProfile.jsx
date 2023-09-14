@@ -5,7 +5,7 @@ import { FaEdit } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
 import ModalEditRestaurantProfileInfo from '../Modals/ModalEditRestaurantProfileInfo'
 
-export const BtnEditProfile = ({ props }) => {
+export const BtnEditProfile = ({data}) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const { user } = useSelector(state => state?.auth2)
 
@@ -43,8 +43,8 @@ export const BtnEditProfile = ({ props }) => {
         >
           {
             user.role_id === 1
-              ? <ModalEditCustomerInfo closeModal={closeModal} props={props} user={user} />
-              : <ModalEditRestaurantProfileInfo closeModal={closeModal} data={user} id={user.user_id} />
+              ? <ModalEditCustomerInfo closeModal={closeModal} data={data} user={user} />
+              : <ModalEditRestaurantProfileInfo closeModal={closeModal} data={data} id={data.id} />
           }
         </Modal>
       </div>
