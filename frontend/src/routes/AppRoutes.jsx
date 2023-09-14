@@ -14,6 +14,7 @@ import Detail from '../components/Detail/Detail'
 import CheckOut from '../pages/CheckOut/CheckOut'
 
 import { useSelector } from 'react-redux'
+import { MealsByCategory } from '../pages/MealsByCategory/MealsByCategory'
 
 const AppRoutes = () => {
   const { logged } = useSelector(state => state?.auth2)
@@ -26,6 +27,7 @@ const AppRoutes = () => {
       <Route path='/restaurant' element={<Restaurant />} />
       <Route path='/restaurant/:id' element={<RestaurantID />} />
       <Route path='/menus' element={<Menus />} />
+      <Route path='/category/:id' element={<MealsByCategory />} />
       <Route path='/contact' element={<Contact />} />
       <Route path='/register' element={<Register />} />
       {
