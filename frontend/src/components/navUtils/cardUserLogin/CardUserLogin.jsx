@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { logout } from '../../../features/auth/authSlice2.js'
 import './style.css'
+import { clearCar } from '../../../features/counter/carSlice.js'
+import { clearProductLikes } from '../../../features/productLike/productLikeSlice.js'
 
 const CardUserLogin = () => {
   const dispatch = useDispatch()
@@ -17,7 +19,9 @@ const CardUserLogin = () => {
   }
 
   const handleLogout = () => {
+    dispatch(clearCar())
     dispatch(logout())
+    dispatch(clearProductLikes())
     navigate('/')
   }
 

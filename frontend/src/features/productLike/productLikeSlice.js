@@ -46,9 +46,15 @@ const productLikeSlice = createSlice({
         state.productLikes.push(product)
       }
       saveLikeProductTolocalStorage(state)
+    },
+    clearProductLikes: (state) => {
+      state.productLikes = []
+      state.loading = false
+      state.error = null
+      saveLikeProductTolocalStorage(state)
     }
   }
 })
 
-export const { addProductLike } = productLikeSlice.actions
+export const { addProductLike, clearProductLikes } = productLikeSlice.actions
 export default productLikeSlice.reducer
