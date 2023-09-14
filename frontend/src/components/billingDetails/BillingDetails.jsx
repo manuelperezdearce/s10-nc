@@ -1,5 +1,8 @@
-import { useSelector } from 'react-redux'
-import { postOrder } from '../../features/orders/ordersSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { clearOrder, postOrder } from '../../features/orders/ordersSlice'
+import { toast } from 'react-toastify'
+import { clearCar } from '../../features/counter/carSlice'
+import { clearProductLikes } from '../../features/productLike/productLikeSlice'
 
 /*
 {
@@ -20,6 +23,7 @@ import { postOrder } from '../../features/orders/ordersSlice'
  */
 
 function BillingDetails () {
+  const dispatch = useDispatch()
   const general = useSelector((state) => state?.car)
 
   const { car, customer_id, total_price, total_quantity } = general
@@ -30,12 +34,19 @@ function BillingDetails () {
 
   const handleOnclick = (e) => {
     e.preventDefault()
-    postOrder(orden)
+    dispatch(postOrder(orden))
       .then((response) => {
+        toast.success('se Cargo su pedido exitosamente')
         console.log('response ->', response)
+        dispatch(clearOrder())
+        setTimeout(() => {
+          dispatch(clearCar())
+          dispatch(clearProductLikes())
+        }, 3000)
       })
       .catch((error) => {
         console.log('error ->', error)
+        toast.error('Ups!!! algo salio mal!!!')
       })
   }
 

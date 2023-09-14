@@ -10,6 +10,7 @@ import categoriesReducer from '../features/category/categorySlice'
 import mapReducer from '../features/map/mapSlice'
 import productLikeReducer from '../features/productLike/productLikeSlice'
 import createReducer from '../features/counter/carSlice'
+import orderReducer from '../features/orders/ordersSlice'
 
 export const store = configureStore({
   reducer: {
@@ -23,6 +24,7 @@ export const store = configureStore({
     map: mapReducer,
     categories: categoriesReducer,
     productsLikes: productLikeReducer,
-    car: createReducer
+    car: createReducer,
+    order: orderReducer
   }
 })
