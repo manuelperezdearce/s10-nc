@@ -11,6 +11,7 @@ export const updateCustomer = async (values, userID, token) => {
       }
     })
     console.log(res)
+    window.location.reload()
   } catch (err) {
     console.log('Error al actualizar el usuario', err)
   }
