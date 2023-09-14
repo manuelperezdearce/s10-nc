@@ -25,18 +25,13 @@ const CardMenu = ({ object }) => {
   const handleNavigate = (e) => {
     e.preventDefault()
     e.stopPropagation()
-    // console.log(e)
 
     navigate(`/detalle/${object.id}`)
   }
 
-  console.log('PRECIO ->', object?.price)
-
   const handleCarClick = (e) => {
     e.stopPropagation()
-    // console.log('add car')
     setAddToCar((prevValue) => !prevValue) // Cambia el valor actual
-    // console.log(addToCar)
 
     if (!addToCar === true) {
       dispatch(addItemToCar({ meal_id: object?.id, quantity: 1, price: object?.price }))
@@ -50,7 +45,6 @@ const CardMenu = ({ object }) => {
 
   const handleFavoriteClick = (e) => {
     e.stopPropagation()
-    // console.log('add favourite')
     if (!activaHeart === true) {
       dispatch(addProductLike(object))
       setActivaHeart(true)
@@ -62,16 +56,13 @@ const CardMenu = ({ object }) => {
 
   const handleSettingsClick = (e) => {
     e.stopPropagation()
-    // console.log('add settings')
   }
 
   const handleMoueEnter = () => {
-    // console.log('DENTRO de mouse enter')
     setIshover(true)
   }
 
   const handleMoueLeave = () => {
-    // console.log('FUERA de mouse leave')
     setIshover(false)
   }
 
