@@ -3,7 +3,6 @@ import { useNavigate, Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import { postLoginUser } from '../../features/auth/authSlice2'
-import { toast } from 'react-toastify'
 
 function Login () {
   const dispatch = useDispatch()
@@ -16,11 +15,9 @@ function Login () {
 
   const [error, setError] = useState({})
 
-  console.log(error)
   const onSubmit = (data) => {
     dispatch(postLoginUser(data))
       .then(response => {
-        console.log('RESPONSE -> ', response)
         if (response.payload === 'Invalid password') {
           setError({ password: 'Pasword nvalido' })
         } else if (response.payload === 'User not found') {
