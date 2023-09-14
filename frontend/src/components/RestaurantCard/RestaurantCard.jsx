@@ -3,6 +3,9 @@ import { MdPlace } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 
 export const RestaurantCard = ({ object }) => {
+  const fixScroll = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+  }
   return (
     <div className='bg-white border border-gray-300 rounded-lg max-w-[470px]'>
       {/* Header */}
@@ -18,7 +21,7 @@ export const RestaurantCard = ({ object }) => {
 
         </div>
 
-        <Link to={`/restaurant/${object.id}`} className='bg-greenCustom text-white rounded-md text-base px-4 py-2'>Menu</Link>
+        <Link to={`/restaurant/${object.id}`} onClick={fixScroll} className='bg-greenCustom text-white rounded-md text-base px-4 py-2'>Menu</Link>
       </div>
       <hr />
       {/* Body */}

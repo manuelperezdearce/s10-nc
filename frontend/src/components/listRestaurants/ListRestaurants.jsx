@@ -16,6 +16,7 @@ import { getRestaurants } from '../../features/restaurantes/restaurantsSlice'
 const ListRestaurants = () => {
   const dispatch = useDispatch()
   const listOfRestaurant = useSelector((state) => state?.restaurants?.data)
+  const fixedList = listOfRestaurant.filter(item => item.name !== "")
 
   useEffect(() => {
     dispatch(getRestaurants())
@@ -27,7 +28,7 @@ const ListRestaurants = () => {
       className='min-h-[500px] w-[100%] flex flex-wrap justify-center items-center gap-4 text-blackCustom font-parrafo text-[2rem] py-[1rem] max-w-[1500px]'
     >
       {
-        listOfRestaurant.map((restaurant) => {
+        fixedList.map((restaurant) => {
           return <RestaurantCard key={restaurant.id} object={restaurant} />
         })
       }
