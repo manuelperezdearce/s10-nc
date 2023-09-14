@@ -18,6 +18,11 @@ Orders.init(
       field: 'total_price',
       type: DataTypes.INTEGER,
     },
+    total_quantity: {
+      allowNull: false,
+      field: 'total_quantity',
+      type: DataTypes.INTEGER,
+    },
     createdAt: {
       allowNull: false,
       type: DataTypes.DATE,
@@ -32,7 +37,12 @@ Orders.init(
   },
 );
 
-Orders.belongsToMany(Meals, { through: DetailsOrder, foreignKey: 'order_id',  });
-Meals.belongsToMany(Orders, { through: DetailsOrder, foreignKey: 'meal_id', });
+// Orders.belongsToMany(Meals, { through: DetailsOrder, foreignKey: 'order_id',  });
+// Meals.belongsToMany(Orders, { through: DetailsOrder, foreignKey: 'meal_id', });
+
+Orders.hasMany(DetailsOrder, { foreignKey: 'order_id', sourceKey: 'id' });
+DetailsOrder.belongsTo(Orders, { foreignKey: 'order_id', targetKey: 'id' });
+DetailsOrder.belongsTo(Meals, { foreignKey: 'meal_id', targetKey: 'id' });
+Meals.hasMany(DetailsOrder, { foreignKey: 'meal_id', sourceKey: 'id' });
 
 module.exports = { Orders };

@@ -6,9 +6,9 @@ class Meals extends Model {}
 Meals.init({
   id: {
     allowNull: false,
-    autoIncrement: true,
+    // autoIncrement: true,
     primaryKey: true,
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
   },
   name: {
     allowNull: false,

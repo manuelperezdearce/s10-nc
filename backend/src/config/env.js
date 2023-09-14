@@ -8,7 +8,8 @@ const config = {
   dbHost: process.env.DB_HOST,
   dbName: process.env.DB_NAME,
   dbPort: process.env.DB_PORT,
-  secret:process.env.SECRET
+  secret:process.env.SECRET,
+  dbUrl:process.env.DB_URL,
 };
 
 module.exports = { config };

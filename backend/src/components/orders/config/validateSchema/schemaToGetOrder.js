@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 const schemaToGetOrder = Joi.object({
-    user_id:Joi.string().min(8).required(),
+    user_id:Joi.number().integer().required(),
 })
 
 

@@ -15,6 +15,7 @@ export const createMeal = async (values, image, restaurantId, token) => {
       }
     })
     console.log(res)
+    return res.data.meal
   } catch (err) {
     console.log('Error al crear platillo', err)
   }

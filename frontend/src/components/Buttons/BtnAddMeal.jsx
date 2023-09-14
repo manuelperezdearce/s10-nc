@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import Modal from 'react-modal'
-import { AddMeal } from '../Modals/AddMeal'
+import { ModalAddMeal } from '../Modals/ModalAddMeal'
 import { MdOutlineAddCircle } from 'react-icons/md'
 
-export const BtnAddMeal = () => {
+export const BtnAddMeal = ({id}) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const customStyles = {
@@ -37,7 +37,7 @@ export const BtnAddMeal = () => {
         <Modal
           isOpen={isModalOpen} onRequestClose={closeModal} style={customStyles}
         >
-          <AddMeal closeModal={closeModal} />
+          <ModalAddMeal closeModal={closeModal} id={id}/>
         </Modal>
       </div>
     </>
