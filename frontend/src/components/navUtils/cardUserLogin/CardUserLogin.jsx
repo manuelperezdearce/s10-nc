@@ -3,7 +3,7 @@ import { IoChevronDownSharp, IoLogOutOutline } from 'react-icons/io5'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { logout } from '../../../features/auth/authSlice2.js'
-import { logOut } from '../../../features/auth/authSlice.jsx'
+import './style.css'
 
 const CardUserLogin = () => {
   const dispatch = useDispatch()
@@ -30,7 +30,7 @@ const CardUserLogin = () => {
           <section className='w-[100%] h-[70px] flex flex-row justify-center items-center overflow-hidden border-2'>
 
             <section className='titlesPerfil w-[150px] h-[100%] flex flex-col justify-center items-start gap-1 p-2 overflow-hidden'>
-              <h2 className='text-greenCustom2 font-titulo font-bold capitalize text-lg overflow-hidden'>{user.email}</h2>
+              <h2 className='nameUSer text-greenCustom2 font-titulo font-bold capitalize text-lg overflow-hidden'>{user.email}</h2>
               <h3 className='font-parrafo font-light capitalize text-sm overflow-hidden'>
 
                 {user?.role_id === 1 ? 'Usuario' : user?.role_id === 2 ? 'Restaurante' : ''}
@@ -69,7 +69,6 @@ const CardUserLogin = () => {
                 </button>
               </div>
           }
-
         </div>
       </section>
     </>

@@ -37,17 +37,18 @@ const carSlice = createSlice({
   reducers: {
     addItemToCar: (state, action) => {
       const item = action.payload
+      console.log('ITEM ->', item.price)
       //  si existe en car, sumar total_price y total_quantity
       const index = state.car.findIndex((p) => p.meal_id === item.meal_id)
 
       if (index !== -1) {
-        state.car[index].total_quantity += 1
+        state.car[index].total_quantity += item.quantity
       } else {
-        state.car.push({ ...item, quantity: 1 })
+        state.car.push({ ...item, quantity: item.quantity })
       }
 
       state.total_price += item.price
-      state.total_quantity += 1
+      state.total_quantity += item.quantity
       saveCarTolocalStorage(state)
     },
 

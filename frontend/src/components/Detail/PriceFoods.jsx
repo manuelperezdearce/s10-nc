@@ -25,10 +25,12 @@ const PriceFoods = () => {
     }
   }
 
+  console.log('QUANTITY ->', quantity)
+
   const handleSubmit = (e) => {
     e.preventDefault()
     e.stopPropagation()
-    dispatch(addItemToCar({ meal_id: product?.id, quantity }))
+    dispatch(addItemToCar({ meal_id: product?.id, quantity, price: product?.price * quantity }))
   }
 
   return (
