@@ -13,10 +13,6 @@ const FormContact = () => {
   // control del error
   const [errors, setErrors] = useState({})
 
-  // control de mensaje y modal
-  // const [successMessage, setSuccessMessage] = useState({})
-  // const [showModal, setShowModal] = useState(false)
-
   const mailUser = 'guillermoneculqueo@gmail.com'
 
   const handleInputChange = (e) => {
@@ -125,34 +121,34 @@ const FormContact = () => {
   }
 
   return (
-    <section className='w-[90%] max-w-[600px] flex flex-col justify-center items-center gap-2'>
+    <section className='w-[100%] max-w-[600px] flex flex-col justify-center items-center gap-2'>
 
       <form
         onSubmit={handleSubmit}
-        className='w-[90%] h-auto rounded-md p-5 flex flex-col justify-center items-center gap-5 text-md '
+        className='w-[90%] h-auto rounded-md p-5 flex flex-col justify-center items-center gap-5 text-md border-2'
         style={{ boxShadow: '5px 5px 10px #d4d4d4,-5px -5px 10px #ffffff' }}
       >
         <div className='w-[100%] flex flex-col flex-wrap  lg:flex-row gap-4 lg:flex-nowrap overflow-hidden'>
-          <label htmlFor='name' className='w-[100%] lg:w-[50%] flex flex-col gap-2 font-titulo font-normal leading-[1.5rem] '>
+          <label htmlFor='name' className='w-[100%] lg:w-[50%] flex flex-col gap-2 font-titulo font-semibold text-marronCustom leading-[1.5rem] '>
             Nombre
             <input
               type='text' name='name' id='name'
               value={name}
               onChange={handleInputChange}
-              className={`w-[100%] p-3 rounded-md font-normal outline-none shadow-sm focus:ring focus:ring-green-500 focus:ring-opacity-100 border-[.5px] ${errors.name ? 'border-2 border-red-600 focus:ring-0' : ''}`}
+              className={`w-[100%] bg-greenCustom text-marronCustom placeholder-white p-3 rounded-md font-normal outline-none shadow-sm focus:ring focus:ring-green-500 focus:ring-opacity-100 border-[.5px] ${errors.name ? 'border-2 border-red-600 focus:ring-0' : ''}`}
               style={{ boxShadow: '5px 5px 10px #dcdbe4,-5px -5px 10px #ffffff' }}
               placeholder='Nombre'
             />
             {errors.name && (<p className='text-red-500 font-parrafo font-semibold w-full'>{errors.name}</p>)}
           </label>
 
-          <label htmlFor='email' className='w-[100%] lg:w-[50%] flex flex-col gap-2 font-titulo font-normal leading-[1.5rem]'>
+          <label htmlFor='email' className='w-[100%] lg:w-[50%] flex flex-col gap-2 font-titulo font-semibold text-marronCustom leading-[1.5rem]'>
             Email
             <input
               type='email' name='email' id='email'
               value={email}
               onChange={handleInputChange}
-              className={`w-[100%] p-3  rounded-md font-normal outline-none shadow-sm focus:ring focus:ring-green-500 focus:ring-opacity-100 border-[.5px] ${errors.email ? 'border-2 border-red-600 focus:ring-0' : ''}`}
+              className={`w-[100%] p-3 bg-greenCustom text-marronCustom placeholder-white  rounded-md font-normal outline-none shadow-sm focus:ring focus:ring-green-500 focus:ring-opacity-100 border-[.5px] ${errors.email ? 'border-2 border-red-600 focus:ring-0' : ''}`}
               style={{ boxShadow: '5px 5px 10px #dcdbe4,-5px -5px 10px #ffffff' }}
               placeholder='Email'
             />
@@ -161,13 +157,13 @@ const FormContact = () => {
         </div>
 
         <div className='w-[100%] flex flex-col lg:flex-row gap-3 flex-nowrap'>
-          <label htmlFor='telefono' className='w-[100%] lg:w-[50%] flex flex-col gap-2 font-titulo font-normal leading-[1.5rem]'>
+          <label htmlFor='telefono' className='w-[100%] lg:w-[50%] flex flex-col gap-2 font-titulo font-semibold text-marronCustom leading-[1.5rem]'>
             Teléfono
             <input
               type='text' name='telefono' id='telefono'
               value={telefono}
               onChange={handleInputChange}
-              className={`w-[100%] p-3 rounded-md font-normal outline-none shadow-sm focus:ring focus:ring-green-500 focus:ring-opacity-100 border-[.5px] ${errors.telefono ? 'border-2 border-red-600 focus:ring-0' : ''}`}
+              className={`w-[100%] bg-greenCustom text-marronCustom placeholder-white  p-3 rounded-md font-normal outline-none shadow-sm focus:ring focus:ring-green-500 focus:ring-opacity-100 border-[.5px] ${errors.telefono ? 'border-2 border-red-600 focus:ring-0' : ''}`}
               style={{ boxShadow: '5px 5px 10px #dcdbe4,-5px -5px 10px #ffffff' }}
               placeholder='Teléfono'
             />
@@ -175,20 +171,20 @@ const FormContact = () => {
           </label>
         </div>
 
-        <label htmlFor='mensaje' className='w-[100%] flex flex-col gap-2 font-titulo font-normal leading-[1.5rem]'>
+        <label htmlFor='mensaje' className='w-[100%] flex flex-col gap-2 font-titulo font-semibold text-marronCustom leading-[1.5rem]'>
           Mensaje
           <textarea
             name='mensaje' id='mensaje'
             value={mensaje}
             onChange={handleInputChange}
-            className={`block p-3  w-[100%] h-[140px] rounded-lg  outline-none shadow-sm focus:ring focus:ring-verdeTurk focus:ring-opacity-100 font-parrafo font-[400] resize-none border-[.5px]  ${errors.mensaje ? 'border-2 border-red-600 focus:ring-0' : ''}`}
+            className={`block p-3 bg-greenCustom text-marronCustom placeholder-white  w-[100%] h-[140px] rounded-lg  outline-none shadow-sm focus:ring focus:ring-verdeTurk focus:ring-opacity-100 font-parrafo font-[400] resize-none border-[.5px]  ${errors.mensaje ? 'border-2 border-red-600 focus:ring-0' : ''}`}
             placeholder='Ingrese su mensaje'
             style={{ boxShadow: '5px 5px 10px #dcdbe4,-5px -5px 10px #ffffff' }}
           />
           {errors.mensaje && (<p className='text-red-500 font-parrafo font-[400] w-full'>{errors.mensaje}</p>)}
         </label>
         <div className='w-full flex flex-row flex-nowrap justify-center items-center mt-6'>
-          {loader ? <div className='font-titulo rounded-md transition-all duration-300 ease-in-out flex flex-row flex-nowrap items-center justify-start gap-2 py-[10px] px-[24px] md:py-[16px] md:px-[32px] xl:px-[36px] xl:py-[24px] xl:text-[18px]'><Loader /></div> : <button type='submit' name='Enviar mensaje' clase='text-md font-semibold px-10 py-3 rounded-md bg-green-500'>Enviar</button>}
+          {loader ? <div className='font-titulo rounded-md transition-all duration-300 ease-in-out flex flex-row flex-nowrap items-center justify-start gap-2 py-[10px] px-[24px] md:py-[16px] md:px-[32px] xl:px-[36px] xl:py-[24px] xl:text-[18px]'><Loader /></div> : <button type='submit' name='Enviar mensaje' className='text-md font-normal font-titulo px-5 py-2 rounded-md bg-greenCustom text-white border-2 hover:bg-white hover:text-greenCustom hover:border-greemCustom transition-all ease-out duration-150 '>Enviar</button>}
         </div>
       </form>
     </section>
