@@ -32,8 +32,7 @@ export const RestaurantCard = ({ object }) => {
       <hr />
       {/* Footer */}
       <div className='flex gap-7 p-5'>
-        <span className='text-greyCustom text-base flex gap-1 items-center'> <TbPhoneCall className='text-greenCustom text-lg' />{object.phone}</span>
-        <span className='text-greyCustom text-base flex gap-1 items-center'><TbMail className='text-lg' />{object.email}</span>
+        <span className='text-greyCustom text-base flex gap-1 items-center'> <TbPhoneCall className='text-greenCustom text-lg' />{object.phone_number}</span>
       </div>
     </div>
   )
