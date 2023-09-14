@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { Formik } from 'formik'
 import { updateCustomer } from '../../services/api/updateCustomer'
 
-export const ModalEditCustomerInfo = ({ closeModal, props }) => {
+export const ModalEditCustomerInfo = ({ closeModal, data }) => {
   const { token, user } = useSelector(state => state?.auth2)
   const userID = user.idByRole
   const label = 'font-medium'
@@ -20,13 +20,12 @@ export const ModalEditCustomerInfo = ({ closeModal, props }) => {
       <h1 className='flex gap-4 font-bold text-2xl md:text-4xl'><FaCircleUser className='text-greenCustom' /> Editar información</h1>
       <Formik
         initialValues={{
-          name: props.name,
-          address: props.address,
-          phone_number: props.phone
+          name: data.name,
+          address: data.address,
+          phone_number: data.phone_number
 
         }}
         onSubmit={(values) => {
-          console.log(user)
           updateCustomer(values, userID, token)
           closeModal()
         }}
@@ -41,7 +40,7 @@ export const ModalEditCustomerInfo = ({ closeModal, props }) => {
 
             <fieldset className={fieldStyle}>
               <label htmlFor='phone_number' className={label}>Teléfono</label>
-              <input value={values.phone_number} required placeholder='123456789' name='phone_number' className={inputStyle} onChange={handleChange} onBlur={handleBlur} />
+              <input value={values.phone_number} required name='phone_number' className={inputStyle} onChange={handleChange} onBlur={handleBlur} />
             </fieldset>
 
             <fieldset className={fieldStyle}>
