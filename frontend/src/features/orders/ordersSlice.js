@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 
 export const API_URL = 'https://green-eats.onrender.com/order'
 const localStorage = window.localStorage
+
 export const postOrder = createAsyncThunk('order/postOrder', async (orderData, thunkAPI) => {
   try {
     const response = await fetch(`${API_URL}/add`, {

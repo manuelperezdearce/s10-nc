@@ -41,7 +41,7 @@ const AppRoutes = () => {
       <Route path='/search' element={<ListOfProducts />} />
       <Route path='*' element={<NotFound />} />
       <Route path='/login' element={<LoginUser />} />
-      <Route path='/checkout' element={<CheckOut />} />
+      <Route path='/car' element={<CheckOut />} />
     </Routes>
   )
 }

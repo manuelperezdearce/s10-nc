@@ -1,4 +1,44 @@
+import { useSelector } from 'react-redux'
+import { postOrder } from '../../features/orders/ordersSlice'
+
+/*
+{
+    "customer_id": 1,
+    "total_price": 2000,
+    "total_quantity": 2,
+    "items": [
+        {
+        "meal_id":"a12",
+        "quantity": 4
+    },
+        {
+        "meal_id":"a13",
+        "quantity": 1
+    }
+    ]
+    }
+ */
+
 function BillingDetails () {
+  const general = useSelector((state) => state?.car)
+
+  const { car, customer_id, total_price, total_quantity } = general
+
+  const orden = { customer_id, total_price, total_quantity, item: car }
+
+  console.log('ordebn ->', orden)
+
+  const handleOnclick = (e) => {
+    e.preventDefault()
+    postOrder(orden)
+      .then((response) => {
+        console.log('response ->', response)
+      })
+      .catch((error) => {
+        console.log('error ->', error)
+      })
+  }
+
   return (
     <div className='w-9/12 my-7  h-full lg:w-lg:w-11/12 lg:my-0 lg:h-auto lg:mt-1'>
       <div className='lg:h-20 lg:w-full flex items-center justify-start'>
@@ -50,7 +90,7 @@ function BillingDetails () {
 
         </div>
         <div className='w-full h-1/6 flex justify-center items-center lg:h-20'>
-          <button className='bg-greenCard  py-2 rounded-md text-white w-11/12 my-4 lg:my-1'>Editar datos</button>
+          <button onClick={handleOnclick} className='bg-greenCard  py-2 rounded-md text-white w-11/12 my-4 lg:my-1'>Editar datos</button>
         </div>
       </div>
     </div>
