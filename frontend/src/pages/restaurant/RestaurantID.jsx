@@ -1,7 +1,6 @@
 import InfoProfileRestaurant from '../../components/Sections/InfoProfileRestaurant'
 import FiltersSearch from '../../components/Sections/FiltersSearch'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 
 export default function RestaurantID () {
   const { id } = useParams()

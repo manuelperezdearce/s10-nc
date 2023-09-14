@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom'
 export default function FiltersSearch () {
   const { id } = useParams()
   const { data, isLoading } = useMealsByRestaurantId(id)
-console.log(data)
+  console.log(data)
   return (
     <div>
       {/* -------------------- Search & Filters */}
@@ -62,7 +62,7 @@ console.log(data)
         {isLoading
           ? <p>Cargando...</p>
           : data?.map(item =>
-            <CardProduct key={item.id} />
+            <CardProduct key={item.id} data={item} />
 		  )}
 
       </div>
