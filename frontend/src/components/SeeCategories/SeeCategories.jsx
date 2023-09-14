@@ -1,3 +1,4 @@
+
 import Categories from './components/Categories'
 
 import { Link } from 'react-router-dom'
@@ -31,18 +32,21 @@ const CategoriesArray = [
 
 ]
 
-export default function SeeCategories () {
-  const renderArray = CategoriesArray
+
+export default function SeeCategories() {
+  const renderArray = CategoriesArray;
 
   // const HandleButton = (e) => {
   //     console.log(e.target.name)
   // }
 
   return (
-    <section className='bg-white text-center text-black flex flex-col items-center gap-4 py-10 px-4 rounded-md shadow-gray-500 shadow-lg'>
-      <h1 className='text-[3rem] font-semibold'>Shop by categories</h1>
-      <p className='max-w-[500px] text-[1rem] text-greyCustom font-medium'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, voluptatibus!</p>
-      <div className='w-full'>
+    <section className="bg-white text-center text-black flex flex-col items-center gap-4 py-10 px-4 rounded-md shadow-gray-500 shadow-lg">
+      <h1 className="text-[3rem] font-semibold">Comprar por categorías</h1>
+      <p className="max-w-[500px] text-[1rem] text-greyCustom font-medium">
+        Deléitate Explorando Nuestras Categorías Gastronómicas!
+      </p>
+      <div className="w-full">
         {/* <div className="text-white flex justify-between px-8 w-full absolute top-[40%] z-10 [&>*]:opacity-70 hover:[&>*]:opacity-100 [&>*]:ease-in [&>*]:duration-300 [&>*]:h-16">
                     <button className="z-20" name="back" role="button" onClick={e => HandleButton(e)}>
                         <MdArrowBackIos className="z-0" />
@@ -51,25 +55,24 @@ export default function SeeCategories () {
                         <MdArrowForwardIos />
                     </button>
                 </div> */}
-        <article className='my-8 justify-start py-4 w-full [&>*]:w-1/2 [&>*]:md:w-1/3 [&>*]:lg:w-1/5 [&>*]:p-4 flex flex-wrap '>
-          {
-                        renderArray.length > 0 &&
-                        renderArray.map(({ id, imgUrl, category }) => {
-                          return (
-                            <Categories
-                              key={id}
-                              imgUrl={imgUrl}
-                              id={id}
-                              category={category}
-                            />
-                          )
-                        })
-                    }
+        <article className="my-8 justify-start py-4 w-full [&>*]:w-1/2 [&>*]:md:w-1/3 [&>*]:lg:w-1/5 [&>*]:p-4 flex flex-wrap ">
+          {renderArray.length > 0 &&
+            renderArray.map(({ id, imgUrl, category }) => {
+              return (
+                <Categories
+                  key={id}
+                  imgUrl={imgUrl}
+                  id={id}
+                  category={category}
+                />
+              );
+            })}
         </article>
-
       </div>
+
       <Link to='/category' className='rounded-md p-3 text-white text-[1.5rem] bg-greenCustom'>Explorar Todas</Link>
 
+
     </section>
-  )
+  );
 }
