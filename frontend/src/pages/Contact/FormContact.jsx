@@ -125,21 +125,21 @@ const FormContact = () => {
   }
 
   return (
-    <section className='w-[90%] max-w-[600px] flex flex-col justify-center items-center gap-2 bg-yellow-300'>
+    <section className='w-[90%] max-w-[600px] flex flex-col justify-center items-center gap-2'>
 
       <form
         onSubmit={handleSubmit}
-        className='w-[90%] h-auto rounded-md p-2 flex flex-col justify-center items-center gap-5 text-md '
+        className='w-[90%] h-auto rounded-md p-5 flex flex-col justify-center items-center gap-5 text-md '
         style={{ boxShadow: '5px 5px 10px #d4d4d4,-5px -5px 10px #ffffff' }}
       >
-        <div className='w-[100%] flex flex-col lg:flex-row gap-3 flex-nowrap'>
-          <label htmlFor='name' className='w-[100%] lg:w-[50%] flex flex-col gap-2 font-titulo font-normal leading-[1.5rem]'>
+        <div className='w-[100%] flex flex-col flex-wrap  lg:flex-row gap-4 lg:flex-nowrap overflow-hidden'>
+          <label htmlFor='name' className='w-[100%] lg:w-[50%] flex flex-col gap-2 font-titulo font-normal leading-[1.5rem] '>
             Nombre
             <input
               type='text' name='name' id='name'
               value={name}
               onChange={handleInputChange}
-              className={`p-3 lg:p-3 xl:p-5 rounded-md font-normal outline-none shadow-sm focus:ring focus:ring-green-500 focus:ring-opacity-100 border-[.5px] ${errors.name ? 'border-2 border-red-600 focus:ring-0' : ''}`}
+              className={`w-[100%] p-3 rounded-md font-normal outline-none shadow-sm focus:ring focus:ring-green-500 focus:ring-opacity-100 border-[.5px] ${errors.name ? 'border-2 border-red-600 focus:ring-0' : ''}`}
               style={{ boxShadow: '5px 5px 10px #dcdbe4,-5px -5px 10px #ffffff' }}
               placeholder='Nombre'
             />
@@ -152,7 +152,7 @@ const FormContact = () => {
               type='email' name='email' id='email'
               value={email}
               onChange={handleInputChange}
-              className={`p-3 lg:p-3 xl:p-5 rounded-md font-normal outline-none shadow-sm focus:ring focus:ring-green-500 focus:ring-opacity-100 border-[.5px] ${errors.email ? 'border-2 border-red-600 focus:ring-0' : ''}`}
+              className={`w-[100%] p-3  rounded-md font-normal outline-none shadow-sm focus:ring focus:ring-green-500 focus:ring-opacity-100 border-[.5px] ${errors.email ? 'border-2 border-red-600 focus:ring-0' : ''}`}
               style={{ boxShadow: '5px 5px 10px #dcdbe4,-5px -5px 10px #ffffff' }}
               placeholder='Email'
             />
@@ -167,7 +167,7 @@ const FormContact = () => {
               type='text' name='telefono' id='telefono'
               value={telefono}
               onChange={handleInputChange}
-              className={`p-3 lg:p-3 xl:p-5 rounded-md font-normal outline-none shadow-sm focus:ring focus:ring-green-500 focus:ring-opacity-100 border-[.5px] ${errors.telefono ? 'border-2 border-red-600 focus:ring-0' : ''}`}
+              className={`w-[100%] p-3 rounded-md font-normal outline-none shadow-sm focus:ring focus:ring-green-500 focus:ring-opacity-100 border-[.5px] ${errors.telefono ? 'border-2 border-red-600 focus:ring-0' : ''}`}
               style={{ boxShadow: '5px 5px 10px #dcdbe4,-5px -5px 10px #ffffff' }}
               placeholder='Teléfono'
             />
@@ -175,13 +175,13 @@ const FormContact = () => {
           </label>
         </div>
 
-        <label htmlFor='mensaje' className='w-full lg:w-[92%] xl:w-full  flex flex-col gap-2 font-titulo font-[600] text-textPurple leading-[1.5rem]'>
+        <label htmlFor='mensaje' className='w-[100%] flex flex-col gap-2 font-titulo font-normal leading-[1.5rem]'>
           Mensaje
           <textarea
             name='mensaje' id='mensaje'
             value={mensaje}
             onChange={handleInputChange}
-            className={`block p-3 lg:p-3 xl:p-4 w-full h-[140px] rounded-lg  outline-none shadow-sm focus:ring focus:ring-verdeTurk focus:ring-opacity-100 font-parrafo font-[400] resize-none border-[.5px]  ${errors.mensaje ? 'border-2 border-red-600 focus:ring-0' : ''}`}
+            className={`block p-3  w-[100%] h-[140px] rounded-lg  outline-none shadow-sm focus:ring focus:ring-verdeTurk focus:ring-opacity-100 font-parrafo font-[400] resize-none border-[.5px]  ${errors.mensaje ? 'border-2 border-red-600 focus:ring-0' : ''}`}
             placeholder='Ingrese su mensaje'
             style={{ boxShadow: '5px 5px 10px #dcdbe4,-5px -5px 10px #ffffff' }}
           />
