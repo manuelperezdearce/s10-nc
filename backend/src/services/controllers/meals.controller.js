@@ -1,34 +1,51 @@
+const { Category } = require('../db/models/category.model');
 const { Meals } = require('../db/models/meal.model');
 
 const getMeals = async (req, res) => {
   try {
-    const meals = await Meals.findAll();
+    const meals = await Meals.findAll({
+      include: [{ model: Category, attributes: ['name'] }],
+    });
     res.status(200).json(meals);
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
+  }
+};
+
+const getMealsByQuery = async (req, res) => {
+  const key = Object.keys(req.query);
+  const value = Object.values(req.query);
+  try {
+    const meals = await Meals.findAll({
+      where: { [key]: value },
+
+      include: [{ model: Category, attributes: ['name'] }],
+    });
+    res.status(200).json(meals);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
 const getMeal = async (req, res) => {
-  const key = Object.keys(req.query);
-  const value = Object.values(req.query)
-  
-   try {
-    const meal = await Meals.findOne({
-      where: { [key]:value },
+  const { id } = req.params;
+  try {
+    const meal = await Meals.findByPk(id, {
+      include: [{ model: Category, attributes: ['name'] }],
     });
-    if (!meal) {
-      return res.status(404).send('meal not found');
-    }
-    res.status(200).json(meal);
+
+    meal ? res.status(200).json(meal) : res.status(404).send('Meal not found');
   } catch (err) {
     console.log(err);
-    return res.status(500).send('Internal server error');
-  } 
+    res.status(500).send('Internal Server Error');
+  }
 };
 
 const createMeal = async (req, res) => {
   const {
+    id,
     name,
     price,
     image,
@@ -38,15 +55,16 @@ const createMeal = async (req, res) => {
     is_vegan,
     is_glutenfree,
     is_proteinplus,
-    role_id
+    role_id,
   } = req.body;
 
-  if(role_id !== "2"){
-    return res.status(401).send("Unauthorized")
+  if (role_id !== 2) {
+    return res.status(401).send('Unauthorized');
   }
 
   try {
     const newMeal = await Meals.create({
+      id,
       name,
       price,
       category_id,
@@ -58,9 +76,10 @@ const createMeal = async (req, res) => {
       is_proteinplus,
     });
     newMeal;
-    res.status(201).json(newMeal);
+    res.status(201).json({ error: false, meal: newMeal });
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -74,7 +93,7 @@ const updateMeal = async (req, res) => {
       },
     });
     if (!meal) {
-      return res.status(400).send('Meal not found');
+      return res.status(404).send('Meal not found');
     }
 
     await meal.update(body);
@@ -95,10 +114,11 @@ const deleteMeal = async (req, res) => {
       await Meals.destroy({ where: { id: id } });
       return res.status(202).send('Platillo eliminado');
     } else {
-      return res.status(400).send('Platillo no encontrado');
+      return res.status(404).send('Platillo no encontrado');
     }
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -108,4 +128,5 @@ module.exports = {
   updateMeal,
   createMeal,
   deleteMeal,
+  getMealsByQuery,
 };

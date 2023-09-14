@@ -3,7 +3,7 @@ import { IoChevronDownSharp, IoLogOutOutline } from 'react-icons/io5'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { logout } from '../../../features/auth/authSlice2.js'
-import { logOut } from '../../../features/auth/authSlice.jsx'
+import './style.css'
 
 const CardUserLogin = () => {
   const dispatch = useDispatch()
@@ -18,7 +18,6 @@ const CardUserLogin = () => {
 
   const handleLogout = () => {
     dispatch(logout())
-    dispatch(logOut())
     navigate('/')
   }
 
@@ -31,7 +30,7 @@ const CardUserLogin = () => {
           <section className='w-[100%] h-[70px] flex flex-row justify-center items-center overflow-hidden border-2'>
 
             <section className='titlesPerfil w-[150px] h-[100%] flex flex-col justify-center items-start gap-1 p-2 overflow-hidden'>
-              <h2 className='text-greenCustom2 font-titulo font-bold capitalize text-lg overflow-hidden'>{user.email}</h2>
+              <h2 className='nameUSer text-greenCustom2 font-titulo font-bold capitalize text-lg overflow-hidden'>{user.email}</h2>
               <h3 className='font-parrafo font-light capitalize text-sm overflow-hidden'>
 
                 {user?.role_id === 1 ? 'Usuario' : user?.role_id === 2 ? 'Restaurante' : ''}
@@ -55,7 +54,7 @@ const CardUserLogin = () => {
             activeMenu &&
               <div className='submenuLogin2 pt-3 w-[100%] h-[40px] flex-col justify-center items-center border-t-2'>
                 <Link
-                  to='/profile'
+                  to={user.idByRole && user.role_id === 2 ? `/restaurant/${user.idByRole}` : '/profile'}
                   className='w-[100%]  cursor-pointer flex flex-row flex-nowrap justify-start items-center content-center gap-1 text-sm capitalize font-parrafo font-normal px-5 py-1 rounded-md hover:bg-lightBrownCustom transition-all duration-150 ease-in'
                 >
                   <IoLogOutOutline className='text-lg text-greenCustom2' />
@@ -70,7 +69,6 @@ const CardUserLogin = () => {
                 </button>
               </div>
           }
-
         </div>
       </section>
     </>

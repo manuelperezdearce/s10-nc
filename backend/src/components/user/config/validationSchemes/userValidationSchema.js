@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 const registationValidationSchema= Joi.object({
-    role_id:Joi.string().required(),
+    role_id:Joi.number().integer().required(),
     email:Joi.string().email().required(),
     password:Joi.string().required(),
 })

@@ -6,10 +6,11 @@ import BtnEditProfileRestaurant from '../Buttons/BtnEditProfileRestaurant'
 import { useRestaurantById } from '../../hooks/useRestaurantById'
 import { BtnAddMeal } from '../Buttons/BtnAddMeal'
 import { BtnEditProfile } from '../Buttons/BtnEditProfile'
+import { useSelector } from 'react-redux'
 
 export default function InfoProfileRestaurant ({ id }) {
+  const { user } = useSelector(state => state?.auth2)
   const { data, isLoading, error } = useRestaurantById(id)
-
   if (isLoading) return <p>Cargando...</p>
 
   return (
@@ -48,8 +49,11 @@ export default function InfoProfileRestaurant ({ id }) {
         </div>
         <div className='mt-8 flex gap-4'>
           {/* <BtnEditProfileRestaurant data={data} id={id} /> */}
-          <BtnEditProfile data={data} id={id} />
-          <BtnAddMeal id={id} />
+          {(user && user.role_id === 2 && user.idByRole === data.id) &&
+            <>
+              <BtnEditProfile data={data} id={id} />
+              <BtnAddMeal id={id} />
+            </>}
         </div>
       </div>
     </div>
