@@ -4,8 +4,10 @@ import { useSelector } from 'react-redux'
 import { Formik } from 'formik'
 import { useState } from 'react'
 import { createMeal } from '../../services/api/createMeal'
+import { useNavigate } from 'react-router-dom'
 
 export const ModalAddMeal = ({ closeModal, id }) => {
+  const navigate = useNavigate()
   const { token } = useSelector(state => state.auth2)
 
   const { categories, loading } = useSelector((state) => state.categories)
@@ -13,6 +15,12 @@ export const ModalAddMeal = ({ closeModal, id }) => {
 
   const handleFile = (e) => {
     setFile(e.target.files[0])
+  }
+
+  const handleNewMeal = async (values) => {
+    const newMeal = await createMeal(values, file, id, token)
+    closeModal()
+    if (newMeal)navigate(`/detalle/${newMeal.id}`)
   }
 
   const label = 'font-medium'
@@ -43,8 +51,7 @@ export const ModalAddMeal = ({ closeModal, id }) => {
         }}
         onSubmit={(values) => {
           console.log(values)
-          createMeal(values, file, id, token)
-          closeModal()
+          handleNewMeal(values)
         }}
       >
         {({ values, errors, touched, handleChange, handleBlur, handleSubmit }) => (
