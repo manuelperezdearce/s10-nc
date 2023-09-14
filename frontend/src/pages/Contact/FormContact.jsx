@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useFetchForm } from './useFetchForm'
 import { toast } from 'react-toastify'
-import { IoChevronDown } from 'react-icons/io5'
 import Loader from '../../components/loader/Loader'
 
 const FormContact = () => {

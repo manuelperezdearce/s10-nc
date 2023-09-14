@@ -30,17 +30,18 @@ const CardMenu = ({ object }) => {
     navigate(`/detalle/${object.id}`)
   }
 
+  console.log('PRECIO ->', object?.price)
+
   const handleCarClick = (e) => {
     e.stopPropagation()
     // console.log('add car')
     setAddToCar((prevValue) => !prevValue) // Cambia el valor actual
     // console.log(addToCar)
 
-    const { id } = object
     if (!addToCar === true) {
-      dispatch(addItemToCar({ meal_id: id, quantity: 1 }))
+      dispatch(addItemToCar({ meal_id: object?.id, quantity: 1, price: object?.price }))
     } else {
-      dispatch(removeItemFromCar({ meal_id: id, quantity: 1 }))
+      dispatch(removeItemFromCar({ meal_id: object?.id, quantity: 1 }))
     }
     const localStorage = window.localStorage
     // guardo el estado en el localStorage
