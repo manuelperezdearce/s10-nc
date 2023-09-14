@@ -1,12 +1,37 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const localStorage = window.localStorage
+
+export const saveLikeProductTolocalStorage = (state) => {
+  try {
+    const serializedState = JSON.stringify(state)
+    localStorage.setItem('productsLikes', serializedState)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const loadLikeProductFromLocalStorage = () => {
+  try {
+    const serializedState = localStorage.getItem('productsLikes')
+    if (serializedState === null) {
+      return undefined // Si no hay datos en el LocalStorage, devuelve undefined
+    }
+    return JSON.parse(serializedState)
+  } catch (error) {
+    return undefined // Si ocurre un error, devuelve undefined
+  }
+}
+
+const initialState = loadLikeProductFromLocalStorage() || {
+  productLikes: [],
+  loading: false,
+  error: null
+}
+
 const productLikeSlice = createSlice({
   name: 'productsLikes',
-  initialState: {
-    productLikes: [],
-    loading: false,
-    error: null
-  },
+  initialState,
   reducers: {
     addProductLike: (state, action) => {
       // console.log('PAYLOAD -> ', action.payload)
@@ -20,6 +45,7 @@ const productLikeSlice = createSlice({
         // si no esta lo añade
         state.productLikes.push(product)
       }
+      saveLikeProductTolocalStorage(state)
     }
   }
 })

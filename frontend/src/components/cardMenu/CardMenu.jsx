@@ -4,26 +4,47 @@ import './cardMenu.css'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addProductLike } from '../../features/productLike/productLikeSlice'
+import { addItemToCar, removeItemFromCar } from '../../features/counter/carSlice'
+import { loadAddToCarFromLocalStorage } from './loadAddToCarFromLocalStorage'
 
 const CardMenu = ({ object }) => {
   const dispatch = useDispatch()
-  const role = useSelector((state) => state.auth2?.user?.role_id)
-  const [ishover, setIshover] = useState(false)
-  const [activaHeart, setActivaHeart] = useState(false)
   const navigate = useNavigate()
 
-  // console.log(object)
+  const role = useSelector((state) => state.auth2?.user?.role_id)
+  const car = useSelector((state) => state?.car?.car)
+  const likeCar = useSelector((state) => state?.productsLikes?.productLikes)
+
+  const [ishover, setIshover] = useState(false)
+  const [activaHeart, setActivaHeart] = useState(false)
+  const [addToCar, setAddToCar] = useState(loadAddToCarFromLocalStorage() || false)
+
+  const productConLike = car.some((item) => item.meal_id === object.id)
+  const productConHeart = likeCar.some((item) => item.id === object.id)
+
   const handleNavigate = (e) => {
     e.preventDefault()
     e.stopPropagation()
-    console.log(e)
+    // console.log(e)
 
     navigate(`/detalle/${object.id}`)
   }
 
   const handleCarClick = (e) => {
     e.stopPropagation()
-    console.log('add car')
+    // console.log('add car')
+    setAddToCar((prevValue) => !prevValue) // Cambia el valor actual
+    // console.log(addToCar)
+
+    const { id } = object
+    if (!addToCar === true) {
+      dispatch(addItemToCar({ meal_id: id, quantity: 1 }))
+    } else {
+      dispatch(removeItemFromCar({ meal_id: id, quantity: 1 }))
+    }
+    const localStorage = window.localStorage
+    // guardo el estado en el localStorage
+    localStorage.setItem('addToCar', JSON.stringify(!addToCar))
   }
 
   const handleFavoriteClick = (e) => {
@@ -66,13 +87,13 @@ const CardMenu = ({ object }) => {
         <section className={`ContentButtonCardMenu absolute w-9 h-auto flex flex-col justify-center items-center content-center gap-2 z-10 botoneraCard transition-all duration-100 ease-in-out ${ishover ? 'visible top-2 right-1 opacity-1' : 'invicible top-2 -right-10 opacity-0'}`}>
           <button
             onClick={handleCarClick}
-            className='buttonCardMenu  flex w-8 h-8 text-[1.4rem] text-green-500 justify-center items-center rounded-md transition-all duration-150 ease-linear'
+            className={`buttonCardMenu  flex w-8 h-8 text-[1.4rem] text-green-500 justify-center items-center rounded-md transition-all duration-150 ease-linear ${addToCar || productConLike ? 'text-white bg-green-500' : 'text-green-500 bg-white'}`}
           >
             <IoCartOutline />
           </button>
           <button
             onClick={handleFavoriteClick}
-            className={`buttonCardMenu flex w-8 h-8 text-[1.4rem]  justify-center items-center rounded-md transition-all duration-150 ease-linear ${activaHeart ? 'text-red-500 bg-white opacity-1' : 'text-green-500'}`}
+            className={`buttonCardMenu flex w-8 h-8 text-[1.4rem]  justify-center items-center rounded-md transition-all duration-150 ease-linear ${activaHeart || productConHeart ? 'text-white bg-green-500 opacity-1' : 'text-green-500 bg-white'}`}
           >
             <IoHeartOutline />
           </button>
