@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { getMeals } from '../services/api/getMeals'
 
 export const useMeals = () => {
-  const [data, setData] = useState({})
+  const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState({ error: false, message: '' })
 
