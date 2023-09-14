@@ -15,7 +15,9 @@ const Footer = () => {
 
           <div>
             <p className='text-2xl font-bold mb-2'>Green Eats</p>
+
             <p className='mb-4'>Nuestra plataforma ofrece una amplia selección de restaurantes de calidad, brindando a los clientes opciones deliciosas y variadas.</p>
+
             <div className='flex gap-x-2 text-2xl'>
               <Link to='/'><AiFillFacebook /></Link>
               <Link to='/'><AiFillInstagram /></Link>
@@ -27,8 +29,10 @@ const Footer = () => {
           <div>
             <p className='text-2xl font-bold mb-2'>Links útiles</p>
             <div className='grid grid-cols-2'>
-              <Link to='/home'>Inicio</Link>
-              <Link to='/restaurant'>Restaurants</Link>
+
+              <Link to='/home'>Home</Link>
+              <Link to='/restaurant'>Restaurantes</Link>
+
               <Link to='/menus'>Menus</Link>
               <Link to='/contact'>Contacto</Link>
               <Link to='/login'>Login</Link>

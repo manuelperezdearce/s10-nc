@@ -9,6 +9,7 @@ export default function Features () {
   const featuresData = [
     {
       icon: <TfiHeadphoneAlt />,
+
       title: 'Soporte al usuario 24/7',
       body: 'El soporte al usuario 25/7 garantiza ayuda constante, resolviendo problemas y brindando asistencia inigualable en todo momento.'
     },
@@ -21,6 +22,7 @@ export default function Features () {
       icon: <LiaPiggyBankSolid />,
       title: 'Te regresamos tu dinero',
       body: 'Si decides cancelar tu compra o necesitas devolver un producto, te reembolsaremos tu dinero sin problemas.'
+
     }
   ]
 

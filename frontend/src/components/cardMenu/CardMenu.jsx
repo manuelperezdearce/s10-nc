@@ -30,7 +30,7 @@ const CardMenu = ({ object }) => {
     navigate(`/detalle/${object.id}`)
   }
 
-  console.log('PRECIO ->', object?.price)
+  // console.log('PRECIO ->', object?.price)
 
   const handleCarClick = (e) => {
     e.stopPropagation()
@@ -81,7 +81,7 @@ const CardMenu = ({ object }) => {
       className='cardCustomer whiteCustom cursor-pointer w-[250px] h-[300px] rounded-md overflow-hidden z-0' style={{ boxShadow: '4px 4px 3px #c4c4c4,-3px -3px 3px #efffe8' }}
     >
       <figure className={`customContent relative w-[100%] h-3/4 overflow-hidden box-border rounded-[4px] ${ishover ? '' : 'hovered'}`} onClick={handleNavigate}>
-        <span className='absolute bottom-1 left-1 font-parrafo font-[400] text-marronCustom text-xs bg-white bg-opacity-40 shadow-md backdrop-blur-sm backdrop-filter border rounded-[4px] py-1 px-2'>Restaurant #{object?.restaurant_id}</span>
+        <span className='absolute bottom-1 left-1 font-parrafo font-[400] text-marronCustom text-xs bg-white bg-opacity-40 shadow-md backdrop-blur-sm backdrop-filter border rounded-[4px] py-1 px-2'>{object?.Restaurant.name}</span>
         <img className='w-[100%] h-[100%] object-cover p-0' src={`${object?.image}`} alt={`${object?.name}`} />
 
         {/* botonera  carrito y favoritos */}
