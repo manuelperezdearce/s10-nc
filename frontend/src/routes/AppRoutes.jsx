@@ -3,7 +3,7 @@ import React from 'react'
 import NotFound from '../pages/notFound/NotFound'
 import Home from '../pages/home/Home'
 import Restaurant from '../pages/restaurant/Restaurant'
-import Menus from '../pages/Menus/Menus'
+import Menus from '../pages/Menus/Categories'
 import Contact from '../pages/Contact/Contact'
 import Register from '../pages/Register/Register'
 import ListOfProducts from '../pages/ListOfProducts/ListOfProducts'
@@ -15,6 +15,7 @@ import CheckOut from '../pages/CheckOut/CheckOut'
 
 import { useSelector } from 'react-redux'
 import { MealsByCategory } from '../pages/MealsByCategory/MealsByCategory'
+import Categories from '../pages/Menus/Categories'
 
 const AppRoutes = () => {
   const { logged } = useSelector(state => state?.auth2)
@@ -26,7 +27,7 @@ const AppRoutes = () => {
       {/* <Route path='/home' element={<Home />} /> */}
       <Route path='/restaurant' element={<Restaurant />} />
       <Route path='/restaurant/:id' element={<RestaurantID />} />
-      <Route path='/menus' element={<Menus />} />
+      <Route path='/category' element={<Categories />} />
       <Route path='/category/:id' element={<MealsByCategory />} />
       <Route path='/contact' element={<Contact />} />
       <Route path='/register' element={<Register />} />
@@ -40,7 +41,7 @@ const AppRoutes = () => {
       {/* <Route path='/detalle:id/:owner' element={<Detail />} /> */}
 
       {/* defecto page error */}
-      <Route path='/search' element={<ListOfProducts />} />
+      <Route path='/menu' element={<ListOfProducts />} />
       <Route path='*' element={<NotFound />} />
       <Route path='/login' element={<LoginUser />} />
       <Route path='/checkout' element={<CheckOut />} />

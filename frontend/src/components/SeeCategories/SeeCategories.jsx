@@ -68,7 +68,7 @@ export default function SeeCategories () {
         </article>
 
       </div>
-      <Link to='/menus' className='rounded-md p-3 text-white text-[1.5rem] bg-greenCustom'>Explorar Todas</Link>
+      <Link to='/category' className='rounded-md p-3 text-white text-[1.5rem] bg-greenCustom'>Explorar Todas</Link>
 
     </section>
   )

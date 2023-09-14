@@ -4,19 +4,19 @@ import { setActiveIndex } from '../../features/nav/navSlice'
 import ListProductsMenu from '../../components/listProductsMenu/ListProductsMenu'
 import Category from './Category'
 
-const Menus = () => {
+const Categories = () => {
   const dispatch = useDispatch()
   const categoeies = useSelector((state) => state.categories?.categories)
-  const menuRef = useRef(null)
+  const categoryRef = useRef(null)
 
   useEffect(() => {
-    dispatch(setActiveIndex('menu'))
+    dispatch(setActiveIndex('category'))
     return () => { setActiveIndex(null) }
   }, [])
 
   return (
     <section
-      ref={menuRef}
+      ref={categoryRef}
       className='containerRestaurants lg:mt-[130px] w-full my-11 min-h-[400px] flex flex-col justify-start items-center content-center bg-whiteCustom gap-6 border-2 border-r-emerald-200 '
     >
       <section className='contentText px-[1rem] py-[1rem] flex flex-col gap-2 max-w-[1500px] '>
@@ -34,4 +34,4 @@ const Menus = () => {
   )
 }
 
-export default Menus
+export default Categories

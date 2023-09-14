@@ -30,7 +30,7 @@ const CardMenu = ({ object }) => {
     navigate(`/detalle/${object.id}`)
   }
 
-  console.log('PRECIO ->', object?.price)
+  // console.log('PRECIO ->', object?.price)
 
   const handleCarClick = (e) => {
     e.stopPropagation()
