@@ -1,8 +1,15 @@
+import { useSelector } from 'react-redux'
 import ProductOrder from '../ProductOrder/ProductOrder'
 
 const text = 'text-black'
 
 function YourOrder () {
+  const general = useSelector((state) => state?.car)
+
+  const car = useSelector((state) => state?.car?.car)
+
+  // console.log('CAR ->', car)
+  // console.log('GENERAL -> ', general)
   return (
     <div className='w-9/12  flex justify-center flex-col lg:w-11/12 '>
       <div className='mt-8 mb-8 lg:mt-8'>
@@ -16,29 +23,26 @@ function YourOrder () {
           <p className={text}>Subtotal</p>
         </div>
         <div className='flex flex-col'>
-          <ProductOrder />
-          <ProductOrder />
-          <ProductOrder />
+          {
+            car.map((item) => (
+              <ProductOrder key={item.meal_id} object={item} />
+            ))
+          }
+
         </div>
-        <div className='h-px w-full bg-gray-300 p-0 my-2'></div>
+        <div className='h-px w-full bg-gray-300 p-0 my-2' />
         <div className='w-full h-1/4 flex flex-col justify-center p-2 '>
-          <div className='flex justify-between px-4 '>
-            <p className={text}>Subtotal</p>
-            <p className='text-black font-bold'>$108</p>
-          </div>
+
           <div className='flex justify-between px-4 mt-3'>
-            <p className={text}>Shipping Cost(+)</p>
-            <p className='text-black font-bold'>$10.75</p>
-          </div>
-          <div className='flex justify-between px-4 mt-3'>
-            <p className={text}>Discount</p>
-            <p className='text-black font-bold'>$9</p>
+            <p className={text}>Cantidad</p>
+            <p className='text-black font-bold'>{general?.total_quantity}
+            </p>
           </div>
 
         </div>
-        <div className='h-px w-full bg-gray-300  p-0 my-2'></div>
+        <div className='h-px w-full bg-gray-300  p-0 my-2' />
         <div className='flex justify-between px-4 my-3'>
-          <p className={text}>Total Payable</p>
+          <p className={text}>{general.total_price}</p>
           <p className='text-black font-bold'>$88.15</p>
         </div>
       </div>

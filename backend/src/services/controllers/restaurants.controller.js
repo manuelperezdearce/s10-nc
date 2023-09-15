@@ -1,6 +1,5 @@
 const { Op } = require('sequelize');
 const { Restaurant } = require('../db/models/restaurant.model');
-const { createRestaurantAsUser } = require('../tableRelationshipManager/restaurantInUsers');
 const { createToken } = require('../auth');
 
 const getRestaurants = async (req, res) => {
@@ -9,20 +8,35 @@ const getRestaurants = async (req, res) => {
     res.status(200).json(restaurants);
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
 const getRestaurant = async (req, res) => {
   const { id } = req.params;
   try {
-    const restaurant = Restaurant.findOne({
-      where: {id}
-    });
+    const restaurant = await Restaurant.findByPk(id);
     restaurant
       ? res.status(200).json(restaurant)
-      : res.status(400).send('Restaurant not found');
+      : res.status(404).send('Restaurant not found');
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
+  }
+};
+
+const getRestaurantByUserId = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const restaurant = await Restaurant.findOne({ where: { id } });
+
+    restaurant
+      ? res.status(200).json(restaurant)
+      : res.status(404).send('Restaurant not found');
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -39,9 +53,10 @@ const getRestaurantByCity = async (req, res) => {
     });
     restaurants
       ? res.status(200).json(restaurants)
-      : res.status(400).send('No se han encontrado restaurants');
+      : res.status(404).send('No se han encontrado restaurants');
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -60,7 +75,8 @@ const createRestaurant = async (req, res) => {
     image,
   } = req.body;
 
-  if( role_id !== "2") return res.status(401).send('Authorized only for restaurants')
+  if (role_id !== 2)
+    return res.status(401).send('Authorized only for restaurants');
 
   try {
     const newRestaurant = await Restaurant.create({
@@ -78,10 +94,12 @@ const createRestaurant = async (req, res) => {
 
     //this variable contains the validate token
     const token = createToken(newRestaurant.id);
-    res.status(200).json({Error:false, restaurant:newRestaurant,Token:token});
-
-  }catch (err) {
+    res
+      .status(201)
+      .json({ error: false, restaurant: newRestaurant, Token: token });
+  } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -89,21 +107,18 @@ const updateRestaurant = async (req, res) => {
   const { id } = req.params;
   const body = req.body;
   try {
-    const updatedRestaurant = await Restaurant.update(
-      {
-        body,
-      },
-      {
-        where: {
-          id: id,
-        },
-      },
-    );
-    updatedRestaurant
-      ? res.status(201).json(updateRestaurant)
-      : res.status(400).send('Restaurant not found');
+    const restaurant = await Restaurant.findOne({ where: { id } });
+    if (!restaurant) {
+      res.status(404).send('Restaurant not found');
+    }
+    await restaurant.update(body);
+    res
+      .status(202)
+      .json({ message: 'Restaurant updated', restaurant: restaurant });
   } catch (err) {
+    console.log({ body: body });
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -116,10 +131,11 @@ const deleteRestaurant = async (req, res) => {
       await Restaurant.destroy({ where: { id: id } });
       return res.status(202).send('Restaurant eliminado');
     } else {
-      return res.status(400).send('Restaurant no encontrado');
+      return res.status(404).send('Restaurant no encontrado');
     }
   } catch (err) {
     console.log(err);
+    res.status(500).send('Internal Server Error');
   }
 };
 
@@ -130,4 +146,5 @@ module.exports = {
   updateRestaurant,
   createRestaurant,
   deleteRestaurant,
+  getRestaurantByUserId,
 };

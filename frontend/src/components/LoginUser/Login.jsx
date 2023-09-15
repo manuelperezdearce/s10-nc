@@ -1,37 +1,36 @@
-import axios from 'axios'
-import { loginIn } from '../../features/auth/authSlice'
+import { useState } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
 import { postLoginUser } from '../../features/auth/authSlice2'
 
 function Login () {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const { register, formState: { errors }, handleSubmit } = useForm({
     email: '',
     password: ''
   })
 
-  // const onSubmit = async (data) => {
-  //   const resp = await axios.post('https://green-eats.onrender.com/users/login',
-  //     data
-  //   )
-  //   console.log(resp)
-  //   resp?.status === 200 && dispatch(loginIn(resp))
-  // }
+  const [error, setError] = useState({})
 
-  const onSubmit = async (data) => {
-    const resp = await axios.post('https://green-eats.onrender.com/users/login',
-      data
-    )
-    resp?.status === 200 && dispatch(loginIn(resp))
-    try {
-      const response = await dispatch(postLoginUser(data))
-      console.log(response)
-    } catch (error) {
-      console.log(error)
-    }
+  const onSubmit = (data) => {
+    dispatch(postLoginUser(data))
+      .then(response => {
+        if (response.payload === 'Invalid password') {
+          setError({ password: 'Pasword nvalido' })
+        } else if (response.payload === 'User not found') {
+          setError({ noUser: 'Usuario no encontrado' })
+        } else if (response?.payload?.message === 'Authenticated user') {
+          setError({})
+          navigate('/home')
+        }
+      })
+      .catch(() => {
+        navigate('/home')
+        setError({})
+      })
   }
 
   const styledLabel = 'text-sm   mb-0.5 mt-2 text-gray-600'
@@ -81,6 +80,14 @@ function Login () {
               </div>
 
             </div>
+            <section className='w-[100%] pt-4'>
+              {
+              error.password && <p className='font-parrafo text-center p-2 text-orange-500 font-normal text-normal'>{error.password}</p>
+              }
+              {
+              error.noUser && <p className='font-parrafo text-center p-2 text-orange-500 font-normal text-normal'>{error.noUser}</p>
+              }
+            </section>
           </div>
         </div>
         <div className='bg-greenCard w-3/6 h-full flex justify-center items-center'>

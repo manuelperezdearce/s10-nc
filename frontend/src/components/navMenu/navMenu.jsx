@@ -18,9 +18,13 @@ const NavMenu = () => {
           Restaurantes
           <span className={`h-[5px] rounded-[30px]  bg-greenCustom  absolute -bottom-1 transition-all duration-200 ease-in ${activeIndex === 'restaurant' ? 'w-[100%]' : 'w-0'}`} />
         </Link>
-        <Link to='/menus' className='capitalize font-titulo font-normal flex flex-col justify-start items-start content-start gap-2 relative'>
+        <Link to='/menu' className='capitalize font-titulo font-normal flex flex-col justify-start items-start content-start gap-2 relative'>
           Menus
           <span className={`h-[5px] rounded-[30px]  bg-greenCustom absolute -bottom-1 transition-all duration-200 ease-in ${activeIndex === 'menu' ? 'w-[100%]' : 'w-0'}`} />
+        </Link>
+        <Link to='/category' className='capitalize font-titulo font-normal flex flex-col justify-start items-start content-start gap-2 relative'>
+          Categorias
+          <span className={`h-[5px] rounded-[30px]  bg-greenCustom absolute -bottom-1 transition-all duration-200 ease-in ${activeIndex === 'category' ? 'w-[100%]' : 'w-0'}`} />
         </Link>
         <Link to='/contact' className='capitalize font-titulo font-normal flex flex-col justify-start items-start content-start gap-2 relative'>
           Contacto

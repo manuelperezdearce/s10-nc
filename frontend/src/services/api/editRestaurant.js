@@ -16,6 +16,7 @@ export const editRestaurant = async (id, body, img, token) => {
       }
     })
     console.log(res)
+    window.location.reload()
     return res
   } catch (err) {
     console.log(err)

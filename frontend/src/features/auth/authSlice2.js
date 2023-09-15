@@ -58,6 +58,7 @@ const authSlice2 = createSlice({
         // console.log('ACTION PAYLOAD FULLFILED -> ', action.payload)
         state.loading = false
         state.logged = true
+        state.error = null
         state.token = action.payload.token
 
         // Decodificación del Token JWT para su posterior uso
@@ -73,18 +74,7 @@ const authSlice2 = createSlice({
         // console.log('ACTION PAYLOAD ERROR-> ', action.payload)
         state.loading = false
         state.logged = false
-        state.error = true
-        const errorPayload = action.payload
-
-        if (errorPayload && errorPayload.includes('User not found')) {
-          state.msjError = 'Usuario no encontrado'
-        } else if (errorPayload && errorPayload.includes('Invalid password')) {
-          // Error de contraseña incorrecta
-          state.msjError = 'Contraseña incorrecta'
-        } else {
-          // Otro tipo de error
-          state.msjError = 'Error desconocido'
-        }
+        state.error = action.payload
       })
   }
 })
